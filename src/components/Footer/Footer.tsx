@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FaInstagram, FaSoundcloud } from 'react-icons/fa';
 
 

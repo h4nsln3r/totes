@@ -1,5 +1,5 @@
 
-import { FaInstagram, FaSoundcloud } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import './footer.scss';
 
 
@@ -16,21 +16,31 @@ const Footer = () => {
                     <a href='https://www.instagram.com/totesband'
                         target='_blank'
                         className="icon-column">
-                        <FaInstagram className="icon" />
+                        <FaSoundcloud className="icon" />
                     </a>
-                    <a href='https://soundcloud.com/bojengband?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'
+                    <a href='https://www.instagram.com/totesband'
                         target='_blank'
                         className="icon-column">
-                        <FaSoundcloud className="icon" />
+                        <FaYoutube className="icon" />
+                    </a>
+                    <a href='https://www.instagram.com/totesband'
+                        target='_blank'
+                        className="icon-column">
+                        <FaInstagram className="icon" />
+                    </a>
+                    <a href='https://www.instagram.com/totesband'
+                        target='_blank'
+                        className="icon-column">
+                        <FaFacebook className="icon" />
                     </a>
                 </div>
             </div>
             <div className="column">
                 test
             </div>
-      </footer>
+        </footer>
 
-    
+
     );
 }
 

@@ -5,13 +5,14 @@
 $primary-color: #4CAF50; // Green
 $secondary-color: #8D6E63; // Brown
 $accent-color: #FFA726; // Orange
-$footer-bg: #000; // Black
+
 
 // Apply font and colors to the body
 body {
   font-family: 'Poppins', sans-serif;
   background-color: $secondary-color;
   color: white; // Adjust text color as needed
+  margin: 0;
 }
 
 // Header styles
@@ -51,24 +52,4 @@ body {
 .content {
   text-align: center;
   margin-top: 50px;
-}
-
-// Footer styles
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: $footer-bg;
-  padding: 20px 0;
-}
-
-.social-links {
-  text-align: center;
-}
-
-.social-links a {
-  display: inline-block;
-  margin: 0 10px;
-  color: $primary-color;
-  font-size: 1.5em;
 }

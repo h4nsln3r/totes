@@ -1,0 +1,41 @@
+$footer-bg: #000;
+$primary-color: #4CAF50;
+
+
+// Footer styles
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $footer-bg;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between; // Distribute columns evenly
+  
+  
+  .column {
+    flex: 1; // Each column takes up equal space
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-links {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-links a {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    margin: 0 10px;
+    color: $primary-color;
+    font-size: 1.5em;
+  }
+
+  }
+  

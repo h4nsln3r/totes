@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import StartPage from './pages/Start';
 
 export const PATHS = {
-  START: '/totes/start',
+  START: '/',
   MUSIC: '/totes/music'
 };
 

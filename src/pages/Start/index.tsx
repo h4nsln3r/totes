@@ -1,7 +1,7 @@
 
 
 import Content from '../../components/Content/Content';
-import Footer from '../../components/Footer/Footer';
+import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu/Menu';
 import './start.scss';

@@ -9,6 +9,8 @@ import './start.scss';
 const StartPage = () => {
 
 
+    console.log("test")
+
     return (
         <div className="app">
             <Header />

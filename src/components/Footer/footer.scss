@@ -11,7 +11,7 @@ $primary-color: #4CAF50;
     padding: 20px 0;
     display: flex;
     justify-content: space-between; // Distribute columns evenly
-  
+    flex-direction: column;
   
   .column {
     flex: 1; // Each column takes up equal space

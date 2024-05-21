@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./menu.scss";
 import { PATHS } from "../../Routing";
+import "./menu.scss";
 
 const Menu = () => {
   return (

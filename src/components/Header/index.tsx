@@ -3,8 +3,6 @@ import { PATHS } from "../../Routing";
 import Menu from "../Menu/Menu";
 
 import "./header.scss";
-
-import './header.scss';
 const Header = () => {
   return (
     <header className="header">

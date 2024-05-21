@@ -1,0 +1,12 @@
+// Define colors
+$primary-color: #4caf50; // Green
+$secondary-color: #8d6e63; // Brown
+$accent-color: #ffa726; // Orange
+
+// Apply font and colors to the body
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $secondary-color;
+  color: white; // Adjust text color as needed
+  margin: 0;
+}

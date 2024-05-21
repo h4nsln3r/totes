@@ -1,0 +1,38 @@
+// Define colors
+$primary-color: #4caf50; // Green
+$secondary-color: #8d6e63; // Brown
+$accent-color: #ffa726; // Orange
+
+.menu {
+  display: flex;
+  text-align: center;
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    li {
+      margin: 10px 20px;
+      a {
+        text-decoration: none;
+        color: $accent-color;
+        font-weight: bold;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .menu {
+    ul {
+      flex-direction: row;
+      li {
+        a {
+        }
+      }
+    }
+  }
+}

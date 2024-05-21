@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Routing from './Routing.tsx'
+import ReactDOM from "react-dom/client";
+import Routing from "./Routing.tsx";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+import "./main.scss";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <BrowserRouter>
     <Routing />
-  </React.StrictMode>,
-)
+  </BrowserRouter>
+);

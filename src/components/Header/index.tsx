@@ -7,6 +7,8 @@ import YouTubeEmbed from "../Media/Youtube/Embed";
 import classNames from "classnames";
 import { RefObject, useEffect, useState } from "react";
 
+//TODO GÖR SÅ ATT youtube init grejer lägger seig snyggt uppe till vänster när man går till musik!!
+
 export type Props = {
   isStartPage: boolean;
   isMusicPage: boolean;

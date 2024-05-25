@@ -5,18 +5,23 @@ $accent-color: #ffa726; // Orange
 
 .menu {
   display: flex;
-  text-align: center;
+  width: 100%;
   ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     list-style: none;
     padding: 0;
+    justify-content: space-between; // Ensures equal spacing between items
+    align-items: center; // Aligns items vertically in the center
+    width: 100%;
     li {
-      margin: 10px 20px;
+      flex: 1;
+      text-align: center;
       a {
         text-decoration: none;
         color: $accent-color;
         font-weight: bold;
+        padding: 12px 28px;
         &:hover {
           color: $primary-color;
         }
@@ -28,8 +33,10 @@ $accent-color: #ffa726; // Orange
 @media (min-width: 600px) {
   .menu {
     ul {
-      flex-direction: row;
+      justify-content: flex-end;
+
       li {
+        flex: unset;
         a {
         }
       }

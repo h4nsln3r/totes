@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { PATHS } from "../../Routing";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu";
 
 import "./header.scss";
+
 const Header = () => {
   return (
     <header className="header">

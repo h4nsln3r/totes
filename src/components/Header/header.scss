@@ -8,16 +8,19 @@ $accent-color: #ffa726; // Orange
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 0px;
   margin-top: 10px;
+  &__title {
+    h1 {
+      margin-right: 50px;
+      font-size: 3em;
+      color: $primary-color;
+      margin: 0;
+      border: none;
+    }
+  }
   a {
     text-decoration: none;
-  }
-  .title {
-    font-size: 3em;
-    color: $primary-color;
-    margin: 0;
-    border: none;
   }
 }
 
@@ -25,5 +28,8 @@ $accent-color: #ffa726; // Orange
   .header {
     flex-direction: row;
     justify-content: space-between;
+    &__title {
+      margin-left: 25px;
+    }
   }
 }

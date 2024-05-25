@@ -1,0 +1,10 @@
+&__container {
+  display: flex;
+  // justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  .icon {
+    margin: 0px 0px;
+    font-size: 10rem; /* Justera ikonens storlek efter behov */
+  }
+}

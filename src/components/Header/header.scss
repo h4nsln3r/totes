@@ -32,6 +32,9 @@ $accent-color: #ffa726; // Orange
       visibility: hidden;
     }
     &--music {
+      left: 80px;
+      top: 150px;
+      transform: translate(-30%, -30%);
     }
   }
 }
@@ -46,6 +49,11 @@ $accent-color: #ffa726; // Orange
     .initvideo {
       top: 40%;
       transform: translate(-50%, -40%);
+      &--music {
+        left: 4.5%;
+        top: 11%;
+        transform: translate(-30%, -30%);
+      }
     }
   }
 }

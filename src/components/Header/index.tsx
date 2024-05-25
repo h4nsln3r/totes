@@ -16,25 +16,37 @@ export type Props = {
 };
 
 const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [containerHeight, setContainerHeight] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(200);
+  const [containerHeight, setContainerHeight] = useState(100);
 
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth);
-        setContainerHeight(containerRef.current.offsetHeight);
+        if (isMusicPage) {
+          //Todo if music page i want to render the youtube vidoe width setContainerHeight(200); cant make it update when i change to start page
+          setContainerHeight(100);
+          setContainerWidth(200); // Du kan justera bredden efter behov
+          console.log("isMusicPage containerWidth", containerWidth);
+          console.log("isMusicPage containerHeight", containerHeight);
+        } else {
+          setContainerWidth(containerRef.current.offsetWidth);
+          setContainerHeight(containerRef.current.offsetHeight);
+          console.log("!isMusicPage containerWidth", containerWidth);
+          console.log("!isMusicPage containerHeight", containerHeight);
+        }
       }
     };
 
-    updateDimensions(); // Uppdatera dimensionerna när komponenten mountas
-
-    window.addEventListener("resize", updateDimensions); // Lyssna på resize-händelsen
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
 
     return () => {
-      window.removeEventListener("resize", updateDimensions); // Ta bort event listener när komponenten unmountas
+      window.removeEventListener("resize", updateDimensions);
     };
-  }, []);
+  }, [isMusicPage, containerRef, isStartPage]);
+
+  console.log("containerWidth", containerWidth);
+  console.log("containerHeight", containerHeight);
 
   return (
     <header className="header">
@@ -46,7 +58,7 @@ const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
       <Menu />
       <div
         className={classNames("initvideo", {
-          "initvideo--hide": !isStartPage,
+          "initvideo--hide": !(isStartPage || isMusicPage),
           "initvideo--music": isMusicPage,
         })}
       >

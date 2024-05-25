@@ -21,6 +21,7 @@ const Routing = () => {
   const isStartPage = location.pathname === PATHS.START;
   const isMusicPage = location.pathname === PATHS.MUSIC;
 
+  console.log("isMusicPage", isMusicPage);
   return (
     <div className="body">
       <Helmet>
@@ -36,7 +37,10 @@ const Routing = () => {
           path={PATHS.START}
           element={<Start containerRef={containerRef} />}
         />
-        <Route path={PATHS.MUSIC} element={<Music />} />
+        <Route
+          path={PATHS.MUSIC}
+          element={<Music containerRef={containerRef} />}
+        />
         <Route path={PATHS.LIVE} element={<Live />} />
         <Route path={PATHS.CONTACT} element={<Contact />} />
         <Route path="*" element={<Navigate replace to={PATHS.START} />} />

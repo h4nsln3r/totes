@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export type Props = {
   videoId: string;
   width?: number;
@@ -6,6 +8,8 @@ export type Props = {
 
 const YouTubeEmbed = ({ videoId, height, width }: Props) => {
   const srcUrl = `https://www.youtube.com/embed/${videoId}?si=I0ZzaX1K2IYYauJ1`;
+
+  useEffect(() => {}, [height, width]);
 
   return (
     <iframe

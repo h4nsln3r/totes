@@ -23,16 +23,11 @@ const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
     const updateDimensions = () => {
       if (containerRef.current) {
         if (isMusicPage) {
-          //Todo if music page i want to render the youtube vidoe width setContainerHeight(200); cant make it update when i change to start page
           setContainerHeight(100);
-          setContainerWidth(200); // Du kan justera bredden efter behov
-          console.log("isMusicPage containerWidth", containerWidth);
-          console.log("isMusicPage containerHeight", containerHeight);
+          setContainerWidth(200);
         } else {
           setContainerWidth(containerRef.current.offsetWidth);
           setContainerHeight(containerRef.current.offsetHeight);
-          console.log("!isMusicPage containerWidth", containerWidth);
-          console.log("!isMusicPage containerHeight", containerHeight);
         }
       }
     };
@@ -44,9 +39,6 @@ const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
       window.removeEventListener("resize", updateDimensions);
     };
   }, [isMusicPage, containerRef, isStartPage]);
-
-  console.log("containerWidth", containerWidth);
-  console.log("containerHeight", containerHeight);
 
   return (
     <header className="header">

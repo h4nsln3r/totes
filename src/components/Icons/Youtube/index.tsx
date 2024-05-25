@@ -1,9 +1,13 @@
-import { FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 const YoutubeIcon = () => {
   return (
-    <a href="https://www.instagram.com/totesband" target="_blank" className="">
-      <FaFacebook className="icon" />
+    <a
+      href="https://www.youtube.com/@OfficiallyTotes"
+      target="_blank"
+      className=""
+    >
+      <FaYoutube className="icon" />
     </a>
   );
 };

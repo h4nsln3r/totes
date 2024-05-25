@@ -7,13 +7,13 @@ $accent-color: #ffa726; // Orange
   display: flex;
   width: 100%;
   ul {
+    list-style: none;
     display: flex;
     flex-direction: row;
-    list-style: none;
-    padding: 0;
-    justify-content: space-between; // Ensures equal spacing between items
-    align-items: center; // Aligns items vertically in the center
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    padding: 0;
     li {
       flex: 1;
       text-align: center;

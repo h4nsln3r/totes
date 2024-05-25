@@ -1,13 +1,9 @@
-import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 const InstagramIcon = () => {
   return (
-    <a
-      href="https://www.instagram.com/totesband"
-      target="_blank"
-      className="icon-column"
-    >
-      <FaFacebook className="icon" />
+    <a href="https://www.instagram.com/totesband" target="_blank" className="">
+      <FaInstagram className="icon" />
     </a>
   );
 };

@@ -5,19 +5,15 @@ import "./footer.scss";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="column middle-column">
-        <div className="social-links">
-          <SocialMediaGroup />
-        </div>
+      <div className="footer__col">
+        <SocialMediaGroup />
       </div>
-      <div className="column">
-        <div className="contact-info">
-          <p>Contact us: your.email@example.com</p>
-        </div>
+      <div className="footer__col">
+        <p>Contact us: your.email@example.com</p>
       </div>
-      {/* <div className="column">
-                test
-            </div> */}
+      <div className="footer__col">
+        <p>Foto:</p>
+      </div>
     </footer>
   );
 };

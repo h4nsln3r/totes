@@ -2,16 +2,18 @@ $footer-bg: #000;
 $primary-color: #4caf50;
 
 .footer {
+  height: 100px;
+  width: 100%;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: $footer-bg;
-  padding: 20px 0;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  background-color: $footer-bg;
+  padding: 20px 0;
+
   &__col {
     max-width: fit-content;
     &:first-child {
@@ -24,6 +26,7 @@ $primary-color: #4caf50;
 }
 @media (min-width: 600px) {
   .footer {
+    height: 100px;
     flex-direction: row;
     &__col {
       max-width: fit-content;

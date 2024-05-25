@@ -22,6 +22,18 @@ $accent-color: #ffa726; // Orange
   a {
     text-decoration: none;
   }
+
+  .initvideo {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -40%);
+    &--hide {
+      visibility: hidden;
+    }
+    &--music {
+    }
+  }
 }
 
 @media (min-width: 600px) {
@@ -30,6 +42,10 @@ $accent-color: #ffa726; // Orange
     justify-content: space-between;
     &__title {
       margin-left: 25px;
+    }
+    .initvideo {
+      top: 40%;
+      transform: translate(-50%, -52%);
     }
   }
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { PATHS } from "../../Routing";
 import SocialMediaGroup from "../Icons/SocialMediaGroup";
 
 import "./footer.scss";
@@ -9,10 +11,12 @@ const Footer = () => {
         <SocialMediaGroup />
       </div>
       <div className="footer__col">
-        <p>Contact us: your.email@example.com</p>
+        <Link className="footer__contact" to={PATHS.CONTACT}>
+          Book us
+        </Link>
       </div>
       <div className="footer__col">
-        <p>Foto:</p>
+        <p className="footer__co">Fotos?:</p>
       </div>
     </footer>
   );

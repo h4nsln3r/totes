@@ -12,7 +12,7 @@ $primary-color: #4caf50;
   align-items: center;
 
   background-color: $footer-bg;
-  padding: 20px 0;
+  padding: 6px 0 24px 0;
 
   &__col {
     max-width: fit-content;
@@ -23,11 +23,32 @@ $primary-color: #4caf50;
       margin-right: 0px;
     }
   }
+
+  &__contact {
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    color: #ff007f; /* Pink color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and size */
+
+    &:hover {
+      color: #ff9900; /* Orange color on hover */
+      transform: scale(1.05); /* Increase size on hover */
+    }
+  }
+
+  &__co {
+    color: #444242;
+  }
 }
+
 @media (min-width: 600px) {
   .footer {
     height: 100px;
     flex-direction: row;
+
     &__col {
       max-width: fit-content;
       &:first-child {

@@ -14,7 +14,7 @@
   padding: 6px 0 24px 0;
 
   &__col {
-    max-width: fit-content;
+    min-width: fit-content;
     &:first-child {
       margin-left: 0px;
     }

@@ -10,10 +10,10 @@ const Menu = () => {
           <Link to={PATHS.START}>Totes</Link>
         </li>
         <li>
-          <Link to={PATHS.MUSIC}>Giggs</Link>
+          <Link to={PATHS.WATCH}>Watch</Link>
         </li>
         <li>
-          <Link to={PATHS.LIVE}>Music</Link>
+          <Link to={PATHS.MUSIC}>Music</Link>
         </li>
         <li>
           <Link to={PATHS.CONTACT}>Contact</Link>

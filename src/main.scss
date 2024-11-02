@@ -15,7 +15,14 @@ body {
 
 .container {
   margin: 1px;
-  // height: 55vh;
+  &__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Gör så att containern fyller hela skärmens höjd */
+    text-align: center;
+    flex-direction: column; /* Gör att elementen staplas vertikalt */
+  }
 }
 
 .grid {
@@ -88,24 +95,9 @@ body {
   background-position: 80% 30%;
 }
 
-// @media (max-width: 600px) {
-//   .grid {
-//     height: auto; /* Anpassar höjden dynamiskt på mindre skärmar */
-//   }
-
-//   .grid-item {
-//     flex: 1 1 100%; /* På mindre skärmar tar varje item upp full bredd */
-//     height: auto; /* Höjden blir dynamisk baserat på innehållet */
-//     max-height: 400px;
-//     transition: none;
-//     &.expanded {
-//       background-color: blue;
-//       top: unset;
-//       left: unset;
-//       width: 100vw;
-//       height: calc(90vh / 3);
-//       position: relative;
-//       transform: none; // Ensures no extra scaling is applied
-//     }
-//   }
-// }
+.watchlist {
+  background-color: blue;
+  ul {
+    list-style: none;
+  }
+}

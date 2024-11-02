@@ -10,17 +10,73 @@ body {
 
 .body {
   max-height: 100vh;
+  max-width: 100vw;
 }
 
 .container {
-  margin: 10px;
-  height: 55vh;
+  margin: 1px;
+  // height: 55vh;
 }
 
-@media (min-width: 600px) {
-  .container {
-    margin: 20px;
-    height: 75vh;
+.grid {
+  height: auto; /* Anpassar höjden dynamiskt på mindre skärmar */
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  height: 90vh;
+
+  .grid-item {
+    display: flex;
+    flex: 1 1 350px;
+    height: 50vh; /* Höjden blir dynamisk baserat på innehållet (sätt AUTO isf & testa!)*/
+
+    max-height: unset;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out,
+      height 0.5s ease-in-out;
+
+    // background-color: #f0f0f0;
+    border: 1px solid #ccc;
+
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      // background-color: yellow;
+    }
+
+    &.hide {
+      display: none;
+    }
+
+    &.expanded {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      transform: scale(1); // Ensures no extra scaling is applied
+    }
+  }
+
+  /* Anpassa höjden baserat på antalet grid-items */
+  &.grid-items-4 .grid-item {
+    height: 50vh; /* 4 items totalt: 2 rader med 2 rutor per rad */
+  }
+
+  &.grid-items-8 .grid-item {
+    height: 25vh; /* 8 items totalt: 2 rader med 4 rutor per rad */
+  }
+
+  &.grid-items-12 .grid-item {
+    height: calc(100vh / 3); /* 12 items totalt: 3 rader med 4 rutor per rad */
+  }
+
+  &.grid-items-16 .grid-item {
+    height: calc(100vh / 4); /* 16 items totalt: 4 rader med 4 rutor per rad */
   }
 }
 
@@ -31,3 +87,25 @@ body {
   background-repeat: no-repeat;
   background-position: 80% 30%;
 }
+
+// @media (max-width: 600px) {
+//   .grid {
+//     height: auto; /* Anpassar höjden dynamiskt på mindre skärmar */
+//   }
+
+//   .grid-item {
+//     flex: 1 1 100%; /* På mindre skärmar tar varje item upp full bredd */
+//     height: auto; /* Höjden blir dynamisk baserat på innehållet */
+//     max-height: 400px;
+//     transition: none;
+//     &.expanded {
+//       background-color: blue;
+//       top: unset;
+//       left: unset;
+//       width: 100vw;
+//       height: calc(90vh / 3);
+//       position: relative;
+//       transform: none; // Ensures no extra scaling is applied
+//     }
+//   }
+// }

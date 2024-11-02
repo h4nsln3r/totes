@@ -6,7 +6,8 @@ import Footer from "./components/Footer";
 import Music from "./pages/Music";
 import Live from "./pages/Live";
 import Contact from "./pages/Contact";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Menu from "./components/Menu";
 
 export const PATHS = {
   START: "/totes/",
@@ -27,11 +28,14 @@ const Routing = () => {
       <Helmet>
         <title>Totes</title>
       </Helmet>
-      <Header
+      {/* <Header
         isStartPage={isStartPage}
         isMusicPage={isMusicPage}
         containerRef={containerRef}
-      />
+      /> */}
+
+      <Menu />
+
       <Routes>
         <Route
           path={PATHS.START}

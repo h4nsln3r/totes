@@ -7,10 +7,13 @@ const Menu = () => {
     <nav className="menu">
       <ul>
         <li>
-          <Link to={PATHS.MUSIC}>Music</Link>
+          <Link to={PATHS.START}>Totes</Link>
         </li>
         <li>
-          <Link to={PATHS.LIVE}>Live</Link>
+          <Link to={PATHS.MUSIC}>Giggs</Link>
+        </li>
+        <li>
+          <Link to={PATHS.LIVE}>Music</Link>
         </li>
         <li>
           <Link to={PATHS.CONTACT}>Contact</Link>

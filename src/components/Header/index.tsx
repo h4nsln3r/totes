@@ -16,29 +16,29 @@ export type Props = {
 };
 
 const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
-  const [containerWidth, setContainerWidth] = useState(200);
-  const [containerHeight, setContainerHeight] = useState(100);
+  // const [containerWidth, setContainerWidth] = useState(200);
+  // const [containerHeight, setContainerHeight] = useState(100);
 
-  useEffect(() => {
-    const updateDimensions = () => {
-      if (containerRef.current) {
-        if (isMusicPage) {
-          setContainerHeight(100);
-          setContainerWidth(200);
-        } else {
-          setContainerWidth(containerRef.current.offsetWidth);
-          setContainerHeight(containerRef.current.offsetHeight);
-        }
-      }
-    };
+  // useEffect(() => {
+  //   const updateDimensions = () => {
+  //     if (containerRef.current) {
+  //       if (isMusicPage) {
+  //         setContainerHeight(100);
+  //         setContainerWidth(200);
+  //       } else {
+  //         setContainerWidth(containerRef.current.offsetWidth);
+  //         setContainerHeight(containerRef.current.offsetHeight);
+  //       }
+  //     }
+  //   };
 
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
+  //   updateDimensions();
+  //   window.addEventListener("resize", updateDimensions);
 
-    return () => {
-      window.removeEventListener("resize", updateDimensions);
-    };
-  }, [isMusicPage, containerRef, isStartPage]);
+  //   return () => {
+  //     window.removeEventListener("resize", updateDimensions);
+  //   };
+  // }, [isMusicPage, containerRef, isStartPage]);
 
   return (
     <header className="header">
@@ -47,8 +47,9 @@ const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
           <h1 className="title">Totes</h1>
         </Link>
       </div>
-      <Menu />
-      <div
+      {/* <Menu /> */}
+
+      {/* <div
         className={classNames("initvideo", {
           "initvideo--hide": !(isStartPage || isMusicPage),
           "initvideo--music": isMusicPage,
@@ -59,7 +60,7 @@ const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
           height={containerHeight}
           width={containerWidth}
         />
-      </div>
+      </div> */}
     </header>
   );
 };

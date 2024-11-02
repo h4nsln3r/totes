@@ -1,22 +1,42 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../../styles/variables.scss";
+import "./footer.scss";
 import { PATHS } from "../../Routing";
 import SocialMediaGroup from "../Icons/SocialMediaGroup";
 
-import "./footer.scss";
-
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <footer className="footer">
-      <div className="footer__col">
-        <Link className="footer__contact" to={PATHS.CONTACT}>
-          Book us
-        </Link>
-      </div>
+    <footer
+      className={`footer ${isVisible ? "footer--visible" : "footer--hidden"}`}
+    >
       <div className="footer__col">
         <SocialMediaGroup />
       </div>
       <div className="footer__col">
-        <p className="footer__co">Foto:</p>
+        <Link to={PATHS.START}>Totes</Link>
+      </div>
+      <div className="footer__col">
+        <Link className="footer__contact" to={PATHS.CONTACT}>
+          Book us
+        </Link>
       </div>
     </footer>
   );

@@ -1,7 +1,4 @@
-@import "../../styles/variables.scss";
-
 .footer {
-  height: 100px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -9,9 +6,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(0, 0, 139, 0.2); // Mörkblå med 80% opacitet
+  padding: 0; /* Ta bort padding i grundläget */
+  overflow: hidden;
+  transition: height 0.5s ease, padding 0.5s ease; /* Animera både höjd och padding */
+  z-index: 1000; /* Se till att footern ligger ovanpå andra element */
 
-  background-color: $footer-bg;
-  padding: 6px 0 24px 0;
+  &--hidden {
+    height: 0; /* Göm footern */
+    padding: 0; /* Ingen padding när footern är gömd */
+  }
+
+  &--visible {
+    height: 100px; /* Synlig footern */
+    padding: 6px 0 24px 0; /* Lägg till padding när footern är synlig */
+  }
 
   &__col {
     min-width: fit-content;
@@ -37,17 +46,11 @@
       transform: scale(1.05); /* Increase size on hover */
     }
   }
-
-  &__co {
-    color: #444242;
-  }
 }
 
 @media (min-width: 600px) {
   .footer {
-    height: 100px;
     flex-direction: row;
-    padding: 0;
     &__col {
       max-width: fit-content;
       &:first-child {

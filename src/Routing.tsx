@@ -1,12 +1,12 @@
 import Helmet from "react-helmet";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Start from "./pages/Start";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Music from "./pages/Music";
 import Live from "./pages/Live";
 import Contact from "./pages/Contact";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Menu from "./components/Menu";
 
 export const PATHS = {
@@ -19,7 +19,7 @@ export const PATHS = {
 const Routing = () => {
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
-  const isStartPage = location.pathname === PATHS.START;
+  // const isStartPage = location.pathname === PATHS.START;
   const isMusicPage = location.pathname === PATHS.MUSIC;
 
   console.log("isMusicPage", isMusicPage);
@@ -37,10 +37,7 @@ const Routing = () => {
       <Menu />
 
       <Routes>
-        <Route
-          path={PATHS.START}
-          element={<Start containerRef={containerRef} />}
-        />
+        <Route path={PATHS.START} element={<Start />} />
         <Route
           path={PATHS.MUSIC}
           element={<Music containerRef={containerRef} />}

@@ -1,12 +1,12 @@
-import { RefObject, useState } from "react";
+import { useState } from "react";
 import classNames from "classnames";
 import totesImage from "./totes-massingshornet.jpg"; // Importerar bilden
 
-type Props = {
-  containerRef: RefObject<HTMLDivElement>;
-};
+// type Props = {
+//   // containerRef: RefObject<HTMLDivElement>;
+// };
 
-const Start = ({ containerRef }: Props) => {
+const Start = () => {
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
   const handleClick = (index: number) => {

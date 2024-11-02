@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import { PATHS } from "../../Routing";
-import Menu from "../Menu";
+// import Menu from "../Menu";
 
-import "./header.scss";
-import YouTubeEmbed from "../Media/Youtube/Embed";
-import classNames from "classnames";
-import { RefObject, useEffect, useState } from "react";
+// import "./header.scss";
+// import YouTubeEmbed from "../Media/Youtube/Embed";
+// import classNames from "classnames";
+// import { RefObject, useEffect, useState } from "react";
 
 //TODO GÖR SÅ ATT youtube init grejer lägger seig snyggt uppe till vänster när man går till musik!!
 
-export type Props = {
-  isStartPage: boolean;
-  isMusicPage: boolean;
-  containerRef: RefObject<HTMLDivElement>; // Change type to RefObject;
-};
+// export type Props = {
+//   isStartPage: boolean;
+//   isMusicPage: boolean;
+//   containerRef: RefObject<HTMLDivElement>; // Change type to RefObject;
+// };
 
-const Header = ({ isStartPage, isMusicPage, containerRef }: Props) => {
+const Header = () => {
   // const [containerWidth, setContainerWidth] = useState(200);
   // const [containerHeight, setContainerHeight] = useState(100);
 

@@ -3,7 +3,35 @@
 .menu {
   display: flex;
   width: 100%;
-  background-color: rgba(0, 0, 139, 0.2); // Mörkblå med 80% opacitet
+  background-color: rgba(0, 0, 139, 0.2);
+  align-items: center;
+  //FLYTTA RÄTT
+  justify-content: flex-end;
+  
+  &__logo{
+    font-family: "JazzFont", sans-serif;
+    font-size: 2rem;
+    color: yellow;
+    text-decoration: none;
+    margin: 0 60px 0 20px;
+  }
+
+  &__icon {
+    > * {
+      font-size: 24px;
+      color: white;
+    }
+    
+  }
+
+  .menu {
+    transition: width 0.5s ease;
+    width: 0;
+  }
+  
+  .expand.open {
+    width: 300px;
+  }
 
   ul {
     list-style: none;
@@ -13,90 +41,13 @@
     align-items: center;
     width: 100%;
     padding: 0;
-    // border-bottom: solid 1px $accent-color;
     height: 86px;
-    margin: 0 6px;
+    margin: 0 0px;
 
     li {
       text-align: center;
       border-right: solid 1px $accent-color;
-      &:first-child {
-        border-right: dotted 1px $accent-color;
-        flex-grow: 1; // Tar upp allt ledigt utrymme till vänster
-        text-align: left;
-        margin-left: 10px;
-        font-family: "JazzFont", sans-serif; // Specifik font för titeln
-        font-size: 2rem; // Anpassa storlek
-        a {
-          padding-left: 0;
-        }
-      }
 
-      &:not(:first-child) {
-        flex: unset;
-        a {
-          padding: 12px 16px;
-        }
-      }
-
-      &:last-child {
-        border-right: none;
-      }
-
-      a {
-        text-decoration: none;
-        color: $accent-color;
-        font-weight: bold;
-
-        transition: color 0.3s ease; // Smooth transition för hover
-        &:hover {
-          color: $primary-color;
-        }
-        &.active {
-          color: $secondary-color; // Färg för aktiva länken
-        }
-      }
-    }
-  }
-}
-@media (min-width: 435px) {
-  .menu {
-    ul {
-      li {
-        &:first-child {
-          margin-right: auto; // Titeln till vänster, isolerad
-          text-align: left;
-          font-size: 3rem; // Anpassa storlek
-          margin: 0;
-        }
-      }
-    }
-  }
-}
-@media (min-width: 600px) {
-  .menu {
-    ul {
-      justify-content: space-between; // Titeln och länkarna på var sin sida
-
-      li {
-        a {
-          padding: 16px 28px;
-        }
-        &:first-child {
-          margin-right: auto; // Titeln till vänster, isolerad
-          text-align: left;
-          font-size: 3.6rem; // Anpassa storlek
-          margin: 0;
-          a {
-            padding-left: 16px;
-          }
-        }
-
-        &:not(:first-child) {
-          // Grupp av länkar till höger
-          margin-left: 0;
-        }
-      }
     }
   }
 }

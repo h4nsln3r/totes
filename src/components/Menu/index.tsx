@@ -19,7 +19,7 @@ const Menu = () => {
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
         {!isOpen ? <MenuIcon /> : <ArrowForwardIosIcon />}
       </div>
-      //Nashi
+      {/* //Nashi */}
       <motion.div
         animate={{ width: isOpen ? 300 : 0 }}
         initial={{ width: 0 }}

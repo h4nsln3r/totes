@@ -65,8 +65,8 @@ const Start = () => {
               backgroundPosition: "center",
             }}
           >
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
+            {/* <h2>{item.title}</h2>
+            <p>{item.description}</p> */}
           </div>
         ))}
       </div>

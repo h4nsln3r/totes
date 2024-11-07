@@ -26,7 +26,8 @@ const Menu = () => {
         initial={{ width: 0 }}
         transition={{ duration: 0.5 }}
         style={{
-          background: "lightblue",
+          // background: "lightblue",
+          borderColor: "white",
           overflow: "hidden",
           originX: 1, // 0 Startar expansionen från vänster 1 FRÅN HÖGER
         }}

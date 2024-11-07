@@ -16,15 +16,14 @@ const Menu = () => {
       <Link className="menu__logo" to={PATHS.START}>
         Totes
       </Link>
-
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
         {!isOpen ? <MenuIcon /> : <ArrowForwardIosIcon />}
       </div>
-
+      //Nashi
       <motion.div
         animate={{ width: isOpen ? 300 : 0 }}
         initial={{ width: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
         className=""
         style={{
           // background: "lightblue",

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PATHS } from "../../Routing";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+// import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import "./menu.scss";
@@ -25,6 +25,7 @@ const Menu = () => {
         animate={{ width: isOpen ? 300 : 0 }}
         initial={{ width: 0 }}
         transition={{ duration: 0.5 }}
+        className=""
         style={{
           // background: "lightblue",
           borderColor: "white",

@@ -15,9 +15,9 @@ const Start = () => {
 
   const content = [
     {
-      title: "Öland Roots",
-      date: "2024-06-19",
-      description: "Spelade på invigningen! Första funkbandet på Roots!",
+      // title: "Öland Roots",
+      // date: "2024-06-19",
+      // description: "Spelade på invigningen! Första funkbandet på Roots!",
       backgroundImage: totesImage, // Använd den importerade bilden
     },
     {
@@ -27,21 +27,21 @@ const Start = () => {
       backgroundImage: totesImage, // Använd den importerade bilden
     },
     {
-      title: "Öland Roots",
-      date: "2024-06-19",
-      description: "Spelade på invigningen! Första funkbandet på Roots!",
+      // title: "Öland Roots",
+      // date: "2024-06-19",
+      // description: "Spelade på invigningen! Första funkbandet på Roots!",
       backgroundImage: totesImage, // Använd den importerade bilden
     },
     {
-      title: "Öland Roots",
-      date: "2024-06-19",
-      description: "Spelade på invigningen! Första funkbandet på Roots!",
+      // title: "Öland Roots",
+      // date: "2024-06-19",
+      // description: "Spelade på invigningen! Första funkbandet på Roots!",
       backgroundImage: totesImage, // Använd den importerade bilden
     },
     {
-      title: "Öland Roots",
-      date: "2024-06-19",
-      description: "Spelade på invigningen! Första funkbandet på Roots!",
+      // title: "Öland Roots",
+      // date: "2024-06-19",
+      // description: "Spelade på invigningen! Första funkbandet på Roots!",
       backgroundImage: totesImage, // Använd den importerade bilden
     },
 

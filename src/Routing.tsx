@@ -6,6 +6,7 @@ import Music from "./pages/Music";
 import Watch from "./pages/Watch";
 import Contact from "./pages/Contact";
 import Menu from "./components/Menu";
+import SnapToTopOnScrollUp from "./hooks/SnapToTopOnScrollUp";
 
 export const PATHS = {
   START: "/totes/",
@@ -17,6 +18,7 @@ export const PATHS = {
 const Routing = () => {
   return (
     <div className="body">
+      <SnapToTopOnScrollUp />
       <Helmet>
         <title>Totes</title>
       </Helmet>

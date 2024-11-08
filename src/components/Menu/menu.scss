@@ -5,15 +5,21 @@
   justify-content: flex-end;
   height: 60px;
   background-color: rgba(0, 0, 139, 0.2); // Standard bakgrund
-
-  &--sticky {
-    position: fixed; // Gör menyn sticky
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: transparent; // Transparent bakgrund när du scrollar ner
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Lägg till en skugga för bättre läsbarhet om du vill
-    z-index: 1000; // Håll menyn ovanför annat innehåll
+  overflow: hidden;
+  &__sticky {
+    height: 0;
+    visibility: hidden;
+    &--is-scrolled-down {
+      transition: height 0.5s ease, padding 0.5s ease;
+      height: 60px;
+      position: fixed; // Gör menyn sticky
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent; // Transparent bakgrund när du scrollar ner
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Lägg till en skugga för bättre läsbarhet om du vill
+      z-index: 1000; // Håll menyn ovanför annat innehåll
+    }
   }
 
   &__logo {

@@ -16,7 +16,7 @@ const Menu = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 65) {
         setScrolledDown(true);
       } else {
         setScrolledDown(false);
@@ -30,68 +30,70 @@ const Menu = () => {
   }, []);
 
   return (
-    <nav
-      className={classNames("menu", {
-        "menu--sticky": isScrolledDown,
-      })}
-    >
-      <Link className="menu__logo" to={PATHS.START}>
-        Totes
-      </Link>
-      {/* TODO -> När man scrollar ner ska bara logga och menu ikonen följa med like sticky */}
-      <div
-        className={classNames("menu__icon", {
-          "menu__icon--close": isOpen,
+    <div style={{ height: "60px" }}>
+      <nav
+        className={classNames("menu", {
+          "menu--sticky": isScrolledDown,
         })}
-        onClick={() => setIsOpen(!isOpen)}
       >
-        {!isOpen ? (
-          <MenuIcon fontSize="large" />
-        ) : (
-          <ArrowForwardIosIcon fontSize="large" />
-        )}
-      </div>
+        <Link className="menu__logo" to={PATHS.START}>
+          Totes
+        </Link>
+        {/* TODO -> När man scrollar ner ska bara logga och menu ikonen följa med like sticky */}
+        <div
+          className={classNames("menu__icon", {
+            "menu__icon--close": isOpen,
+          })}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {!isOpen ? (
+            <MenuIcon fontSize="large" />
+          ) : (
+            <ArrowForwardIosIcon fontSize="large" />
+          )}
+        </div>
 
-      <motion.div
-        className="menu__animation"
-        animate={{ width: isOpen ? 300 : 0 }}
-        initial={{ width: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <ul>
-          <li>
-            <Link
-              className={classNames("", {
-                active: location.pathname === PATHS.WATCH,
-              })}
-              to={PATHS.WATCH}
-            >
-              Watch
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={classNames("", {
-                active: location.pathname === PATHS.MUSIC,
-              })}
-              to={PATHS.MUSIC}
-            >
-              Music
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={classNames("", {
-                active: location.pathname === PATHS.CONTACT,
-              })}
-              to={PATHS.CONTACT}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </motion.div>
-    </nav>
+        <motion.div
+          className="menu__animation"
+          animate={{ width: isOpen ? 300 : 0 }}
+          initial={{ width: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <ul>
+            <li>
+              <Link
+                className={classNames("", {
+                  active: location.pathname === PATHS.WATCH,
+                })}
+                to={PATHS.WATCH}
+              >
+                Watch
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={classNames("", {
+                  active: location.pathname === PATHS.MUSIC,
+                })}
+                to={PATHS.MUSIC}
+              >
+                Music
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={classNames("", {
+                  active: location.pathname === PATHS.CONTACT,
+                })}
+                to={PATHS.CONTACT}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </motion.div>
+      </nav>
+    </div>
   );
 };
 

@@ -1,32 +1,49 @@
 @import "../../styles/variables.scss";
 
 .menu {
+  position: sticky;
   display: flex;
   width: 100%;
   background-color: rgba(0, 0, 139, 0.2);
   align-items: center;
   justify-content: flex-end;
+  height: 60px;
 
   &__logo {
     text-decoration: none;
     margin-left: 10px;
     margin-right: auto;
+    margin-top: -5px;
     padding-right: 10px;
 
     color: #ffa726;
     font-family: "JazzFont", sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 700;
   }
 
   &__icon {
+    cursor: pointer;
+    margin-right: 10px;
+    &--close {
+      margin-right: -8px;
+    }
     > * {
-      font-size: 24px;
       color: white;
     }
   }
 
+  &__animation {
+    height: 100%;
+    width: 100%;
+    border: none;
+    overflow: hidden;
+    -ms-transform-origin-x: 1; // 0 Startar expansionen från vänster 1 FRÅN HÖGER
+  }
+
   ul {
+    height: 100%;
+    width: 100%;
     display: flex;
     list-style: none;
     flex-direction: row;
@@ -39,6 +56,8 @@
     li {
       flex: 1 1 0;
       text-align: center;
+      height: 100%;
+      width: 100%;
       // border-left: solid 1px $accent-color;
 
       &:first-child {
@@ -46,16 +65,23 @@
       }
 
       a {
-        padding: 5px;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+
+        &.active,
+        &:hover {
+          background-color: black;
+          color: white;
+        }
       }
     }
   }
-}
-
-.title {
-  font-family: "JazzFont", sans-serif; // Specifik font för titeln
-  font-size: 2rem; // Anpassa storlek
 }

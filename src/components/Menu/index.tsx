@@ -34,10 +34,13 @@ const Menu = () => {
   return (
     <>
       <nav className="menu">
-        <Link className="menu__logo" to={PATHS.START}>
-          Totes
-        </Link>
+        {!isScrolledDown && (
+          <Link className="menu__logo" to={PATHS.START}>
+            Totes
+          </Link>
+        )}
         {/* TODO -> När man scrollar ner ska bara logga och menu ikonen följa med like sticky */}
+        {!isScrolledDown && (
         <div
           className={classNames("menu__icon", {
             "menu__icon--close": isOpen,
@@ -50,7 +53,7 @@ const Menu = () => {
             <ArrowForwardIosIcon fontSize="large" />
           )}
         </div>
-
+        )}  
         <motion.div
           className="menu__animation"
           animate={{ width: isOpen ? 300 : 0 }}

@@ -42,60 +42,60 @@ const Menu = () => {
         {/* TODO -> När man scrollar ner ska bara logga och menu ikonen följa med like sticky */}
         {!isScrolledDown && (
           <>
-        <div
-          className={classNames("menu__icon", {
-            "menu__icon--close": isOpen,
-          })}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {!isOpen ? (
-            <MenuIcon fontSize="large" />
-          ) : (
-            <ArrowForwardIosIcon fontSize="large" />
-          )}
-        </div>
-     
-        <motion.div
-          className="menu__animation"
-          animate={{ width: isOpen ? 300 : 0 }}
-          initial={{ width: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <ul>
-            <li>
-              <Link
-                className={classNames("", {
-                  active: location.pathname === PATHS.WATCH,
-                })}
-                to={PATHS.WATCH}
-              >
-                Watch
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames("", {
-                  active: location.pathname === PATHS.MUSIC,
-                })}
-                to={PATHS.MUSIC}
-              >
-                Music
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames("", {
-                  active: location.pathname === PATHS.CONTACT,
-                })}
-                to={PATHS.CONTACT}
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </motion.div>
-        </>
-           )}  
+            <div
+              className={classNames("menu__icon", {
+                "menu__icon--close": isOpen,
+              })}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {!isOpen ? (
+                <MenuIcon fontSize="large" />
+              ) : (
+                <ArrowForwardIosIcon fontSize="large" />
+              )}
+            </div>
+
+            <motion.div
+              className="menu__animation"
+              animate={{ width: isOpen ? 300 : 0 }}
+              initial={{ width: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <ul>
+                <li>
+                  <Link
+                    className={classNames("", {
+                      active: location.pathname === PATHS.WATCH,
+                    })}
+                    to={PATHS.WATCH}
+                  >
+                    Watch
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={classNames("", {
+                      active: location.pathname === PATHS.MUSIC,
+                    })}
+                    to={PATHS.MUSIC}
+                  >
+                    Music
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={classNames("", {
+                      active: location.pathname === PATHS.CONTACT,
+                    })}
+                    to={PATHS.CONTACT}
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </motion.div>
+          </>
+        )}
       </nav>
 
       <nav

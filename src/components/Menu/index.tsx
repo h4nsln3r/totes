@@ -112,7 +112,11 @@ const Menu = () => {
           menu__sticky: !isScrolledDown,
         })}
       >
-        <Link className="menu__logo" to={PATHS.START}>
+        <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="menu__logo"
+          to={PATHS.START}
+        >
           Totes
         </Link>
         {/* TODO -> När man scrollar ner ska bara logga och menu ikonen följa med like sticky */}
@@ -142,6 +146,7 @@ const Menu = () => {
                   active: location.pathname === PATHS.WATCH,
                 })}
                 to={PATHS.WATCH}
+                onClick={() => setIsOpen(!isOpen)}
               >
                 Watch
               </Link>
@@ -152,6 +157,7 @@ const Menu = () => {
                   active: location.pathname === PATHS.MUSIC,
                 })}
                 to={PATHS.MUSIC}
+                onClick={() => setIsOpen(!isOpen)}
               >
                 Music
               </Link>
@@ -162,6 +168,7 @@ const Menu = () => {
                   active: location.pathname === PATHS.CONTACT,
                 })}
                 to={PATHS.CONTACT}
+                onClick={() => setIsOpen(!isOpen)}
               >
                 Contact
               </Link>

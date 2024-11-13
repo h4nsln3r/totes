@@ -14,8 +14,13 @@ const Watch: React.FC = () => {
   const [showPast, setShowPast] = useState<boolean>(false);
 
   const upcomingGigs: Gig[] = [
-    { id: 1, date: "2024-11-15", location: "Stockholm", title: "Concert A" },
-    { id: 2, date: "2024-12-01", location: "Göteborg", title: "Concert B" },
+    {
+      id: 1,
+      date: "2024-11-27",
+      location: "Stockholm",
+      title: "Pizza Special",
+      // image:
+    },
   ];
 
   const pastGigs: Gig[] = [
@@ -23,11 +28,14 @@ const Watch: React.FC = () => {
     { id: 4, date: "2023-08-05", location: "Uppsala", title: "Concert D" },
   ];
 
+  //senaste gigget eller nästa som kommer ska ta hela sidan.
+  //under kommande spelningar
+  //längst ner på skärmen ska man kunna trycka vidare för att öppna nästa accordion och kanske stänga den där uppe
+  //spelningarna ska ta hela sidan iallafall
+
   return (
     <div className="container container__center">
       <div className="watchlist">
-        <h1>Watch</h1>
-
         <div
           onClick={() => setShowUpcoming(!showUpcoming)}
           style={{ cursor: "pointer" }}

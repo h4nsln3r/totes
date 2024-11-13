@@ -15,6 +15,7 @@ const Menu = () => {
   const location = useLocation(); // Hämta den aktuella sökvägen
 
   useEffect(() => {
+    setIsOpen(false);
     // TODO Bygg om så att det är två seperata compoeneter
     // en som är statisk däruppe och en som footern som kommer fram när man scrollar ner och försvinner på toppen
     const handleScroll = () => {
@@ -35,7 +36,11 @@ const Menu = () => {
     <>
       <nav className="menu">
         {!isScrolledDown && (
-          <Link className="menu__logo" to={PATHS.START}>
+          <Link
+            onClick={() => setIsOpen(false)}
+            className="menu__logo"
+            to={PATHS.START}
+          >
             Totes
           </Link>
         )}
@@ -68,6 +73,7 @@ const Menu = () => {
                       active: location.pathname === PATHS.WATCH,
                     })}
                     to={PATHS.WATCH}
+                    onClick={() => setIsOpen(false)}
                   >
                     Watch
                   </Link>
@@ -78,6 +84,7 @@ const Menu = () => {
                       active: location.pathname === PATHS.MUSIC,
                     })}
                     to={PATHS.MUSIC}
+                    onClick={() => setIsOpen(false)}
                   >
                     Music
                   </Link>
@@ -88,6 +95,7 @@ const Menu = () => {
                       active: location.pathname === PATHS.CONTACT,
                     })}
                     to={PATHS.CONTACT}
+                    onClick={() => setIsOpen(false)}
                   >
                     Contact
                   </Link>

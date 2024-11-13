@@ -32,7 +32,6 @@ const Routing = () => {
         <Route path={PATHS.CONTACT} element={<Contact />} />
         <Route path="*" element={<Navigate replace to={PATHS.START} />} />
       </Routes>
-      <Footer />
     </div>
   );
 };

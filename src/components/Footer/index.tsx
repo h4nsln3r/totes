@@ -5,7 +5,10 @@ import "./footer.scss";
 import { PATHS } from "../../Routing";
 import SocialMediaGroup from "../Icons/SocialMediaGroup";
 
-const Footer = () => {
+interface Props {
+  children?: any;
+}
+const Footer = ({ children }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -27,17 +30,23 @@ const Footer = () => {
     <footer
       className={`footer ${isVisible ? "footer--visible" : "footer--hidden"}`}
     >
-      <div className="footer__col">
-        <SocialMediaGroup />
-      </div>
-      <div className="footer__col">
-        <Link to={PATHS.START}>Totes</Link>
-      </div>
-      <div className="footer__col">
-        <Link className="footer__contact" to={PATHS.CONTACT}>
-          Book us
-        </Link>
-      </div>
+      {children ? (
+        children
+      ) : (
+        <>
+          <div className="footer__col">
+            <SocialMediaGroup />
+          </div>
+          <div className="footer__col">
+            <Link to={PATHS.START}>Totes</Link>
+          </div>
+          <div className="footer__col">
+            <Link className="footer__contact" to={PATHS.CONTACT}>
+              Book us
+            </Link>
+          </div>
+        </>
+      )}
     </footer>
   );
 };

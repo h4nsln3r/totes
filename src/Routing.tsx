@@ -1,7 +1,6 @@
 import Helmet from "react-helmet";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Start from "./pages/Start";
-import Footer from "./components/Footer";
 import Music from "./pages/Music";
 import Watch from "./pages/Watch";
 import Contact from "./pages/Contact";

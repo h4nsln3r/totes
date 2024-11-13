@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/variables.scss";
 import "./footer.scss";
@@ -6,7 +6,7 @@ import { PATHS } from "../../Routing";
 import SocialMediaGroup from "../Icons/SocialMediaGroup";
 
 interface Props {
-  children?: any;
+  children?: ReactNode;
 }
 const Footer = ({ children }: Props) => {
   const [isVisible, setIsVisible] = useState(false);

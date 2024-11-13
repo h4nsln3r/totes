@@ -4,7 +4,6 @@ import PizzaSpecialbandpic from "../../assets/PizzaSpecial-11-27/bandpic.jpg"; /
 import PizzaSpecialeventpic from "../../assets/PizzaSpecial-11-27/eventpic.jpg"; // Importerar bilden
 import totesImage from "./totes-massingshornet.jpg"; // Importerar bilden
 import Footer from "../../components/Footer";
-import FacebookIcon from "../../components/Icons/Facebook";
 import { FaClock, FaFacebook } from "react-icons/fa";
 import { SiGooglemaps } from "react-icons/si";
 import { Link } from "react-router-dom";

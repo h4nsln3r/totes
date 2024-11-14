@@ -75,7 +75,7 @@ const Menu = () => {
                     to={PATHS.WATCH}
                     onClick={() => setIsOpen(false)}
                   >
-                    Se
+                    Live
                   </Link>
                 </li>
                 <li>

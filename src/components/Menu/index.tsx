@@ -75,7 +75,7 @@ const Menu = () => {
                     to={PATHS.WATCH}
                     onClick={() => setIsOpen(false)}
                   >
-                    Watch
+                    Se
                   </Link>
                 </li>
                 <li>
@@ -86,7 +86,7 @@ const Menu = () => {
                     to={PATHS.MUSIC}
                     onClick={() => setIsOpen(false)}
                   >
-                    Music
+                    Musik
                   </Link>
                 </li>
                 <li>
@@ -97,7 +97,7 @@ const Menu = () => {
                     to={PATHS.CONTACT}
                     onClick={() => setIsOpen(false)}
                   >
-                    Contact
+                    Om
                   </Link>
                 </li>
               </ul>

@@ -31,14 +31,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  height: 90vh;
-  margin: 10px 2px;
+  // height: 90vh;
+  margin: 0px auto;
+  max-width: 800px;
 
   .grid-item {
     display: flex;
     flex: 1 1 350px;
     height: 40vh; /* Höjden blir dynamisk baserat på innehållet (sätt AUTO isf & testa!)*/
-    margin-bottom: 8px;
+
+    margin: 8px 4px;
     max-height: unset;
     justify-content: center;
     align-items: center;
@@ -63,10 +65,15 @@ body {
     &--expanded {
       width: 100%;
       height: 100%;
+      &.expanded {
+      }
+      &.hide {
+        display: none;
+      }
     }
 
     &.expanded {
-      position: absolute;
+      // position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -103,17 +110,25 @@ body {
 }
 
 .watchlist {
-  background-color: blue;
+  background-color: black;
   height: 100%;
   width: 100%;
+
+  &__accordion {
+    height: 35px;
+    display: flex;
+    h4 {
+      margin: auto;
+    }
+  }
 
   ul {
     height: 100%;
     width: 100%;
-    background-color: yellow;
+    background-color: black;
     list-style: none;
     padding-inline-start: 0px;
-
+    margin-block-start: 0;
     li {
       display: flex;
       list-style: none;
@@ -122,5 +137,11 @@ body {
       width: 100%;
       background-color: green;
     }
+  }
+}
+
+@media (min-width: 800px) {
+  .grid-item--expanded {
+    width: 800px !important;
   }
 }

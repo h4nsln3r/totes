@@ -111,7 +111,6 @@ const Start = () => {
             </>
           ))}
         </div>
-        <h1>Heja</h1>
       </div>
     </>
   );

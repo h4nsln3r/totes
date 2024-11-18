@@ -27,18 +27,18 @@ const Start = () => {
       backgroundImage: PizzaSpecialbandpic, // Använd den importerade bilden
       mainImage: PizzaSpecialeventpic,
     },
-    {
-      // title: "Öland Roots",
-      // date: "2024-06-19",
-      // description: "Spelade på invigningen! Första funkbandet på Roots!",
-      backgroundImage: totesImage, // Använd den importerade bilden
-    },
-    {
-      // title: "Öland Roots",
-      // date: "2024-06-19",
-      // description: "Spelade på invigningen! Första funkbandet på Roots!",
-      backgroundImage: totesImage, // Använd den importerade bilden
-    },
+    // {
+    //   // title: "Öland Roots",
+    //   // date: "2024-06-19",
+    //   // description: "Spelade på invigningen! Första funkbandet på Roots!",
+    //   backgroundImage: totesImage, // Använd den importerade bilden
+    // },
+    // {
+    //   // title: "Öland Roots",
+    //   // date: "2024-06-19",
+    //   // description: "Spelade på invigningen! Första funkbandet på Roots!",
+    //   backgroundImage: totesImage, // Använd den importerade bilden
+    // },
     // {
     //   // title: "Öland Roots",
     //   // date: "2024-06-19",

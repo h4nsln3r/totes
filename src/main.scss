@@ -40,7 +40,7 @@ body {
     flex: 1 1 350px;
     height: 40vh; /* Höjden blir dynamisk baserat på innehållet (sätt AUTO isf & testa!)*/
 
-    margin: 8px 4px;
+    margin: 8px 0px;
     max-height: unset;
     justify-content: center;
     align-items: center;
@@ -115,10 +115,17 @@ body {
   width: 100%;
 
   &__accordion {
-    height: 35px;
+    height: 30px;
     display: flex;
     h4 {
-      margin: auto;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      font-weight: 300;
+      font-size: 14px;
+      margin-left: 5px;
+      margin-block-start: 0;
+      margin-block-end: 0;
     }
   }
 

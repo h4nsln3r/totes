@@ -126,6 +126,7 @@ const Watch: React.FC = () => {
         </AnimateHeight>
 
         <div
+          className="watchlist__accordion"
           onClick={() => setShowPast(!showPast)}
           style={{ cursor: "pointer" }}
         >

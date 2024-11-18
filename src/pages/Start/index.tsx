@@ -2,7 +2,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import PizzaSpecialbandpic from "../../assets/PizzaSpecial-11-27/bandpic.jpg"; // Importerar bilden
 import PizzaSpecialeventpic from "../../assets/PizzaSpecial-11-27/eventpic.jpg"; // Importerar bilden
-import totesImage from "./totes-massingshornet.jpg"; // Importerar bilden
+// import totesImage from "./totes-massingshornet.jpg"; // Importerar bilden
 import Footer from "../../components/Footer";
 import { FaClock, FaFacebook } from "react-icons/fa";
 import { SiGooglemaps } from "react-icons/si";

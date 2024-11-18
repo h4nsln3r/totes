@@ -148,7 +148,14 @@ body {
 }
 
 @media (min-width: 800px) {
-  .grid-item--expanded {
-    width: 800px !important;
+  .grid {
+    max-width: 1400px;
+    .grid-item {
+      height: 72vh;
+      &--expanded {
+        width: 800px !important;
+        height: 100% !important;
+      }
+    }
   }
 }

@@ -1,0 +1,52 @@
+.home {
+  .hero {
+    background-color: #ff4a00;
+    text-align: center;
+    padding: 2rem 1rem;
+
+    .logo-top,
+    .logo-bottom {
+      font-size: 5rem;
+      font-weight: bold;
+      font-family: sans-serif; // Byt ut till specialtypsnitt om du har det
+    }
+
+    .band-img {
+      width: 100%;
+      max-width: 700px;
+      margin: 2rem 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .live {
+    background-color: #f2f2f2;
+    padding: 2rem 1rem;
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .gig-list {
+      list-style: none;
+      padding: 0;
+      max-width: 500px;
+      margin: 0 auto;
+
+      .gig-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #ccc;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

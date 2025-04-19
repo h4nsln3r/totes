@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import AnimateHeight from "react-animate-height";
-import PizzaSpecialbandpic from "../../assets/PizzaSpecial-11-27/bandpic.jpg"; // Importerar bilden
-import PizzaSpecialeventpic from "../../assets/PizzaSpecial-11-27/eventpic.jpg"; // Importerar bilden
-import TotesMassinghornet from "../../assets/totes-massingshornet.jpg"; // Importerar bilden
-import classNames from "classnames";
-import Footer from "../../components/Footer";
-import { Link } from "react-router-dom";
-import { FaClock, FaFacebook } from "react-icons/fa";
-import { SiGooglemaps } from "react-icons/si";
+import React, { useState } from 'react';
+import AnimateHeight from 'react-animate-height';
+import PizzaSpecialbandpic from '../../assets/PizzaSpecial-11-27/bandpic.jpg'; // Importerar bilden
+import PizzaSpecialeventpic from '../../assets/PizzaSpecial-11-27/eventpic.jpg'; // Importerar bilden
+import TotesMassinghornet from '../../assets/massing/totes-massingshornet.jpg'; // Importerar bilden
+import classNames from 'classnames';
+import Footer from '../../components/Footer';
+import { Link } from 'react-router-dom';
+import { FaClock, FaFacebook } from 'react-icons/fa';
+import { SiGooglemaps } from 'react-icons/si';
 
 const Watch: React.FC = () => {
   const [showUpcoming, setShowUpcoming] = useState<boolean>(true);
-  const [expandedCommingItem, setExpandedCommingItem] = useState<number | null>(
-    null
-  );
+  const [expandedCommingItem, setExpandedCommingItem] = useState<number | null>(null);
   const handleClick = (index: number) => {
     setExpandedCommingItem(expandedCommingItem === index ? null : index);
   };
@@ -27,9 +25,7 @@ const Watch: React.FC = () => {
   }
 
   const [showPast, setShowPast] = useState<boolean>(false);
-  const [expandedPreviousItem, setExpandedPreviousItem] = useState<
-    number | null
-  >(null);
+  const [expandedPreviousItem, setExpandedPreviousItem] = useState<number | null>(null);
   const handleClick2 = (index: number) => {
     setExpandedPreviousItem(expandedPreviousItem === index ? null : index);
   };
@@ -65,16 +61,16 @@ const Watch: React.FC = () => {
         <div
           className="watchlist__accordion"
           onClick={() => resetExpandedCommingItem()}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: 'pointer' }}
         >
           {expandedCommingItem === null ? (
-            <h4>Kommande spelningar {showUpcoming ? "▲" : "▼"}</h4>
+            <h4>Kommande spelningar {showUpcoming ? '▲' : '▼'}</h4>
           ) : (
             <div>X</div>
           )}
         </div>
 
-        <AnimateHeight height={showUpcoming ? "auto" : 0} duration={500}>
+        <AnimateHeight height={showUpcoming ? 'auto' : 0} duration={500}>
           {/* <ul>
             {upcomingGigs.map((gig) => (
               <li key={gig.id}>
@@ -87,32 +83,28 @@ const Watch: React.FC = () => {
               <>
                 <div
                   key={index}
-                  className={classNames("grid-item", {
+                  className={classNames('grid-item', {
                     expanded: expandedCommingItem === index,
-                    hide:
-                      expandedCommingItem !== null &&
-                      expandedCommingItem !== index,
+                    hide: expandedCommingItem !== null && expandedCommingItem !== index,
                   })}
                   onClick={() => handleClick(index)}
                   style={{
                     backgroundImage: `url(${item.backgroundImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                   }}
                 >
                   {expandedCommingItem === index && (
                     <>
                       <div
-                        className={classNames("grid-item--expanded", {
+                        className={classNames('grid-item--expanded', {
                           expanded: expandedCommingItem === index,
-                          hide:
-                            expandedCommingItem !== null &&
-                            expandedCommingItem !== index,
+                          hide: expandedCommingItem !== null && expandedCommingItem !== index,
                         })}
                         style={{
                           backgroundImage: `url(${item.mainImage})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
                         }}
                       ></div>
                       <Footer
@@ -148,11 +140,11 @@ const Watch: React.FC = () => {
             <div
               className="watchlist__accordion"
               onClick={() => setShowPast(!showPast)}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
             >
-              <h4>Tidigare spelningar {showPast ? "▲" : "▼"}</h4>
+              <h4>Tidigare spelningar {showPast ? '▲' : '▼'}</h4>
             </div>
-            <AnimateHeight height={showPast ? "auto" : 0} duration={500}>
+            <AnimateHeight height={showPast ? 'auto' : 0} duration={500}>
               {/* <ul>
             {pastGigs.map((gig) => (
               <li key={gig.id}>
@@ -166,32 +158,28 @@ const Watch: React.FC = () => {
                   <>
                     <div
                       key={index}
-                      className={classNames("grid-item", {
+                      className={classNames('grid-item', {
                         expanded: expandedPreviousItem === index,
-                        hide:
-                          expandedPreviousItem !== null &&
-                          expandedPreviousItem !== index,
+                        hide: expandedPreviousItem !== null && expandedPreviousItem !== index,
                       })}
                       onClick={() => handleClick2(index)}
                       style={{
                         backgroundImage: `url(${item.backgroundImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
                       }}
                     >
                       {expandedPreviousItem === index && (
                         <>
                           <div
-                            className={classNames("grid-item--expanded", {
+                            className={classNames('grid-item--expanded', {
                               expanded: expandedPreviousItem === index,
-                              hide:
-                                expandedPreviousItem !== null &&
-                                expandedPreviousItem !== index,
+                              hide: expandedPreviousItem !== null && expandedPreviousItem !== index,
                             })}
                             style={{
                               backgroundImage: `url(${item.mainImage})`,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
                             }}
                           ></div>
                           <Footer

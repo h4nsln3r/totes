@@ -1,1 +1,6 @@
 STÄDA DETTA PROJECT BIEATCH""""!!!!!
+
+
+Gör en one pager som skrollar ner till rätt plats när man klickar på länkarna
+
+Gör gabbes design!

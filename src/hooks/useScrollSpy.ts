@@ -7,12 +7,12 @@ const useScrollSpy = (ids: string[], offset = 150): string => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + offset;
 
-      // TOPPEN AV SIDAN → inget aktivt
-      if (scrollPos < document.getElementById(ids[0])?.offsetTop!) {
+      const firstSection = document.getElementById(ids[0]);
+
+      if (firstSection && scrollPos < firstSection.offsetTop) {
         setActiveId('');
         return;
       }
-
       const current = ids.find((id) => {
         const el = document.getElementById(id);
         return el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos;

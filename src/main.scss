@@ -1,161 +1,21 @@
-@import "./styles/variables.scss";
+@import './styles/variables.scss';
 
-// Apply font and colors to the body
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
-  // background-color: $secondary-color;
-  background-color: black;
-  color: white; // Adjust text color as needed
   margin: 0;
 }
 
-.body {
-  max-height: 100vh;
-  max-width: 100vw;
-}
-
 .container {
-  margin: 1px;
+  margin: 5px;
   &__center {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Gör så att containern fyller hela skärmens höjd */
+    height: 80vh;
     text-align: center;
-    flex-direction: column; /* Gör att elementen staplas vertikalt */
-  }
-}
-
-.grid {
-  height: auto; /* Anpassar höjden dynamiskt på mindre skärmar */
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  // height: 90vh;
-  margin: 0px auto;
-  max-width: 800px;
-
-  .grid-item {
-    display: flex;
-    flex: 1 1 350px;
-    height: 40vh; /* Höjden blir dynamisk baserat på innehållet (sätt AUTO isf & testa!)*/
-
-    margin: 8px 0px;
-    max-height: unset;
-    justify-content: center;
-    align-items: center;
-
-    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out,
-      height 0.5s ease-in-out;
-
-    // background-color: #f0f0f0;
-    border: 1px solid #ccc;
-
-    box-sizing: border-box;
-    cursor: pointer;
-
-    &:hover {
-      // background-color: yellow;
-    }
-
-    &.hide {
-      display: none;
-    }
-
-    &--expanded {
-      width: 100%;
-      height: 100%;
-      &.expanded {
-      }
-      &.hide {
-        display: none;
-      }
-    }
-
-    &.expanded {
-      // position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: 10;
-      transform: scale(1); // Ensures no extra scaling is applied
-    }
-  }
-
-  /* Anpassa höjden baserat på antalet grid-items */
-  &.grid-items-4 .grid-item {
-    height: 50vh; /* 4 items totalt: 2 rader med 2 rutor per rad */
-  }
-
-  &.grid-items-8 .grid-item {
-    height: 25vh; /* 8 items totalt: 2 rader med 4 rutor per rad */
-  }
-
-  &.grid-items-12 .grid-item {
-    height: calc(100vh / 3); /* 12 items totalt: 3 rader med 4 rutor per rad */
-  }
-
-  &.grid-items-16 .grid-item {
-    height: calc(100vh / 4); /* 16 items totalt: 4 rader med 4 rutor per rad */
-  }
-}
-
-.contact {
-  width: auto;
-  background-image: url("./assets/totes-massingshornet.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 80% 30%;
-}
-
-.watchlist {
-  background-color: black;
-  height: 100%;
-  width: 100%;
-
-  &__accordion {
-    height: 30px;
-    display: flex;
-    * {
-      display: flex;
-      justify-content: end;
-      align-items: end;
-      font-weight: 300;
-      font-size: 14px;
-      margin-left: 5px;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
-  }
-
-  ul {
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    list-style: none;
-    padding-inline-start: 0px;
-    margin-block-start: 0;
-    li {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background-color: green;
-    }
-  }
-}
-
-@media (min-width: 800px) {
-  .grid {
-    max-width: 1400px;
-    .grid-item {
-      height: 72vh;
-      &--expanded {
-        width: 800px !important;
-        height: 100% !important;
-      }
-    }
+    flex-direction: column;
   }
 }

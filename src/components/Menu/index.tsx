@@ -28,7 +28,6 @@ const Menu: React.FC = () => {
     <nav className="menu">
       <div
         onClick={() => {
-          setIsOpen(false);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         className="menu__logo"

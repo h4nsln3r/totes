@@ -3,10 +3,10 @@ import classNames from 'classnames';
 
 interface MenuLinksProps {
   activeSection: string;
-  setIsOpen: (val: boolean) => void;
+  // setIsOpen: (val: boolean) => void;
 }
 
-const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, setIsOpen }) => {
+const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
   const links = [
     { label: 'Live', id: 'live' },
     { label: 'Musik', id: 'music' },
@@ -20,7 +20,7 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, setIsOpen }) => {
           <a
             href={`#${link.id}`}
             className={classNames({ active: activeSection === link.id })}
-            onClick={() => setIsOpen(false)}
+            // onClick={() => setIsOpen(false)}
           >
             {link.label}
           </a>

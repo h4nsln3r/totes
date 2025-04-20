@@ -25,12 +25,12 @@ const Home: React.FC = () => {
       </div>
 
       <SectionWrapper id="live">
-        <h2>Live</h2>
+        <h2 className="gig-title">Live</h2>
         <ul className="gig-list">
           {gigs.map((gig, i) => (
             <li key={i} className="gig-item">
-              <span>{gig.date}</span>
-              <span>{gig.venue}</span>
+              <span className="gig-date">{gig.date}</span>
+              <span className="gig-venue">{gig.venue}</span>
             </li>
           ))}
         </ul>
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
 
       <SectionWrapper id="music">
         <h2>Musik</h2>
-        <p>Här kan du lyssna på vår senaste EP. Kommer snart på Spotify & Bandcamp!</p>
+        <p>Här kan du lyssna på vår senaste EP. Kommer snart på Spotify!</p>
         {/* Embed eller player här */}
       </SectionWrapper>
 

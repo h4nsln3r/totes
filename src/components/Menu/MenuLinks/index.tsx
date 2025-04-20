@@ -13,14 +13,23 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
     { label: 'Om', id: 'info' },
   ];
 
+  const scrollToId = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = window.innerWidth >= 768 ? -96 : -84;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <ul>
       {links.map((link) => (
         <li key={link.id}>
           <a
-            href={`#${link.id}`}
             className={classNames({ active: activeSection === link.id })}
-            // onClick={() => setIsOpen(false)}
+            onClick={() => scrollToId(link.id)}
           >
             {link.label}
           </a>

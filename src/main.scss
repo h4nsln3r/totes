@@ -7,15 +7,3 @@ html {
 body {
   margin: 0;
 }
-
-.container {
-  margin: 5px;
-  &__center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    text-align: center;
-    flex-direction: column;
-  }
-}

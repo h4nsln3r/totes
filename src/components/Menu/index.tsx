@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -10,7 +9,6 @@ import './menu.scss';
 
 const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  const [isScrolledDown, setScrolledDown] = useState<boolean>(false);
   const [menuWidth, setMenuWidth] = useState<number>(300);
 
   const sectionIds = ['live', 'music', 'info'];
@@ -25,14 +23,8 @@ const Menu: React.FC = () => {
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  useEffect(() => {
-    const onScroll = () => setScrolledDown(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   return (
-    <nav className={classNames('menu', { 'menu--scrolled': isScrolledDown })}>
+    <nav className="menu">
       <div
         onClick={() => {
           setIsOpen(false);

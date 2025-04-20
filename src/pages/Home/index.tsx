@@ -34,40 +34,12 @@ const Home: React.FC = () => {
             </li>
           ))}
         </ul>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </SectionWrapper>
 
       <SectionWrapper id="music">
         <h2>Musik</h2>
         <p>Här kan du lyssna på vår senaste EP. Kommer snart på Spotify & Bandcamp!</p>
         {/* Embed eller player här */}
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </SectionWrapper>
 
       <SectionWrapper id="info">
@@ -76,39 +48,6 @@ const Home: React.FC = () => {
           Vi är ett indieband från Sverige med rötterna i funk och pop. Vi gillar falafel, feta
           synthar och långa promenader.
         </p>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br /> <br />
-        <br />
-        <br />
-        <br /> <br />
-        <br />
-        <br />
-        <br />
-        <br /> <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </SectionWrapper>
     </div>
   );

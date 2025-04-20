@@ -16,13 +16,14 @@
 
   &__logo {
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-right: auto;
     padding-right: 10px;
     cursor: pointer;
 
     @media (min-width: 768px) {
       margin-left: 20px;
+      margin-top: 10px;
     }
 
     &-img {

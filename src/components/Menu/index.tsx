@@ -35,7 +35,7 @@ const Menu: React.FC = () => {
         <img src={totesLogo} alt="Totes Logo" className="menu__logo-img" />
       </div>
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
-        {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="large" />}
+        {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
       </div>
 
       <motion.div

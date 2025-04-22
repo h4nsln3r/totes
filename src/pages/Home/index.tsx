@@ -1,7 +1,10 @@
-import './home.scss';
+import "./home.scss";
 
-import bandImg from '../../assets/massing/totes-massingshornet.jpg';
-import SectionWrapper from '../../components/SectionWrapper';
+import totesLogoTop from "../../assets/logo/totes_line_1.png";
+import totesLogoBottom from "../../assets/logo/totes_line_2.png";
+
+import bandImg from "../../assets/massing/totes-massingshornet.jpg";
+import SectionWrapper from "../../components/SectionWrapper";
 
 interface Gig {
   date: string;
@@ -9,19 +12,26 @@ interface Gig {
 }
 
 const gigs: Gig[] = [
-  { date: '25/5', venue: 'Pizza Special' },
-  { date: '3/5', venue: 'Sallys Café' },
-  { date: '18/5', venue: 'Ailé' },
-  { date: '23/6', venue: 'Söderport' },
+  { date: "25/5", venue: "Pizza Special" },
+  { date: "3/5", venue: "Sallys Café" },
+  { date: "18/5", venue: "Ailé" },
+  { date: "23/6", venue: "Söderport" },
 ];
 
 const Home: React.FC = () => {
   return (
     <div className="home">
       <div className="hero">
-        <div className="logo-top">to</div>
-        <img src={bandImg} alt="Band" className="band-img" />
-        <div className="logo-bottom">tes</div>
+        <div className="logo-top">
+          <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
+        </div>
+
+        <div className="hero-bottom-row">
+          <img src={bandImg} alt="Band" className="band-img" />
+          <div className="logo-bottom">
+            <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
+          </div>
+        </div>
       </div>
 
       <SectionWrapper id="live">
@@ -45,8 +55,8 @@ const Home: React.FC = () => {
       <SectionWrapper id="info">
         <h2>Om oss</h2>
         <p>
-          Vi är ett indieband från Sverige med rötterna i funk och pop. Vi gillar falafel, feta
-          synthar och långa promenader.
+          Vi är ett indieband från Sverige med rötterna i funk och pop. Vi
+          gillar falafel, feta synthar och långa promenader.
         </p>
       </SectionWrapper>
     </div>

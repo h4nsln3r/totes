@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
 
 .menu {
   display: flex;
@@ -12,7 +12,7 @@
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 
   &__logo {
     margin-left: 10px;

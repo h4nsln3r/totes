@@ -1,5 +1,5 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
 
 interface MenuLinksProps {
   activeSection: string;
@@ -8,18 +8,27 @@ interface MenuLinksProps {
 
 const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
   const links = [
-    { label: 'Live', id: 'live' },
-    { label: 'Musik', id: 'music' },
-    { label: 'Om', id: 'info' },
+    { label: "Live", id: "live" },
+    { label: "Musik", id: "music" },
+    { label: "Om", id: "info" },
   ];
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
+    console.log("element", element);
     if (element) {
-      const yOffset = window.innerWidth >= 768 ? -96 : -84;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const yOffset =
+        id === "live"
+          ? window.innerWidth >= 768
+            ? -76
+            : -64
+          : window.innerWidth >= 768
+          ? -76
+          : -64;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 

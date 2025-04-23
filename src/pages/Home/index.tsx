@@ -54,10 +54,6 @@ const Home: React.FC = () => {
 
       <SectionWrapper id="info">
         <h2>Om oss</h2>
-        <p>
-          Vi är ett indieband från Sverige med rötterna i funk och pop. Vi
-          gillar falafel, feta synthar och långa promenader.
-        </p>
       </SectionWrapper>
     </div>
   );

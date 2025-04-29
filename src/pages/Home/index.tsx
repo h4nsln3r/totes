@@ -3,7 +3,7 @@ import "./home.scss";
 import totesLogoTop from "../../assets/logo/totes_line_1.png";
 import totesLogoBottom from "../../assets/logo/totes_line_2.png";
 
-import bandImg from "../../assets/massing/totes-massingshornet.jpg";
+import totespic from "../../assets/images/totespic.png";
 import SectionWrapper from "../../components/SectionWrapper";
 
 interface Gig {
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="hero-bottom-row">
-          <img src={bandImg} alt="Band" className="band-img" />
+          <img src={totespic} alt="Band" className="band-img" />
           <div className="logo-bottom">
             <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
           </div>

@@ -68,3 +68,18 @@
     }
   }
 }
+@media (min-width: 768px) {
+  .gig {
+    text-align: left;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &--img {
+      width: 480px;
+      margin: auto;
+      margin-top: 40x;
+    }
+  }
+}

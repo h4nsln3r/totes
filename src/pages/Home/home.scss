@@ -24,7 +24,7 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       padding: 0 0.1rem;
     }
     .logo-img {
@@ -37,11 +37,26 @@
     max-width: 700px;
     width: 100%;
     display: block;
+    &--mobile {
+      width: 85%;
+      margin: auto;
+      margin-top: 4rem;
+      @media (max-width: 376px) {
+        width: 75%;
+      }
+    }
   }
 
   .logo-bottom {
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 60px;
+    margin-right: 20px;
+    @media (max-width: 376px) {
+      margin-top: -10px;
+    }
+
+    @media (max-width: 768px) {
+      height: 155px;
+    }
   }
 
   .logo-img {

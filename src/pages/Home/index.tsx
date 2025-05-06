@@ -57,14 +57,24 @@ const Home: React.FC = () => {
           <h2 className="gig-title">Live</h2>
           {isMobile && <img src={totesabout} alt="Band" className="gig--img" />}
         </div>
-        <ul className="gig-list">
-          {gigs.map((gig, i) => (
-            <li key={i} className="gig-item">
-              <span className="gig-date">{gig.date}</span>
-              <span className="gig-venue">{gig.venue}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="gig-list">
+          <ul className="">
+            {gigs.map((gig, i) => (
+              <li key={i} className="gig-item">
+                <span className="gig-date">{gig.date}</span>
+                <span className="gig-venue">{gig.venue}</span>
+              </li>
+            ))}
+          </ul>
+          {isMobile && <hr />}
+          {!isMobile && <img src={totespic} alt="Band" className="gig--img" />}
+          <div className="bookus">
+            <p>Vill du boka oss?</p>
+            <p>
+              Hör av dig till: <a href="tes">info@totes.com</a>
+            </p>
+          </div>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper id="music">

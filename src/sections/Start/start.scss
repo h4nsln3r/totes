@@ -1,7 +1,7 @@
 .hero {
   height: 100vh;
-  margin-top: -60px;
-  padding-top: 60px;
+  margin-top: -3.75rem; // -60px
+  padding-top: 3.75rem;
   background-color: #ff4a00;
   display: flex;
   flex-direction: column;
@@ -10,54 +10,53 @@
   .logo-top {
     margin-left: 2rem;
     margin-bottom: 1rem;
-    padding-top: 5rem;
+  }
+
+  .logo-bottom {
+    width: auto;
+    margin-right: 1.25rem;
+
+    @media (max-width: 400px) {
+      margin-top: -0.625rem; // -10px
+    }
   }
 
   .hero-bottom-row {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
     align-items: flex-end;
-    padding: 0 1rem;
+    padding: 0 0.1rem;
     gap: 2rem;
 
-    @media (max-width: 768px) {
-      flex-direction: column;
+    @media (min-width: 769px) {
+      flex-direction: row;
+      justify-content: flex-start;
       align-items: flex-end;
-      padding: 0 0.1rem;
+      padding: 0 1rem;
     }
   }
 
   .band-img {
-    max-width: 700px;
     width: 100%;
+    max-width: 43.75rem; // 700px
     display: block;
+
     &--mobile {
-      width: 400px;
-      margin: auto;
+      width: 25rem; // 400px
+      margin: 0 auto;
+
       @media (max-width: 400px) {
         width: 75%;
       }
     }
   }
 
-  .logo-bottom {
-    margin-right: 20px;
-    width: auto;
-    @media (max-width: 400px) {
-      margin-top: -10px;
-    }
-
-    @media (max-width: 768px) {
-      height: 155px;
-    }
-  }
-
   .logo-img {
-    height: 160px;
     width: auto;
+    height: 5.625rem; // 90px
 
-    @media (max-width: 768px) {
-      height: 90px;
+    @media (min-width: 769px) {
+      height: 10rem; // 160px
     }
   }
 }

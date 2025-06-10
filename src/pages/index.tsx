@@ -20,12 +20,12 @@ const Page: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <StartSection isMobile={isMobile} />
       <LiveSection isMobile={isMobile} />
       <MusicSection />
       <InfoSection />
-    </div>
+    </>
   );
 };
 

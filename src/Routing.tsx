@@ -1,10 +1,10 @@
-import Helmet from 'react-helmet';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Menu from './components/Menu';
+import Helmet from "react-helmet";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Menu from "./components/Menu";
+import Page from "./pages";
 
 export const PATHS = {
-  HOME: '/totes/',
+  TOTES: "/totes/",
 };
 
 const Routing = () => {
@@ -17,8 +17,8 @@ const Routing = () => {
       <Menu />
 
       <Routes>
-        <Route path={PATHS.HOME} element={<Home />} />
-        <Route path="*" element={<Navigate replace to={PATHS.HOME} />} />
+        <Route path={PATHS.TOTES} element={<Page />} />
+        <Route path="*" element={<Navigate replace to={PATHS.TOTES} />} />
       </Routes>
     </div>
   );

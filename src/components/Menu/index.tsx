@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MenuLinks from "./MenuLinks";
+import MenuLinks from "./Links";
 import useScrollSpy from "../../hooks/useScrollSpy";
 
 import "./menu.scss";
-import MenuLogo from "./MenuLogo";
+import MenuLogo from "./Logo";
 
 const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(
     window.innerWidth >= 768 ? true : false
   );
   const [menuWidth, setMenuWidth] = useState<number>(300);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const sectionIds = ["live", "music", "info"];
   const activeSection = useScrollSpy(sectionIds);
@@ -21,7 +20,6 @@ const Menu: React.FC = () => {
   useEffect(() => {
     const updateWidth = () => {
       setMenuWidth(window.innerWidth >= 768 ? 500 : 220);
-      setIsMobile(window.innerWidth >= 768 ? true : false);
     };
     updateWidth();
     window.addEventListener("resize", updateWidth);
@@ -36,7 +34,7 @@ const Menu: React.FC = () => {
         }}
         className="menu__logo"
       >
-        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
+        <MenuLogo isMobile={false} isOpen={isOpen} menuWidth={menuWidth} />
       </div>
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
         {!isOpen ? (

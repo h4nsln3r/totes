@@ -9,6 +9,7 @@
 
   .logo-top {
     margin-left: 2rem;
+    margin-bottom: 1rem;
     padding-top: 5rem;
   }
 
@@ -33,7 +34,6 @@
     &--mobile {
       width: 400px;
       margin: auto;
-      margin-top: 3rem;
       @media (max-width: 400px) {
         width: 75%;
       }

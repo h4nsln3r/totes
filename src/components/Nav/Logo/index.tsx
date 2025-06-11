@@ -42,7 +42,13 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, isOpen, menuWidth }) => {
   };
 
   const logoToShow = useAltLogo ? totesLogoAlt : totesLogoTop;
-  const imgClass = isMobile ? "menu__logo-img" : "menu__logo-img--big";
+  const imgClass = isMobile
+    ? useAltLogo
+      ? "menu__logo--mobile-alt"
+      : "menu__logo--mobile"
+    : useAltLogo
+    ? "menu__logo--desktop-alt"
+    : "menu__logo--desktop";
 
   return (
     <AnimatePresence mode="wait">

@@ -1,6 +1,16 @@
-STÄDA DETTA PROJECT BIEATCH""""!!!!!
+
+Gör så den hjälper till at scrolla när man närmar sig en sektion och sätt på rätt plats.
+
+Kommande och tidigare spelningar
 
 
-Gör en one pager som skrollar ner till rätt plats när man klickar på länkarna
 
 Gör gabbes design!
+
+STÄDA DETTA PROJECT BIEATCH""""!!!!!
+strukturera upp det bättre
+
+
+
+Gör en one pager som skrollar ner till rätt plats när man klickar på länkarna DONE
+

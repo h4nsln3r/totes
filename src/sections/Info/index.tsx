@@ -5,7 +5,7 @@ interface Props {}
 const InfoSection: React.FC<Props> = () => {
   return (
     <SectionWrapper id="info">
-      <h2>Om oss</h2>
+      <h2 className="section__title">Om</h2>
     </SectionWrapper>
   );
 };

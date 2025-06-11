@@ -61,7 +61,7 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, isOpen, menuWidth }) => {
           variants={variants}
           transition={{ duration: 0.2 }}
           className={"menu__animation"}
-          style={{ width: !isOpen ? menuWidth : 0 }}
+          style={{ width: menuWidth - 20 }}
         >
           <img src={logoToShow} alt="Totes Logo" className={imgClass} />
         </motion.div>

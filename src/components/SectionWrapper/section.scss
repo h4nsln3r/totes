@@ -27,7 +27,20 @@
   }
 
   &--music {
+    text-align: center;
     background-color: #42a5f5;
+    .player {
+      iframe {
+        width: 96%;
+        min-height: 600px;
+        margin: auto;
+        margin-top: 40px;
+        @media (min-width: 768px) {
+          width: 80%;
+          margin-top: 20px;
+        }
+      }
+    }
   }
 
   &--live {

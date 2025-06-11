@@ -23,7 +23,7 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, isOpen, menuWidth }) => {
       // Hysteres för att visa/gömma loggan
       if (scrollingDown) {
         if (scrollY > 200) setShowLogo(true);
-        if (scrollY > 600) setUseAltLogo(true);
+        if (scrollY > 700) setUseAltLogo(true);
       } else {
         if (scrollY < 300) setShowLogo(false);
         if (scrollY < 500) setUseAltLogo(false);

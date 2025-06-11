@@ -4,6 +4,7 @@
   display: flex;
   position: sticky;
   top: 0;
+  padding-top: 10px;
   height: 50px;
   align-items: center;
   justify-content: space-between;
@@ -54,7 +55,7 @@
         height: 48px;
         width: auto;
         @media (min-width: 768px) {
-          height: 50px;
+          height: 64px;
         }
       }
     }
@@ -84,6 +85,9 @@
     cursor: pointer;
     margin-right: 10px;
     margin-top: 10px;
+    @media (min-width: 768px) {
+      margin-right: 20px;
+    }
 
     > * {
       color: black;
@@ -105,7 +109,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    margin-right: 10px;
+    margin-right: 20px;
     align-items: center;
     justify-content: right;
     gap: 2rem;

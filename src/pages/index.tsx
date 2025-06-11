@@ -5,8 +5,6 @@ import LiveSection from "../sections/Live";
 import MusicSection from "../sections/Music";
 import InfoSection from "../sections/Info";
 
-import "./page.scss";
-
 const Page: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 

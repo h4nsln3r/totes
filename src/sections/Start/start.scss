@@ -1,6 +1,6 @@
 .hero {
   height: 100vh;
-  margin-top: -3.75rem; // -60px
+  margin-top: -3.75rem;
   padding-top: 3.75rem;
   background-color: #ff4a00;
   display: flex;
@@ -38,11 +38,11 @@
 
   .band-img {
     width: 100%;
-    max-width: 43.75rem; // 700px
+    max-width: 43.75rem;
     display: block;
 
     &--mobile {
-      width: 25rem; // 400px
+      width: 25rem;
       margin: 0 auto;
 
       @media (max-width: 400px) {
@@ -53,10 +53,10 @@
 
   .logo-img {
     width: auto;
-    height: 5.625rem; // 90px
+    height: 5.625rem;
 
     @media (min-width: 769px) {
-      height: 10rem; // 160px
+      height: 10rem;
     }
   }
 }

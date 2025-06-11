@@ -1,7 +1,9 @@
 import SectionWrapper from "../../components/SectionWrapper";
 
-import totespic from "../../assets/images/totespic.png";
-import totesabout from "../../assets/images/totesabout.jpg";
+import imageMain from "../../assets/images/totespic.png";
+import imageAbout from "../../assets/images/totesabout.jpg";
+
+import "./live.scss";
 
 interface Gig {
   date: string;
@@ -20,27 +22,43 @@ interface Props {
 }
 
 const LiveSection: React.FC<Props> = ({ isMobile }) => {
+  console.log("Is mobile:", isMobile);
   return (
     <SectionWrapper id="live">
-      <div className="gig">
-        <h2 className="gig-title">Live</h2>
-        {isMobile && <img src={totesabout} alt="Band" className="gig--img" />}
-      </div>
-      <div className="gig-list">
-        <ul className="">
+      <h2 className="section--live__title">Live</h2>
+
+      {isMobile && (
+        <img
+          src={imageAbout}
+          alt="Band"
+          className="section--live__image section--live__image--desktop"
+        />
+      )}
+
+      <div className="section--live__content">
+        <ul className="section--live__list">
           {gigs.map((gig, i) => (
-            <li key={i} className="gig-item">
-              <span className="gig-date">{gig.date}</span>
-              <span className="gig-venue">{gig.venue}</span>
+            <li key={i} className="section--live__item">
+              <span className="section--live__date">{gig.date}</span>
+              <span className="section--live__venue">{gig.venue}</span>
             </li>
           ))}
         </ul>
-        {isMobile && <hr />}
-        {!isMobile && <img src={totespic} alt="Band" className="gig--img" />}
-        <div className="bookus">
+
+        {isMobile && <hr className="section--live__divider" />}
+
+        {!isMobile && (
+          <img
+            src={imageMain}
+            alt="Band"
+            className="section--live__image section--live__image--mobile"
+          />
+        )}
+
+        <div className="section--live__book">
           <p>Vill du boka oss?</p>
           <p>
-            Hör av dig till: <a href="tes">info@totes.com</a>
+            Hör av dig till: <a href="mailto:info@totes.com">info@totes.com</a>
           </p>
         </div>
       </div>

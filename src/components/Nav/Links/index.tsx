@@ -17,14 +17,8 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
     const element = document.getElementById(id);
     console.log("element", element);
     if (element) {
-      const yOffset =
-        id === "live"
-          ? window.innerWidth >= 768
-            ? -76
-            : -64
-          : window.innerWidth >= 768
-          ? -76
-          : -64;
+      const yOffset = window.innerWidth >= 768 ? -60 : -58;
+
       const y =
         element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 

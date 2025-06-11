@@ -34,7 +34,11 @@ const Menu: React.FC = () => {
         }}
         className="menu__logo"
       >
-        <MenuLogo isMobile={false} isOpen={isOpen} menuWidth={menuWidth} />
+        <MenuLogo
+          isMobile={window.innerWidth < 768}
+          isOpen={isOpen}
+          menuWidth={menuWidth}
+        />
       </div>
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
         {!isOpen ? (

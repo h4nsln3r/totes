@@ -5,13 +5,15 @@
   position: sticky;
   top: 0;
   height: 50px;
-  margin-top: -60px;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   font-family: "Inter", sans-serif;
+
+  @media (max-width: 767px) {
+  }
 
   &__logo {
     margin-left: 10px;
@@ -26,7 +28,15 @@
     }
 
     &--mobile {
+      margin-left: 0px;
+      margin-top: 10px;
+      height: 48px;
+      width: auto;
       &-alt {
+        margin-left: 0px;
+        margin-top: 10px;
+        height: 48px;
+        width: auto;
       }
     }
 

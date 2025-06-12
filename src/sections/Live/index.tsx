@@ -26,7 +26,7 @@ const LiveSection: React.FC<Props> = ({ isMobile }) => {
     <SectionWrapper id="live">
       <h2 className="section__title">Live</h2>
 
-      {isMobile && (
+      {!isMobile && (
         <img
           src={imageAbout}
           alt="Band"
@@ -44,9 +44,9 @@ const LiveSection: React.FC<Props> = ({ isMobile }) => {
           ))}
         </ul>
 
-        {isMobile && <hr className="section--live__divider" />}
+        {!isMobile && <hr className="section--live__divider" />}
 
-        {!isMobile && (
+        {isMobile && (
           <img
             src={imageMain}
             alt="Band"

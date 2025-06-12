@@ -22,7 +22,6 @@ interface Props {
 }
 
 const LiveSection: React.FC<Props> = ({ isMobile }) => {
-  console.log("Is mobile:", isMobile);
   return (
     <SectionWrapper id="live">
       <h2 className="section__title">Live</h2>

@@ -17,13 +17,14 @@ const Routing = () => {
 
   useEffect(() => {
     const updateWidth = () => {
-      setIsMobile(window.innerWidth >= 768 ? true : false);
+      setIsMobile(window.innerWidth >= 768 ? false : true);
     };
     updateWidth();
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
-  }, []);
+  }, [window.innerWidth >= 768]);
 
+  console.log("isMobile", isMobile);
   return (
     <>
       <Helmet>

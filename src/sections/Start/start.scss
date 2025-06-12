@@ -19,7 +19,9 @@
   .logo-img {
     width: auto;
     height: 5.625rem;
-
+    &--desk {
+      margin-top: -4rem;
+    }
     @media (min-width: 769px) {
       height: 10rem;
     }

@@ -47,7 +47,7 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
   };
 
   const logoToShow = useAltLogo ? totesLogoAlt : totesLogoTop;
-  const imgClass = isMobile
+  const imgClass = !isMobile
     ? useAltLogo
       ? "menu__logo--mobile-alt"
       : "menu__logo--mobile"

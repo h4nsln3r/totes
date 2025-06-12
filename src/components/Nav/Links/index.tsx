@@ -3,7 +3,6 @@ import classNames from "classnames";
 
 interface MenuLinksProps {
   activeSection: string;
-  // setIsOpen: (val: boolean) => void;
 }
 
 const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
@@ -15,9 +14,8 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
-    console.log("element", element);
     if (element) {
-      const yOffset = window.innerWidth >= 768 ? -78 : -74;
+      const yOffset = window.innerWidth >= 768 ? -62 : -74;
 
       const y =
         element.getBoundingClientRect().top + window.pageYOffset + yOffset;

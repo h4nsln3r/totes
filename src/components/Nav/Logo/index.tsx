@@ -9,7 +9,7 @@ interface MenuLogoProps {
   menuWidth: number;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, isOpen, menuWidth }) => {
+const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth }) => {
   const [showLogo, setShowLogo] = useState(false);
   const [useAltLogo, setUseAltLogo] = useState(false);
   const lastScrollY = useRef(0);

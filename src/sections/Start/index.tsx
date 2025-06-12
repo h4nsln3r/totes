@@ -9,13 +9,16 @@ import totesabout from "../../assets/images/totesabout.jpg";
 
 interface Props {
   isMobile: boolean;
+  isMenuOpen: boolean;
 }
 
-const Start: React.FC<Props> = ({ isMobile }) => {
+const Start: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
   return (
     <SectionWrapper id="start" className="hero">
       <div className="logo-top">
-        <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
+        {!isMenuOpen && (
+          <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
+        )}
       </div>
 
       <div className="hero-bottom-row">

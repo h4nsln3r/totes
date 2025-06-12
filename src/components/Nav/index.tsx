@@ -8,10 +8,13 @@ import useScrollSpy from "../../hooks/useScrollSpy";
 import "./menu.scss";
 import MenuLogo from "./Logo";
 
-const Menu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(
-    window.innerWidth >= 768 ? true : false
-  );
+interface Props {
+  isOpen: boolean;
+  isMobile: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   const [menuWidth, setMenuWidth] = useState<number>(300);
 
   const sectionIds = ["live", "music", "info"];
@@ -34,11 +37,7 @@ const Menu: React.FC = () => {
         }}
         className="menu__logo"
       >
-        <MenuLogo
-          isMobile={window.innerWidth < 768}
-          isOpen={isOpen}
-          menuWidth={menuWidth}
-        />
+        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
       </div>
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
         {!isOpen ? (

@@ -9,7 +9,7 @@ interface MenuLogoProps {
   menuWidth: number;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth }) => {
+const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
   const [showLogo, setShowLogo] = useState(false);
   const [useAltLogo, setUseAltLogo] = useState(false);
   const lastScrollY = useRef(0);
@@ -28,12 +28,17 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth }) => {
         if (scrollY < 300) setShowLogo(false);
         if (scrollY < 500) setUseAltLogo(false);
       }
+
+      if (isMobile && isOpen) {
+        setShowLogo(true);
+        return;
+      }
     };
 
     handleScroll(); // direkt vid mount
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobile, isOpen]);
 
   const variants = {
     hidden: { opacity: 0, y: -40 },

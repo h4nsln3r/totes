@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
-
 import StartSection from "../sections/Start";
 import LiveSection from "../sections/Live";
 import MusicSection from "../sections/Music";
 import InfoSection from "../sections/Info";
 
-const Page: React.FC = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+interface Props {
+  isMobile: boolean;
+  isMenuOpen: boolean;
+}
 
-  useEffect(() => {
-    const updateWidth = () => {
-      setIsMobile(window.innerWidth >= 768 ? true : false);
-    };
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
-
+const Page: React.FC<Props> = ({ isMenuOpen, isMobile }) => {
   return (
     <>
-      <StartSection isMobile={isMobile} />
+      <StartSection isMobile={isMobile} isMenuOpen={isMenuOpen} />
       <LiveSection isMobile={isMobile} />
       <MusicSection />
       <InfoSection />

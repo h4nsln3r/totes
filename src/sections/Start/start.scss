@@ -4,7 +4,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -80px;
+  margin-top: -6rem;
+
+  @media (min-width: 769px) {
+    margin-top: -3.3rem;
+  }
   .logo-top {
     margin-left: 2rem;
     margin-bottom: 1rem;

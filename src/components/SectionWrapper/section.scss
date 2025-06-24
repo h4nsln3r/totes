@@ -55,10 +55,11 @@
       text-align: center;
       iframe {
         width: 96%;
-        min-height: 600px;
+        min-height: 500px;
         margin: auto;
         margin-top: 40px;
         @media (min-width: 768px) {
+          min-height: 720px;
           width: 80%;
           margin-top: 20px;
         }

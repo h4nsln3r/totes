@@ -10,12 +10,14 @@ interface Gig {
   venue: string;
 }
 
-const gigs: Gig[] = [
-  { date: "25/5", venue: "Pizza Special" },
-  { date: "3/5", venue: "Sallys Café" },
-  { date: "18/5", venue: "Ailé" },
-  { date: "23/6", venue: "Söderport" },
-];
+// const oldGigs: Gig[] = [
+//   { date: "25/5", venue: "Pizza Special" },
+//   { date: "3/5", venue: "Sallys Café" },
+//   { date: "18/5", venue: "Ailé" },
+//   { date: "23/6", venue: "Söderport" },
+// ];
+
+const gigs: Gig[] = [{ date: "5/10", venue: "Octoberfest i Kalmar" }];
 
 interface Props {
   isMobile: boolean;

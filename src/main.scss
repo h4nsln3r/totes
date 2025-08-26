@@ -1,4 +1,4 @@
-@import './styles/variables.scss';
+@import "./styles/variables.scss";
 
 html {
   scroll-behavior: smooth;
@@ -6,4 +6,30 @@ html {
 
 body {
   margin: 0;
+}
+
+.text {
+  &--m {
+    padding: 0 15px;
+    padding-bottom: 0;
+    font-size: 18px;
+    @media (min-width: 769px) {
+      padding: 0 25px;
+    }
+  }
+}
+
+.margin {
+  &__bottom {
+    &--1 {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.sociallinks {
+  text-align: center;
+  a {
+    font-size: 26px;
+  }
 }

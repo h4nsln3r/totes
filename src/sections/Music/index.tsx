@@ -12,9 +12,9 @@ const MusicSection: React.FC<Props> = () => {
       <div className="player">
         <YouTubeEmbed videoId={"xvplQdhiNxI"} />
       </div>
-      <div className="section--music--bottom">
+      {/* <div className="section--music--bottom">
         <YoutubeIcon color={"red"} fontSize={100} url={"@OfficiallyTotes"} />
-      </div>
+      </div> */}
     </SectionWrapper>
   );
 };

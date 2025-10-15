@@ -1,9 +1,9 @@
-import SectionWrapper from "../../components/SectionWrapper";
+import SectionWrapper from '../../components/SectionWrapper';
 
-import imageMain from "../../assets/images/totespic.png";
-import imageAbout from "../../assets/images/totesabout.jpg";
+import imageMain from '../../assets/images/totespic.png';
+import imageAbout from '../../assets/images/totesabout.jpg';
 
-import "./live.scss";
+import './live.scss';
 
 interface Gig {
   date: string;
@@ -17,7 +17,7 @@ interface Gig {
 //   { date: "23/6", venue: "Söderport" },
 // ];
 
-const gigs: Gig[] = [{ date: "5/10", venue: "Octoberfest i Kalmar" }];
+const gigs: Gig[] = [{ date: '5/10', venue: 'Octoberfest i Kalmar' }];
 
 interface Props {
   isMobile: boolean;
@@ -59,7 +59,8 @@ const LiveSection: React.FC<Props> = ({ isMobile }) => {
         <div className="section--live__book">
           <p>Vill du boka oss?</p>
           <p>
-            Hör av dig till: <a href="mailto:info@totes.com">info@totes.com</a>
+            Hör av dig till: <a href="mailto:info@totes.com">ittakestotes@gmail.com</a>
+            eler skriv på någon social media
           </p>
         </div>
       </div>

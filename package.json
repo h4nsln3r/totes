@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "postbuild": "echo www.totes.band > dist/CNAME && cp dist/index.html dist/404.html",
+   "postbuild": "echo www.totes.band > dist/CNAME && copy dist\\index.html dist\\404.html",
     "deploy": "npm run build && npm run postbuild && gh-pages -d dist -b gh-pages",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

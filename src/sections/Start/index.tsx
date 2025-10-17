@@ -3,7 +3,7 @@ import SectionWrapper from "../../components/SectionWrapper";
 import "./start.scss";
 
 import totesLogoTop from "../../assets/logo/totes_line_1.png";
-import totesLogoBottom from "../../assets/logo/totes_line_2.png";
+import totesLogoBottom from "../../assets/logo/tes.png";
 import totespic from "../../assets/images/totespic.png";
 import totesabout from "../../assets/images/totesabout.jpg";
 

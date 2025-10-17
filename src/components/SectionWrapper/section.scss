@@ -8,12 +8,13 @@
   &__title {
     font-size: 2.4rem;
     font-weight: 300;
-    margin: 0 auto -25px;
-
+    text-align: center;
+    margin: 0;
+    //  border-bottom: 2px solid black;
     @media (min-width: 768px) {
-      font-size: 3rem;
-      margin: 0 auto 0;
-      padding-left: 20px;
+      font-size: 6rem;
+      text-align: left;
+      margin: 0 20px 0 20px;
     }
   }
   //TODO variabel this?? or is this used good?
@@ -24,31 +25,45 @@
 
   &--info {
     background-color: #deefdb;
-    h2 {
-      text-align: center;
-      @media (min-width: 768px) {
-        text-align: left;
-        margin-left: 20px;
-      }
-    }
   }
 
   &--music {
     background-color: #42a5f5;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-
-    h2 {
-      text-align: center;
-      @media (min-width: 768px) {
-        text-align: left;
-        margin-left: 20px;
-      }
+    justify-content: flex-start;
+    align-items: center;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
     }
+    .video-wrap {
+      width: 100%;
+      margin: 0;
+      margin-top: 10px;
+      aspect-ratio: 9 / 16;
+      @media (min-width: 768px) {
+        margin: 24px auto 0 0;
+        width: 96%;
+        max-width: 1526px;
+        aspect-ratio: 16 / 9;
+      }
+      // Behåll proportioner snyggt (16:9). Stöd i moderna browsers.
 
-    &--bottom {
-      text-align: center;
+      // Om du vill att höjd ska följa bredden även i äldre browsers:
+      // position: relative;
+      // .video-player { position: absolute; inset: 0; }
+
+      .video-player {
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        background: #000; // snygg bakgrund innan videon laddat
+      }
     }
 
     .player {

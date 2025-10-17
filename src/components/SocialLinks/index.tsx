@@ -10,7 +10,7 @@ export default function SocialLinks() {
   };
 
   return (
-    <div className="sociallinks" style={{ marginTop: "1.5rem" }}>
+    <div className="sociallinks">
       <a
         href="https://www.instagram.com/totesband/"
         target="_blank"

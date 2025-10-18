@@ -25,6 +25,9 @@
 
   &--info {
     background-color: #deefdb;
+    > img {
+      margin-top: -20px;
+    }
   }
 
   &--music {

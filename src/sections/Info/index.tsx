@@ -7,7 +7,7 @@ interface Props {}
 const InfoSection: React.FC<Props> = () => {
   return (
     <SectionWrapper id="info" className="section__info">
-      <h2 className="section__title margin__bottom--1">Om</h2>
+      <h2 className="section__title">Om</h2>
       <div className="section__flex-col--2">
         <div style={{ padding: "0 10px 0 10px" }}>
           <p className="text--m">

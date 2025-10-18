@@ -1,91 +1,91 @@
-.section {
-  //TODO variabel font
-  font-family: "Inter", sans-serif;
-  min-height: 100vh;
-  padding-top: 1rem;
-  padding-bottom: 4rem;
+// .section {
+//   //TODO variabel font
+//   font-family: "Inter", sans-serif;
+//   min-height: 100vh;
+//   padding-top: 1rem;
+//   padding-bottom: 4rem;
 
-  &__title {
-    font-size: 2.4rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    //  border-bottom: 2px solid black;
-    @media (min-width: 768px) {
-      font-size: 6rem;
-      text-align: left;
-      margin: 0 20px 0 20px;
-    }
-  }
-  //TODO variabel this?? or is this used good?
-  p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
+//   &__title {
+//     font-size: 2.4rem;
+//     font-weight: 300;
+//     text-align: center;
+//     margin: 0;
+//     //  border-bottom: 2px solid black;
+//     @media (min-width: 768px) {
+//       font-size: 6rem;
+//       text-align: left;
+//       margin: 0 20px 0 20px;
+//     }
+//   }
+//   //TODO variabel this?? or is this used good?
+//   p {
+//     font-size: 1.1rem;
+//     line-height: 1.6;
+//   }
 
-  &--info {
-    background-color: #deefdb;
-    > img {
-      margin-top: -20px;
-    }
-  }
+//   &--info {
+//     background-color: #deefdb;
+//     > img {
+//       margin-top: -20px;
+//     }
+//   }
 
-  &--music {
-    background-color: #42a5f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .video-wrap {
-      width: 100%;
-      margin: 0;
-      margin-top: 10px;
-      aspect-ratio: 9 / 16;
-      @media (min-width: 768px) {
-        margin: 24px auto 0 0;
-        width: 96%;
-        max-width: 1526px;
-        aspect-ratio: 16 / 9;
-      }
-      // Behåll proportioner snyggt (16:9). Stöd i moderna browsers.
+//   &--music {
+//     background-color: #42a5f5;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: center;
+//     @media (min-width: 768px) {
+//       flex-direction: row;
+//       justify-content: space-between;
+//       align-items: flex-start;
+//     }
+//     .video-wrap {
+//       width: 100%;
+//       margin: 0;
+//       margin-top: 10px;
+//       aspect-ratio: 9 / 16;
+//       @media (min-width: 768px) {
+//         margin: 24px auto 0 0;
+//         width: 96%;
+//         max-width: 1526px;
+//         aspect-ratio: 16 / 9;
+//       }
+//       // Behåll proportioner snyggt (16:9). Stöd i moderna browsers.
 
-      // Om du vill att höjd ska följa bredden även i äldre browsers:
-      // position: relative;
-      // .video-player { position: absolute; inset: 0; }
+//       // Om du vill att höjd ska följa bredden även i äldre browsers:
+//       // position: relative;
+//       // .video-player { position: absolute; inset: 0; }
 
-      .video-player {
-        margin-top: 10px;
-        width: 100%;
-        height: 100%;
-        display: block;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-        background: #000; // snygg bakgrund innan videon laddat
-      }
-    }
+//       .video-player {
+//         margin-top: 10px;
+//         width: 100%;
+//         height: 100%;
+//         display: block;
+//         border-radius: 12px;
+//         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+//         background: #000; // snygg bakgrund innan videon laddat
+//       }
+//     }
 
-    .player {
-      text-align: center;
-      iframe {
-        width: 96%;
-        min-height: 500px;
-        margin: auto;
-        margin-top: 40px;
-        @media (min-width: 768px) {
-          min-height: 720px;
-          width: 80%;
-          margin-top: 20px;
-        }
-      }
-    }
-  }
+//     .player {
+//       text-align: center;
+//       iframe {
+//         width: 96%;
+//         min-height: 500px;
+//         margin: auto;
+//         margin-top: 40px;
+//         @media (min-width: 768px) {
+//           min-height: 720px;
+//           width: 80%;
+//           margin-top: 20px;
+//         }
+//       }
+//     }
+//   }
 
-  &--live {
-    background-color: #f2f2f2;
-  }
-}
+//   &--live {
+//     background-color: #f2f2f2;
+//   }
+// }

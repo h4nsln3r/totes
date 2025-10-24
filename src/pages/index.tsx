@@ -12,8 +12,8 @@ const Page: React.FC<Props> = ({ isMenuOpen, isMobile }) => {
   return (
     <>
       <StartSection isMobile={isMobile} isMenuOpen={isMenuOpen} />
-      <LiveSection isMobile={isMobile} />
       <MusicSection />
+      <LiveSection isMobile={isMobile} />
       <InfoSection />
     </>
   );

@@ -81,14 +81,14 @@ body {
   }
 
   &--info {
-    background-color: #deefdb;
+    background-color: #42a5f5;
     > img {
       margin-top: -20px;
     }
   }
 
   &--music {
-    background-color: #42a5f5;
+    background-color: #deefdb !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -436,8 +436,8 @@ body {
 
     .video-viewport {
       width: 96%;
-      max-width: 1526px;
-      margin: 24px auto 0;
+      max-width: 1426px;
+      margin: 0px auto 0;
       aspect-ratio: 16 / 9;
       height: auto;
       border-radius: 12px;

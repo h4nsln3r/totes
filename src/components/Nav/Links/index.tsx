@@ -7,8 +7,8 @@ interface MenuLinksProps {
 
 const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
   const links = [
-    { label: "Live", id: "live" },
     { label: "Musik", id: "music" },
+    { label: "Live", id: "live" },
     { label: "Om", id: "info" },
   ];
 

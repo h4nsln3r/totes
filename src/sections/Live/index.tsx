@@ -16,9 +16,10 @@ interface Gig {
 //   { date: "18/5", venue: "Ailé" },
 //   { date: "23/6", venue: "Söderport" },
 // { date: "5/10", venue: "Octoberfest i Kalmar" },
+// { date: "25/10", venue: "Privat spelning - Malmö" }
 // ];
 
-const gigs: Gig[] = [{ date: "25/10", venue: "Privat spelning - Malmö" }];
+const gigs: Gig[] = [];
 
 interface Props {
   isMobile: boolean;

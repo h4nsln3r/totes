@@ -1,12 +1,12 @@
-import SectionWrapper from './Section';
-import SocialLinks from '../Links';
-import totespic from '../../assets/images/totesorig.jpg';
+import SectionWrapper from '..';
+import SocialLinks from '../../Links';
+import totespic from '../../../assets/images/totesorig.jpg';
 
 interface Props {}
 
 const Info: React.FC<Props> = () => {
   return (
-    <SectionWrapper id="info" className="section__info">
+    <SectionWrapper sectionName="info">
       <h2 className="section__title">Om</h2>
       <div className="section__flex-col--2">
         <div style={{ padding: '0 10px 0 10px' }}>

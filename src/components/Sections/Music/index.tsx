@@ -1,9 +1,11 @@
 // src/sections/MusicSection/MusicSection.tsx
-import SectionWrapper from './Section';
+
+import SectionWrapper from '..';
+import './music.scss';
 
 const Music: React.FC = () => {
   return (
-    <SectionWrapper id="music" className="section section--music">
+    <SectionWrapper sectionName="music">
       <h2 className="section__title">Musik</h2>
       <br />
       <div className="video-viewport">

@@ -1,15 +1,18 @@
-import React from "react";
-import classNames from "classnames";
+import React from 'react';
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 interface MenuLinksProps {
   activeSection: string;
 }
 
 const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
+  const { t } = useTranslation();
+
   const links = [
-    { label: "Musik", id: "music" },
-    { label: "Live", id: "live" },
-    { label: "Om", id: "info" },
+    { label: t('nav.music'), id: 'music' },
+    { label: t('nav.live'), id: 'live' },
+    { label: t('nav.about'), id: 'info' },
   ];
 
   const scrollToId = (id: string) => {
@@ -17,10 +20,9 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
     if (element) {
       const yOffset = window.innerWidth >= 768 ? -62 : -74;
 
-      const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 

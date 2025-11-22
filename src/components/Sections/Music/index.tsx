@@ -1,12 +1,15 @@
 // src/sections/MusicSection/MusicSection.tsx
+import { useTranslation } from 'react-i18next';
 
 import SectionWrapper from '..';
 import './music.scss';
 
 const Music: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper sectionName="music">
-      <h2 className="section__title">Musik</h2>
+      <h2 className="section__title">{t('music.title')}</h2>
       <br />
       <div className="video-viewport">
         <iframe

@@ -111,10 +111,11 @@
     margin-right: 20px;
     align-items: center;
     justify-content: right;
-    gap: 2rem;
+    gap: 1.4rem;
+
     @media (min-width: 768px) {
       margin-right: 36px;
-      gap: 6rem;
+      gap: 4rem;
       justify-content: center;
     }
 

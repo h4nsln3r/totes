@@ -8,6 +8,7 @@ import { PAST_GIGS } from '../../../data/gigs';
 
 import './live.scss';
 import LiveList from './LiveList';
+import { useTranslation } from 'react-i18next';
 
 interface Gig {
   date: string;
@@ -30,9 +31,10 @@ interface Props {
 }
 
 const Live: React.FC<Props> = ({ isMobile }) => {
+  const { t } = useTranslation();
   return (
     <SectionWrapper sectionName="live">
-      <h2 className="section__title">Live</h2>
+      <h2 className="section__title">{t('live.title')}</h2>
 
       {!isMobile && (
         <img src={imageAbout} alt="Band" className="live__image live__image--desktop" />
@@ -43,21 +45,21 @@ const Live: React.FC<Props> = ({ isMobile }) => {
           <LiveList gigs={gigs} />
         ) : (
           <div className="live__empty">
-            <h4>Inga gigs för tillfället… </h4>
-            <p>Fler datum släpps löpande – följ oss i sociala kanaler.</p>
+            <h4>{t('live.empty')}</h4>
+            <p>{t('live.moreSoon')}</p>
           </div>
         )}
         {!isMobile && <hr className="live__divider" />}
-        <PastGigsAccordion gigs={PAST_GIGS} />
+        <PastGigsAccordion gigs={PAST_GIGS} title={t('pastGigs.title')} />
         {!isMobile && <hr className="live__divider" />}
 
         {isMobile && <img src={imageMain} alt="Band" className="live__image live__image--mobile" />}
 
         <div className="live__book">
-          <p>Vill du boka oss?</p>
+          <p>{t('live.bookUs')}</p>
           <p>
             <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
-            <br /> - eller skriv på någon social kanal!
+            <br /> {t('common.orSocials')}
           </p>
         </div>
       </div>

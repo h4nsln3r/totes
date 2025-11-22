@@ -1,9 +1,9 @@
 import Helmet from 'react-helmet';
-import { Navigate, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Page from './pages';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMediaQuery } from './hooks/useMediaQuery';
+import Pages from './pages';
 
 export const PATHS = {
   TOTES: '/totes/',
@@ -21,10 +21,7 @@ const Routing = () => {
 
       <Nav isOpen={isOpen} setIsOpen={(isOpen: boolean) => setIsOpen(isOpen)} isMobile={isMobile} />
 
-      <Routes>
-        <Route path={PATHS.TOTES} element={<Page isMobile={isMobile} isMenuOpen={isOpen} />} />
-        <Route path="*" element={<Navigate replace to={PATHS.TOTES} />} />
-      </Routes>
+      <Pages isMobile={isMobile} isMenuOpen={isOpen} />
     </>
   );
 };

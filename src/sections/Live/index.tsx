@@ -1,9 +1,9 @@
-import SectionWrapper from "../../components/SectionWrapper";
+import SectionWrapper from '../../components/Section';
 
-import imageMain from "../../assets/images/totespic.png";
-import imageAbout from "../../assets/images/totesabout.jpg";
+import imageMain from '../../assets/images/totespic.png';
+import imageAbout from '../../assets/images/totesabout.jpg';
 
-import "./live.scss";
+import './live.scss';
 
 interface Gig {
   date: string;
@@ -61,8 +61,7 @@ const LiveSection: React.FC<Props> = ({ isMobile }) => {
         <div className="section--live__book">
           <p>Vill du boka oss?</p>
           <p>
-            Hör av dig till:{" "}
-            <a href="ittakestotes@gmail.com">ittakestotes@gmail.com</a>
+            Hör av dig till: <a href="ittakestotes@gmail.com">ittakestotes@gmail.com</a>
             <br /> - eller skriv på någon socialmedia!
           </p>
         </div>

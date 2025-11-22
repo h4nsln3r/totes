@@ -1,5 +1,5 @@
 // src/sections/MusicSection/MusicSection.tsx
-import SectionWrapper from "../../components/SectionWrapper";
+import SectionWrapper from '../../components/Section';
 
 const MusicSection: React.FC = () => {
   return (

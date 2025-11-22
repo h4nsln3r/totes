@@ -1,6 +1,6 @@
 import SectionWrapper from './Section';
 import SocialLinks from '../Links';
-import totespic from '../../assets/images/totespic.png';
+import totespic from '../../assets/images/totesorig.jpg';
 
 interface Props {}
 

@@ -1,5 +1,6 @@
-import React from "react";
-import { FaYoutube } from "react-icons/fa";
+import React from 'react';
+import { FaYoutube } from 'react-icons/fa';
+import './icons.scss';
 
 interface Props {
   url: string;
@@ -13,13 +14,8 @@ const YouTubeIcon: React.FC<Props> = ({ url, fontSize, color }) => {
       href={`https://www.youtube.com/${url}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="hover"
+      className="icon"
       title="Följ oss på YouTube"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
     >
       <FaYoutube size={fontSize} color={color} />
     </a>

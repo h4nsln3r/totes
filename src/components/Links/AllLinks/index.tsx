@@ -1,16 +1,16 @@
-import { FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaYoutube, FaInstagram } from 'react-icons/fa';
 
-export default function SocialLinks() {
+export default function AllLinks() {
   const iconStyle = {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: "1rem",
-    transition: "transform 0.2s ease",
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: '1rem',
+    transition: 'transform 0.2s ease',
   };
 
   return (
-    <div className="sociallinks">
+    <div className="allinks">
       <a
         href="https://www.instagram.com/totesband/"
         target="_blank"

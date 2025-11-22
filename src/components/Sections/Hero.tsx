@@ -1,4 +1,4 @@
-import SectionWrapper from '../../components/Section';
+import SectionWrapper from '../Section';
 
 import './start.scss';
 
@@ -12,7 +12,7 @@ interface Props {
   isMenuOpen: boolean;
 }
 
-const Start: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
+const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
   console.log('isMobile', isMobile);
   console.log('isMenuOpen', isMenuOpen);
   return (
@@ -44,4 +44,4 @@ const Start: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
   );
 };
 
-export default Start;
+export default Hero;

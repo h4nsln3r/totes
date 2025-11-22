@@ -1,10 +1,10 @@
-import SectionWrapper from '../../components/Section';
-import SocialLinks from '../../components/SocialLinks';
+import SectionWrapper from '../Section';
+import SocialLinks from '../Links';
 import totespic from '../../assets/images/totespic.png';
 
 interface Props {}
 
-const InfoSection: React.FC<Props> = () => {
+const Info: React.FC<Props> = () => {
   return (
     <SectionWrapper id="info" className="section__info">
       <h2 className="section__title">Om</h2>
@@ -36,4 +36,4 @@ const InfoSection: React.FC<Props> = () => {
   );
 };
 
-export default InfoSection;
+export default Info;

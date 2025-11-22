@@ -1,7 +1,7 @@
 // src/sections/MusicSection/MusicSection.tsx
-import SectionWrapper from '../../components/Section';
+import SectionWrapper from '../Section';
 
-const MusicSection: React.FC = () => {
+const Music: React.FC = () => {
   return (
     <SectionWrapper id="music" className="section section--music">
       <h2 className="section__title">Musik</h2>
@@ -18,4 +18,4 @@ const MusicSection: React.FC = () => {
   );
 };
 
-export default MusicSection;
+export default Music;

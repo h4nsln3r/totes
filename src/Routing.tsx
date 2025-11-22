@@ -1,9 +1,11 @@
 import Helmet from 'react-helmet';
 import Nav from './components/Nav';
-import Page from './pages';
 import { useState } from 'react';
 import { useMediaQuery } from './hooks/useMediaQuery';
-import Pages from './pages';
+import Hero from './components/Sections/Hero';
+import Music from './components/Sections/Music';
+import Live from './components/Sections/Live';
+import Info from './components/Sections/Info';
 
 export const PATHS = {
   TOTES: '/totes/',
@@ -11,7 +13,7 @@ export const PATHS = {
 
 const Routing = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const [isOpen, setIsOpen] = useState<boolean>(isMobile ? false : true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(isMobile ? false : true);
 
   return (
     <>
@@ -19,9 +21,18 @@ const Routing = () => {
         <title>Totes</title>
       </Helmet>
 
-      <Nav isOpen={isOpen} setIsOpen={(isOpen: boolean) => setIsOpen(isOpen)} isMobile={isMobile} />
+      <Nav
+        isOpen={isMenuOpen}
+        setIsOpen={(isOpen: boolean) => setIsMenuOpen(isOpen)}
+        isMobile={isMobile}
+      />
 
-      <Pages isMobile={isMobile} isMenuOpen={isOpen} />
+      <main>
+        <Hero isMobile={isMobile} isMenuOpen={isMenuOpen} />
+        <Music />
+        <Live isMobile={isMobile} />
+        <Info />
+      </main>
     </>
   );
 };

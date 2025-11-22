@@ -1,9 +1,7 @@
-import SectionWrapper from '../../components/Section';
+import SectionWrapper from '../Section';
 
 import imageMain from '../../assets/images/totespic.png';
 import imageAbout from '../../assets/images/totesabout.jpg';
-
-import './live.scss';
 
 interface Gig {
   date: string;
@@ -25,7 +23,7 @@ interface Props {
   isMobile: boolean;
 }
 
-const LiveSection: React.FC<Props> = ({ isMobile }) => {
+const Live: React.FC<Props> = ({ isMobile }) => {
   return (
     <SectionWrapper id="live">
       <h2 className="section__title">Live</h2>
@@ -70,4 +68,4 @@ const LiveSection: React.FC<Props> = ({ isMobile }) => {
   );
 };
 
-export default LiveSection;
+export default Live;

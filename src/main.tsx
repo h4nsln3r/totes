@@ -1,10 +1,10 @@
-import ReactDOM from "react-dom/client";
-import Routing from "./Routing.tsx";
-import { BrowserRouter } from "react-router-dom";
+import ReactDOM from 'react-dom/client';
+import Routing from './Routing.tsx';
+import { BrowserRouter } from 'react-router-dom';
 
-import "./main.scss";
+import './styles/main.scss';
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Routing />
   </BrowserRouter>

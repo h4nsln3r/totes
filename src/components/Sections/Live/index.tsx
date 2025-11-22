@@ -45,7 +45,7 @@ const Live: React.FC<Props> = ({ isMobile }) => {
             ))}
           </ul>
         ) : (
-          <div></div>
+          <div>Inga giggs för tillfället...</div>
         )}
 
         {!isMobile && <hr className="live__divider" />}

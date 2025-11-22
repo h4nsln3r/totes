@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import MenuIcon from "@mui/icons-material/Menu";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MenuLinks from "./Links";
-import useScrollSpy from "../../hooks/useScrollSpy";
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import MenuIcon from '@mui/icons-material/Menu';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import MenuLinks from './Links';
+import MenuLogo from './Logo';
+import useScrollSpy from '../../hooks/useScrollSpy';
 
-import "./menu.scss";
-import MenuLogo from "./Logo";
+import './menu.scss';
 
 interface Props {
   isOpen: boolean;
@@ -17,7 +17,7 @@ interface Props {
 const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   const [menuWidth, setMenuWidth] = useState<number>(300);
 
-  const sectionIds = ["music", "live", "info"];
+  const sectionIds = ['music', 'live', 'info'];
   const activeSection = useScrollSpy(sectionIds);
 
   useEffect(() => {
@@ -25,26 +25,22 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
       setMenuWidth(window.innerWidth >= 768 ? 500 : 220);
     };
     updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
   return (
     <nav className="menu">
       <div
         onClick={() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         className="menu__logo"
       >
         <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
       </div>
       <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
-        {!isOpen ? (
-          <MenuIcon fontSize="large" />
-        ) : (
-          <ArrowForwardIosIcon fontSize="medium" />
-        )}
+        {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
       </div>
 
       <motion.div

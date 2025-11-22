@@ -1,4 +1,4 @@
-import SectionWrapper from '../Section';
+import SectionWrapper from './Section';
 import SocialLinks from '../Links';
 import totespic from '../../assets/images/totespic.png';
 

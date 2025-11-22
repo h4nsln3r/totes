@@ -1,7 +1,9 @@
-import Helmet from 'react-helmet';
-import Nav from './components/Nav';
 import { useState } from 'react';
+import Helmet from 'react-helmet';
+
 import { useMediaQuery } from './hooks/useMediaQuery';
+
+import Menu from './components/Menu';
 import Hero from './components/Sections/Hero';
 import Music from './components/Sections/Music';
 import Live from './components/Sections/Live';
@@ -21,7 +23,7 @@ const Routing = () => {
         <title>Totes</title>
       </Helmet>
 
-      <Nav
+      <Menu
         isOpen={isMenuOpen}
         setIsOpen={(isOpen: boolean) => setIsMenuOpen(isOpen)}
         isMobile={isMobile}

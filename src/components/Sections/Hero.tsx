@@ -1,6 +1,4 @@
-import SectionWrapper from '../Section';
-
-import './start.scss';
+import Section from './Section';
 
 import totesLogoTop from '../../assets/logo/totes_line_1.png';
 import totesLogoBottom from '../../assets/logo/tes.png';
@@ -13,16 +11,11 @@ interface Props {
 }
 
 const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
-  console.log('isMobile', isMobile);
-  console.log('isMenuOpen', isMenuOpen);
   return (
-    <SectionWrapper id="start" className="hero">
+    <Section id="hero" className="hero">
       <div className="logo-top">
         {!isMenuOpen && isMobile ? (
-          <>
-            {console.log('HEja')}
-            <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
-          </>
+          <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
         ) : (
           !isMobile && (
             <img src={totesLogoTop} alt="Totes Logo" className="logo-img logo-img--desk" />
@@ -40,7 +33,7 @@ const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
           <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
         </div>
       </div>
-    </SectionWrapper>
+    </Section>
   );
 };
 

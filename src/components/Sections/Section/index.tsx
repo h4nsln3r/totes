@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import './section.scss';
+import '../Sections.scss';
 
 interface SectionWrapperProps {
   id: string;

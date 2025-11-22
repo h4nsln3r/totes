@@ -1,4 +1,4 @@
-import SectionWrapper from '../Section';
+import SectionWrapper from './Section';
 
 import imageMain from '../../assets/images/totespic.png';
 import imageAbout from '../../assets/images/totesabout.jpg';

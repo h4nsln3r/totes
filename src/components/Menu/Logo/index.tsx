@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import totesLogoTop from "../../../assets/logo/totes_line_1.png";
-import totesLogoAlt from "../../../assets/logo/totes_svart_symbol.png"; // ersätt med din riktiga fil
+import { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import totesLogoTop from '../../../assets/logo/totes_line_1.png';
+import totesLogoAlt from '../../../assets/logo/totes_svart_symbol.png'; // ersätt med din riktiga fil
 
 interface MenuLogoProps {
   isMobile: boolean;
@@ -36,8 +36,8 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
     };
 
     handleScroll(); // direkt vid mount
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile, isOpen]);
 
   const variants = {
@@ -49,11 +49,11 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
   const logoToShow = useAltLogo ? totesLogoAlt : totesLogoTop;
   const imgClass = !isMobile
     ? useAltLogo
-      ? "menu__logo--mobile-alt"
-      : "menu__logo--mobile"
+      ? 'menu__logo--mobile-alt'
+      : 'menu__logo--mobile'
     : useAltLogo
-    ? "menu__logo--desktop-alt"
-    : "menu__logo--desktop";
+    ? 'menu__logo--desktop-alt'
+    : 'menu__logo--desktop';
 
   return (
     <AnimatePresence mode="wait">
@@ -65,7 +65,7 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
           exit="exit"
           variants={variants}
           transition={{ duration: 0.2 }}
-          className={"menu__animation"}
+          className={'menu__animation'}
           style={{ width: menuWidth - 20 }}
         >
           <img src={logoToShow} alt="Totes Logo" className={imgClass} />

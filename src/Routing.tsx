@@ -9,10 +9,6 @@ import Music from './components/Sections/Music';
 import Live from './components/Sections/Live';
 import Info from './components/Sections/Info';
 
-export const PATHS = {
-  TOTES: '/totes/',
-};
-
 const Routing = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(isMobile ? false : true);

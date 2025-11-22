@@ -26,7 +26,7 @@ const Info: React.FC<Props> = () => {
           <div className="live__book">
             <p>Vill du boka oss?</p>
             <p>
-              Hör av dig till: <a href="ittakestotes@gmail.com">ittakestotes@gmail.com</a>
+              <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
               <br /> - eller skriv på någon socialmedia!
             </p>
           </div>

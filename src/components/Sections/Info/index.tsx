@@ -1,5 +1,5 @@
 import SectionWrapper from '..';
-import AllLinks from '../../Links';
+import AllLinks from '../../Links/AllLinks';
 import totespic from '../../../assets/images/totesorig.jpg';
 
 import './Info.scss';

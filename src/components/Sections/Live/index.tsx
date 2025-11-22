@@ -17,12 +17,12 @@ interface Gig {
 }
 
 const gigs: Gig[] = [
-  {
-    date: '2025',
-    city: 'Malmö',
-    venue: 'Pizzeria Special',
-    // notes: Bra spelning, 11 låtar, 2 set, gratis mat + öl, många vänner där.
-  },
+  // {
+  //   date: '2025',
+  //   city: 'Malmö',
+  //   venue: 'Pizzeria Special',
+  //   // notes: Bra spelning, 11 låtar, 2 set, gratis mat + öl, många vänner där.
+  // },
 ];
 
 interface Props {
@@ -57,7 +57,7 @@ const Live: React.FC<Props> = ({ isMobile }) => {
           <p>Vill du boka oss?</p>
           <p>
             <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
-            <br /> - eller skriv på någon socialmedia!
+            <br /> - eller skriv på någon social kanal!
           </p>
         </div>
       </div>

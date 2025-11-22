@@ -7,6 +7,7 @@ import MenuLogo from './Logo';
 import useScrollSpy from '../../hooks/useScrollSpy';
 
 import './menu.scss';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface Props {
   isOpen: boolean;
@@ -31,16 +32,15 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
 
   return (
     <nav className="menu">
-      <div
-        onClick={() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        className="menu__logo"
-      >
+      <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
         <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
       </div>
-      <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
-        {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
+
+      <div className="menu__controls">
+        <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
+          {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
+        </div>
+        {isMobile && isOpen ? <></> : <LanguageSwitcher isMenuOpen={isOpen} isMobile={isMobile} />}
       </div>
 
       <motion.div

@@ -9,6 +9,7 @@ import { PAST_GIGS } from '../../../data/gigs';
 import './live.scss';
 import LiveList from './LiveList';
 import { useTranslation } from 'react-i18next';
+import BookUs from '../../Text/BookUs';
 
 interface Gig {
   date: string;
@@ -54,14 +55,7 @@ const Live: React.FC<Props> = ({ isMobile }) => {
         {!isMobile && <hr className="live__divider" />}
 
         {isMobile && <img src={imageMain} alt="Band" className="live__image live__image--mobile" />}
-
-        <div className="live__book">
-          <p>{t('live.bookUs')}</p>
-          <p>
-            <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
-            <br /> {t('common.orSocials')}
-          </p>
-        </div>
+        <BookUs />
       </div>
     </SectionWrapper>
   );

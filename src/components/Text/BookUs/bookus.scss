@@ -1,0 +1,27 @@
+.bookus {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 5px;
+  max-width: fit-content;
+  margin: auto;
+  .allinks {
+    margin-top: -10px;
+    text-align: center;
+    svg {
+      margin-top: 20px;
+      font-size: 30px;
+    }
+  }
+  @media (min-width: 769px) {
+    max-width: 600px;
+  }
+
+  p {
+    margin: 0.5rem 0 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

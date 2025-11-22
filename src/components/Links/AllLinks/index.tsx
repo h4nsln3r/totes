@@ -19,7 +19,7 @@ export default function AllLinks() {
         style={iconStyle}
         className="hover:scale-110"
       >
-        <FaInstagram size={62} color="#E4405F" />
+        <FaInstagram color="#E4405F" />
       </a>
       <a
         href="https://www.youtube.com/@OfficiallyTotes"
@@ -29,7 +29,7 @@ export default function AllLinks() {
         style={iconStyle}
         className="hover:scale-110"
       >
-        <FaYoutube size={62} color="#FF0000" />
+        <FaYoutube color="#FF0000" />
       </a>
     </div>
   );

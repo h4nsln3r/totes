@@ -12,7 +12,7 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
   const links = [
     { label: t('nav.music'), id: 'music' },
     { label: t('nav.live'), id: 'live' },
-    { label: t('nav.about'), id: 'info' },
+    { label: t('nav.about'), id: 'about' },
   ];
 
   const scrollToId = (id: string) => {

@@ -7,7 +7,7 @@ import Menu from './components/Menu';
 import Hero from './components/Sections/Hero';
 import Music from './components/Sections/Music';
 import Live from './components/Sections/Live';
-import Info from './components/Sections/Info';
+import About from './components/Sections/About';
 
 const Routing = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -29,7 +29,7 @@ const Routing = () => {
         <Hero isMobile={isMobile} isMenuOpen={isMenuOpen} />
         <Music />
         <Live isMobile={isMobile} />
-        <Info />
+        <About />
       </main>
     </>
   );

@@ -18,7 +18,7 @@ interface Props {
 const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   const [menuWidth, setMenuWidth] = useState<number>(300);
 
-  const sectionIds = ['music', 'live', 'info'];
+  const sectionIds = ['music', 'live', 'about'];
   const activeSection = useScrollSpy(sectionIds);
 
   useEffect(() => {

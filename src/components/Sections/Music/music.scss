@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
@@ -14,16 +15,39 @@
   .video-viewport {
     position: relative;
     width: 100vw;
-    height: 80svh; // eller 100dvh för nyare browsers
+    height: 80svh; // eller 100dvh
     overflow: hidden;
-  }
 
-  .video-viewport iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    mux-player {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: cover;
+    }
+
+    .unmute-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      z-index: 10;
+      backdrop-filter: blur(2px);
+      animation: music-fadePulse 2s infinite;
+
+      @media (min-width: 768px) {
+        font-size: 1.6rem;
+      }
+    }
   }
 
   /* 🖥️ Desktop-version */
@@ -42,45 +66,44 @@
     .video-viewport {
       width: 96%;
       max-width: 1426px;
-      margin: 0px auto 0;
+      margin: 0 auto 0;
       aspect-ratio: 16 / 9;
       height: auto;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    }
 
-    .video-viewport iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      mux-player {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
+
   .video-wrap {
     width: 100%;
     margin: 0;
     margin-top: 0;
     aspect-ratio: 9 / 16;
 
-    /* Mobil: gör videon nästan fullskärm */
     @media (max-width: 767px) {
       width: 100vw;
-      min-height: 90dvh; // eller 100dvh om du vill att den fyller HELA höjden
-      aspect-ratio: auto; // släpp aspect ratio så att höjden styr
+      min-height: 90dvh;
+      aspect-ratio: auto;
       display: flex;
       align-items: center;
       justify-content: center;
 
       video,
-      iframe {
+      mux-player {
         width: 100%;
         height: 100%;
-        object-fit: cover; // snygg scaling utan svarta kanter
+        object-fit: cover;
       }
     }
 
-    /* Desktop */
     @media (min-width: 768px) {
       margin: 24px auto 0 0;
       width: 96%;
@@ -91,17 +114,32 @@
 
   .player {
     text-align: center;
-    iframe {
+
+    mux-player {
       width: 96%;
       min-height: 500px;
       margin: auto;
       margin-top: 40px;
+
       @media (min-width: 768px) {
         min-height: 720px;
         width: 80%;
         margin-top: 20px;
       }
     }
+  }
+}
+
+/* Animation för overlay */
+@keyframes music-fadePulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 1;
   }
 }
 // MUSIC END //

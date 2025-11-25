@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
+    "@mux/mux-player-react": "^3.9.0",
     "classnames": "^2.5.1",
     "framer-motion": "^11.11.11",
     "i18next": "^25.6.3",

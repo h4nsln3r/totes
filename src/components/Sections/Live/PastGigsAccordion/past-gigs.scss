@@ -12,6 +12,7 @@
     font: inherit;
     font-size: 2rem;
     font-weight: 600;
+    border: none;
   }
 
   &__title {
@@ -50,9 +51,9 @@
     @media (max-width: 640px) {
       grid-template-columns: 110px 1fr;
       grid-template-areas:
-        'date city'
-        'venue venue'
-        'link link';
+        "date city"
+        "venue venue"
+        "link link";
     }
   }
 
@@ -67,6 +68,7 @@
   &__venue {
     grid-area: venue;
     opacity: 0.9;
+    text-align: left;
   }
 
   &__link {

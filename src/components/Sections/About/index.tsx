@@ -6,8 +6,11 @@ import totespic from "../../../assets/images/totesorig.jpg";
 
 import "./about.scss";
 import BookUs from "../../Text/BookUs";
+interface Props {
+  isMobile: boolean;
+}
 
-const Info: React.FC = () => {
+const Info: React.FC<Props> = ({ isMobile }) => {
   const { t } = useTranslation();
   return (
     <SectionWrapper sectionName="about">
@@ -20,10 +23,12 @@ const Info: React.FC = () => {
           </div>
           <BookUs />
         </div>
+        {!isMobile && <img src={totespic} alt="Band" className="" />}
       </div>
-      <img src={totespic} alt="Band" className="" />
+      {isMobile && <img src={totespic} alt="Band" className="" />}
     </SectionWrapper>
   );
 };
 
 export default Info;
+//

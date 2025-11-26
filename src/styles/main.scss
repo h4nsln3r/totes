@@ -1,10 +1,13 @@
-@import './variables.scss';
+@import "./variables.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap");
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  font-family: "Figtree", sans-serif;
   margin: 0;
 }
 

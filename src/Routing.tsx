@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import Helmet from 'react-helmet';
+import { useState } from "react";
+import Helmet from "react-helmet";
 
-import { useMediaQuery } from './hooks/useMediaQuery';
+import { useMediaQuery } from "./hooks/useMediaQuery";
 
-import Menu from './components/Menu';
-import Hero from './components/Sections/Hero';
-import Music from './components/Sections/Music';
-import Live from './components/Sections/Live';
-import About from './components/Sections/About';
+import Menu from "./components/Menu";
+import Hero from "./components/Sections/Hero";
+import Music from "./components/Sections/Music";
+import Live from "./components/Sections/Live";
+import About from "./components/Sections/About";
 
 const Routing = () => {
-  const isMobile = useMediaQuery('(max-width: 767px)');
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(isMobile ? false : true);
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(
+    isMobile ? false : true
+  );
 
   return (
     <>
@@ -29,7 +31,7 @@ const Routing = () => {
         <Hero isMobile={isMobile} isMenuOpen={isMenuOpen} />
         <Music />
         <Live isMobile={isMobile} />
-        <About />
+        <About isMobile={isMobile} />
       </main>
     </>
   );

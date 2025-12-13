@@ -5,7 +5,7 @@
   background-color: #ff4a00;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: -60px;
 
   @media (min-width: 769px) {
@@ -14,7 +14,6 @@
 
   .logo-top {
     margin-left: 2rem;
-    margin-bottom: 1rem;
     height: 5.7rem;
     @media (min-width: 769px) {
       margin-top: 0px;
@@ -34,6 +33,7 @@
 
   .logo-bottom {
     width: auto;
+    text-align: right;
     margin-right: 1.25rem;
 
     @media (max-width: 400px) {

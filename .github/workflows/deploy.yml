@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npx tsc && npx vite build
 
       - name: Add CNAME for custom domain
         run: echo 'www.totes.band' > dist/CNAME

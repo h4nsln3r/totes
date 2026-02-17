@@ -17,6 +17,10 @@ const resources = {
         empty: "No gigs right now…",
         moreSoon: "More dates coming soon — follow us on socials.",
         bookUs: "Want to book us?",
+        city: "City",
+        address: "Address",
+        time: "Time",
+        eventLink: "Event link",
       },
       pastGigs: {
         title: "Past shows",
@@ -52,6 +56,10 @@ const resources = {
         empty: "Inga gigs för tillfället…",
         moreSoon: "Fler datum släpps löpande – följ oss i sociala kanaler.",
         bookUs: "Vill du boka oss?",
+        city: "Stad",
+        address: "Adress",
+        time: "Tid",
+        eventLink: "Länk till evenemang",
       },
       pastGigs: {
         title: "Tidigare spelningar",

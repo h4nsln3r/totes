@@ -12,7 +12,7 @@ import About from "./components/Sections/About";
 const Routing = () => {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(
-    isMobile ? false : true
+    isMobile ? false : false
   );
 
   return (

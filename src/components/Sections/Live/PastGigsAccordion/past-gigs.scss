@@ -35,6 +35,16 @@
     overflow: hidden;
   }
 
+  // LiveList inuti past-gigs: venue längst till höger (samma som kommande gigs)
+  .live__item-header {
+    text-align: left;
+  }
+
+  .live__venue {
+    text-align: right;
+    margin-left: auto;
+  }
+
   &__list {
     list-style: none;
     padding: 0;

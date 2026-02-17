@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl';
-import { Gig } from '../../../../types/gigs';
-import { heightExpandVariants } from '../../../../constants/animations';
+import { Gig } from '../../../types/gigs';
+import { heightExpandVariants } from '../../../constants/animations';
 import LiveList from '../LiveList';
 import './past-gigs.scss';
 

@@ -3,9 +3,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { FaExternalLinkAlt, FaFacebook } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { Gig } from "../../../../types/gigs";
-import { heightExpandVariants } from "../../../../constants/animations";
-import { formatGigDate } from "../../../../utils/date";
+import { Gig } from "../../../types/gigs";
+import { heightExpandVariants } from "../../../constants/animations";
+import { formatGigDate } from "../../../utils/date";
 
 type Props = {
   gigs: Gig[];

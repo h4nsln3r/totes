@@ -1,4 +1,3 @@
-// src/sections/MusicSection/MusicSection.tsx
 import { useTranslation } from "react-i18next";
 import { useRef, useState } from "react";
 import MuxPlayer from "@mux/mux-player-react";

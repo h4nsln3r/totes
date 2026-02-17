@@ -1,15 +1,15 @@
 import SectionWrapper from "..";
 import PastGigsAccordion from "./PastGigsAccordion";
 
-import imageMain from "../../../assets/images/totespic.png";
-import imageAbout from "../../../assets/images/totesabout.jpg";
+import imageMain from "../../assets/images/totespic.png";
+import imageAbout from "../../assets/images/totesabout.jpg";
 
-import { PAST_GIGS, UPCOMING_GIGS } from "../../../data/gigs";
+import { PAST_GIGS, UPCOMING_GIGS } from "../../data/gigs";
+import BookUs from "../../components/Text/BookUs";
 
 import "./live.scss";
 import LiveList from "./LiveList";
 import { useTranslation } from "react-i18next";
-import BookUs from "../../Text/BookUs";
 
 interface Props {
   isMobile: boolean;

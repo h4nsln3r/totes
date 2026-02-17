@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 
 import SectionWrapper from "..";
-
-import totespic from "../../../assets/images/totesorig.jpg";
+import totespic from "../../assets/images/totesorig.jpg";
+import BookUs from "../../components/Text/BookUs";
 
 import "./about.scss";
-import BookUs from "../../Text/BookUs";
+
 interface Props {
   isMobile: boolean;
 }
@@ -31,4 +31,3 @@ const Info: React.FC<Props> = ({ isMobile }) => {
 };
 
 export default Info;
-//

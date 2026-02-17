@@ -4,10 +4,10 @@ import Helmet from "react-helmet";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 
 import Menu from "./components/Menu";
-import Hero from "./components/Sections/Hero";
-import Music from "./components/Sections/Music";
-import Live from "./components/Sections/Live";
-import About from "./components/Sections/About";
+import Hero from "./sections/Hero";
+import Music from "./sections/Music";
+import Live from "./sections/Live";
+import About from "./sections/About";
 
 const Routing = () => {
   const isMobile = useMediaQuery("(max-width: 767px)");

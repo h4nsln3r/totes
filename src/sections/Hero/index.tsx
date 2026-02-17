@@ -1,9 +1,9 @@
-import Section from "..";
+import SectionWrapper from "..";
 
-import totesLogoTop from "../../../assets/logo/totes_line_1.png";
-import totesLogoBottom from "../../../assets/logo/tes.png";
-import totespic from "../../../assets/images/totespic.png";
-import totesabout from "../../../assets/images/totesabout.jpg";
+import totesLogoTop from "../../assets/logo/totes_line_1.png";
+import totesLogoBottom from "../../assets/logo/tes.png";
+import totespic from "../../assets/images/totespic.png";
+import totesabout from "../../assets/images/totesabout.jpg";
 
 import "./hero.scss";
 
@@ -14,7 +14,7 @@ interface Props {
 
 const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
   return (
-    <Section sectionName="hero">
+    <SectionWrapper sectionName="hero">
       <div className="logo-top">
         {!isMenuOpen && isMobile ? (
           <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
@@ -41,7 +41,7 @@ const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
       <div className="logo-bottom">
         <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
       </div>
-    </Section>
+    </SectionWrapper>
   );
 };
 

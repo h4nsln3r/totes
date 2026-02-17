@@ -19,12 +19,12 @@ interface Gig {
 }
 
 const gigs: Gig[] = [
-  // {
-  //   date: '2025',
-  //   city: 'Malmö',
-  //   venue: 'Pizzeria Special',
-  //   // notes: Bra spelning, 11 låtar, 2 set, gratis mat + öl, många vänner där.
-  // },
+  {
+    date: '2026-02-18',
+    city: 'Malmö - Annelundsgården',
+    venue: 'Studieförbunden i Malmö, Siberian Spring / Totes / Die Damp /',
+    
+  },
 ];
 
 interface Props {

@@ -25,3 +25,4 @@ strukturera upp det bättre
 
 Gör en one pager som skrollar ner till rätt plats när man klickar på länkarna DONE
 
+test build

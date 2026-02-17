@@ -2,7 +2,7 @@ import { Gig } from "../types/gigs";
 
 export const PAST_GIGS: Gig[] = [
   // -------------------------
-  //         ÅR 2025
+  //         ÅR 2025 t
   // -------------------------
 
   // Exakta datum först

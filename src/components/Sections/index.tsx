@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import classNames from 'classnames';
 import './section.scss';
 
 interface SectionWrapperProps {
@@ -9,7 +10,7 @@ interface SectionWrapperProps {
 
 const SectionWrapper: React.FC<SectionWrapperProps> = ({ sectionName, children, className }) => {
   return (
-    <section id={sectionName} className={`section ${sectionName} ${className && className}`}>
+    <section id={sectionName} className={classNames('section', sectionName, className)}>
       {children}
     </section>
   );

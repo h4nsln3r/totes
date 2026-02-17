@@ -4,24 +4,12 @@ import PastGigsAccordion from "./PastGigsAccordion";
 import imageMain from "../../../assets/images/totespic.png";
 import imageAbout from "../../../assets/images/totesabout.jpg";
 
-import { PAST_GIGS } from "../../../data/gigs";
-import type { Gig } from "../../../types/gigs";
+import { PAST_GIGS, UPCOMING_GIGS } from "../../../data/gigs";
 
 import "./live.scss";
 import LiveList from "./LiveList";
 import { useTranslation } from "react-i18next";
 import BookUs from "../../Text/BookUs";
-
-const gigs: Gig[] = [
-  {
-    date: "2026-02-18",
-    city: "Malmö",
-    adress: "Annelundsgården",
-    venue: "Annelundsgården i Malmö",
-    facebookLink: "https://www.facebook.com/events/1195702432772114",
-    time: "19:00",
-  },
-];
 
 interface Props {
   isMobile: boolean;
@@ -42,8 +30,8 @@ const Live: React.FC<Props> = ({ isMobile }) => {
       )}
 
       <div className="live__content">
-        {gigs && gigs.length > 0 ? (
-          <LiveList gigs={gigs} />
+        {UPCOMING_GIGS.length > 0 ? (
+          <LiveList gigs={UPCOMING_GIGS} />
         ) : (
           <div className="live__empty">
             <h4>{t("live.empty")}</h4>

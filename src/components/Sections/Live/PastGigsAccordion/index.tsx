@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl';
-//TODO snygga till?
 import { Gig } from '../../../../types/gigs';
+import { heightExpandVariants } from '../../../../constants/animations';
 import LiveList from '../LiveList';
 import './past-gigs.scss';
 
@@ -10,11 +10,6 @@ type Props = {
   gigs: Gig[];
   title?: string;
   defaultOpen?: boolean;
-};
-
-const variants = {
-  collapsed: { height: 0, opacity: 0 },
-  open: { height: 'auto', opacity: 1 },
 };
 
 const PastGigsAccordion = ({ gigs, title = 'Tidigare spelningar', defaultOpen = false }: Props) => {
@@ -37,7 +32,7 @@ const PastGigsAccordion = ({ gigs, title = 'Tidigare spelningar', defaultOpen = 
             initial="collapsed"
             animate="open"
             exit="collapsed"
-            variants={variants}
+            variants={heightExpandVariants}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
             <LiveList gigs={gigs} />

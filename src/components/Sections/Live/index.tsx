@@ -1,15 +1,15 @@
-import SectionWrapper from '..';
-import PastGigsAccordion from './PastGigsAccordion';
+import SectionWrapper from "..";
+import PastGigsAccordion from "./PastGigsAccordion";
 
-import imageMain from '../../../assets/images/totespic.png';
-import imageAbout from '../../../assets/images/totesabout.jpg';
+import imageMain from "../../../assets/images/totespic.png";
+import imageAbout from "../../../assets/images/totesabout.jpg";
 
-import { PAST_GIGS } from '../../../data/gigs';
+import { PAST_GIGS } from "../../../data/gigs";
 
-import './live.scss';
-import LiveList from './LiveList';
-import { useTranslation } from 'react-i18next';
-import BookUs from '../../Text/BookUs';
+import "./live.scss";
+import LiveList from "./LiveList";
+import { useTranslation } from "react-i18next";
+import BookUs from "../../Text/BookUs";
 
 interface Gig {
   date: string;
@@ -20,10 +20,9 @@ interface Gig {
 
 const gigs: Gig[] = [
   {
-    date: '2026-02-18',
-    city: 'Malmö - Annelundsgården',
-    venue: 'Studieförbunden i Malmö, Siberian Spring / Totes / Die Damp /',
-    
+    date: "2026-02-18",
+    city: "Malmö - Annelundsgården",
+    venue: "Annelundsgården i Malmö",
   },
 ];
 
@@ -35,10 +34,14 @@ const Live: React.FC<Props> = ({ isMobile }) => {
   const { t } = useTranslation();
   return (
     <SectionWrapper sectionName="live">
-      <h2 className="section__title">{t('live.title')}</h2>
+      <h2 className="section__title">{t("live.title")}</h2>
 
       {!isMobile && (
-        <img src={imageAbout} alt="Band" className="live__image live__image--desktop" />
+        <img
+          src={imageAbout}
+          alt="Band"
+          className="live__image live__image--desktop"
+        />
       )}
 
       <div className="live__content">
@@ -46,15 +49,21 @@ const Live: React.FC<Props> = ({ isMobile }) => {
           <LiveList gigs={gigs} />
         ) : (
           <div className="live__empty">
-            <h4>{t('live.empty')}</h4>
-            <p>{t('live.moreSoon')}</p>
+            <h4>{t("live.empty")}</h4>
+            <p>{t("live.moreSoon")}</p>
           </div>
         )}
         {!isMobile && <hr className="live__divider" />}
-        <PastGigsAccordion gigs={PAST_GIGS} title={t('pastGigs.title')} />
+        <PastGigsAccordion gigs={PAST_GIGS} title={t("pastGigs.title")} />
         {!isMobile && <hr className="live__divider" />}
 
-        {isMobile && <img src={imageMain} alt="Band" className="live__image live__image--mobile" />}
+        {isMobile && (
+          <img
+            src={imageMain}
+            alt="Band"
+            className="live__image live__image--mobile"
+          />
+        )}
         <BookUs />
       </div>
     </SectionWrapper>

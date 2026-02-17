@@ -37,6 +37,7 @@ const resources = {
         change: "Change language",
         english: "English",
         swedish: "Svenska",
+        spanish: "Español",
       },
     },
   },
@@ -76,6 +77,47 @@ const resources = {
         change: "Byt språk",
         english: "English",
         swedish: "Svenska",
+        spanish: "Español",
+      },
+    },
+  },
+
+  es: {
+    translation: {
+      nav: {
+        music: "Música",
+        live: "Conciertos",
+        about: "Sobre nosotros",
+      },
+      music: {
+        title: "Música",
+      },
+      live: {
+        title: "Conciertos",
+        empty: "No hay conciertos por ahora…",
+        moreSoon: "Más fechas pronto — síguenos en redes.",
+        bookUs: "¿Quieres contratarnos?",
+        city: "Ciudad",
+        address: "Dirección",
+        time: "Hora",
+        eventLink: "Enlace del evento",
+      },
+      pastGigs: {
+        title: "Conciertos anteriores",
+      },
+      info: {
+        title: "Sobre nosotros",
+        p1: "Con melodías contundentes y ritmos swing, el trío malmiense Totes se mueve con soltura entre rock, funk, blues y jazz.",
+        p2: "Totes son Svante Berg, Hannes Linnér y Gabriel Fager Ferrari. Desde 2023 la banda con base en Malmö toca pop funky con un objetivo: repartir alegría y hacer bailar. Recorren paisajes sonoros muy variados, con guitarra elegante, bajo profundo y batería al tempo justo, rematado con una pizca de saxofón.",
+      },
+      common: {
+        orSocials: "— o escríbenos por redes.",
+      },
+      lang: {
+        change: "Cambiar idioma",
+        english: "English",
+        swedish: "Svenska",
+        spanish: "Español",
       },
     },
   },

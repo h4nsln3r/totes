@@ -50,7 +50,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   }, []);
 
   return (
-    <nav className={`menu ${isMenuOverMusic ? 'menu--light' : ''} ${activeSection === '' ? 'menu--no-active' : ''}`}>
+    <nav className={`menu ${isMenuOverMusic && activeSection !== 'live' && activeSection !== 'about' ? 'menu--light' : ''} ${activeSection === '' ? 'menu--no-active' : ''}`}>
       <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
         <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} activeSection={activeSection} />
       </div>

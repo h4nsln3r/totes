@@ -1,5 +1,6 @@
 import SectionWrapper from "..";
 import PastGigsAccordion from "./PastGigsAccordion";
+import { FaMusic } from "react-icons/fa";
 
 import imageMain from "../../assets/images/totespic.png";
 import imageAbout from "../../assets/images/totesabout.jpg";
@@ -40,6 +41,9 @@ const Live: React.FC<Props> = ({ isMobile }) => {
           </>
         ) : (
           <div className="live__empty">
+            <span className="live__empty-icon" aria-hidden>
+              <FaMusic />
+            </span>
             <h4>{t("live.empty")}</h4>
             <p>{t("live.moreSoon")}</p>
           </div>

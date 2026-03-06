@@ -12,7 +12,7 @@ type Props = {
   emptyText?: string;
 };
 
-const LiveList = ({ gigs, emptyText = "Inga gigs för tillfället…" }: Props) => {
+const LiveList = ({ gigs, emptyText = "Inga spelningar för tillfället…" }: Props) => {
   const { t } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 

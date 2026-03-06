@@ -33,7 +33,7 @@ const resources = {
       live: {
         title: "Live",
         shows: "Shows",
-        empty: "No gigs right now…",
+        empty: "No shows right now…",
         moreSoon: "More dates coming soon — follow us on socials.",
         bookUs: "Want to book us?",
         city: "City",
@@ -92,7 +92,7 @@ const resources = {
       live: {
         title: "Live",
         shows: "Spelningar",
-        empty: "Inga gigs för tillfället…",
+        empty: "Inga spelningar för tillfället…",
         moreSoon: "Fler datum släpps löpande – följ oss i sociala kanaler.",
         bookUs: "Vill du boka oss?",
         city: "Stad",

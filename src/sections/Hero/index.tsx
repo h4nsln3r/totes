@@ -29,17 +29,19 @@ const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
         )}
       </div>
 
-      {isMobile ? (
-        <img
-          src={totesabout}
-          alt="Band"
-          className="band-img band-img--mobile"
-        />
-      ) : (
-        <img src={totespic} alt="Band" className="band-img" />
-      )}
-      <div className="logo-bottom">
-        <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
+      <div className="hero__image-row">
+        {isMobile ? (
+          <img
+            src={totesabout}
+            alt="Band"
+            className="band-img band-img--mobile"
+          />
+        ) : (
+          <img src={totespic} alt="Band" className="band-img" />
+        )}
+        <div className="logo-bottom">
+          <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
+        </div>
       </div>
     </SectionWrapper>
   );

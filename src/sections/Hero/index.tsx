@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import SectionWrapper from "..";
 
 import totesLogoTop from "../../assets/logo/totes_line_1.png";
@@ -13,17 +14,35 @@ interface Props {
 }
 
 const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
+  const onImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.classList.add("hero-img-loaded");
+  };
+
+  useEffect(() => {
+    const section = document.querySelector(".hero");
+    if (!section) return;
+    section.querySelectorAll<HTMLImageElement>("img").forEach((img) => {
+      if (img.complete) img.classList.add("hero-img-loaded");
+    });
+  }, [isMobile]);
+
   return (
     <SectionWrapper sectionName="hero">
       <div className="logo-top">
         {!isMenuOpen && isMobile ? (
-          <img src={totesLogoTop} alt="Totes Logo" className="logo-img" />
+          <img
+            src={totesLogoTop}
+            alt="Totes Logo"
+            className="logo-img"
+            onLoad={onImgLoad}
+          />
         ) : (
           !isMobile && (
             <img
               src={totesLogoTop}
               alt="Totes Logo"
               className="logo-img logo-img--desk"
+              onLoad={onImgLoad}
             />
           )
         )}
@@ -35,12 +54,23 @@ const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
             src={totesabout}
             alt="Band"
             className="band-img band-img--mobile"
+            onLoad={onImgLoad}
           />
         ) : (
-          <img src={totespic} alt="Band" className="band-img" />
+          <img
+            src={totespic}
+            alt="Band"
+            className="band-img"
+            onLoad={onImgLoad}
+          />
         )}
         <div className="logo-bottom">
-          <img src={totesLogoBottom} alt="Totes Logo" className="logo-img" />
+          <img
+            src={totesLogoBottom}
+            alt="Totes Logo"
+            className="logo-img"
+            onLoad={onImgLoad}
+          />
         </div>
       </div>
     </SectionWrapper>

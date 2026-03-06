@@ -16,18 +16,19 @@
   }
 
   .live__title-column {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     order: -1;
 
     @media (min-width: 768px) {
+      display: flex;
       order: 0;
       align-self: stretch;
       width: 140px;
       min-width: 140px;
-      padding: 2rem 2.5rem 2rem 1rem; /* mer höger-padding så titeln ligger närmare innehållet */
+      padding: 2rem 5.75rem 2rem 0;
       margin-left: auto;
     }
   }
@@ -113,6 +114,8 @@
   }
 
   &__empty {
+    margin-top: 1rem;
+
     @media (min-width: 768px) {
       margin-top: 30px;
     }

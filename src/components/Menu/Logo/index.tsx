@@ -7,11 +7,12 @@ interface MenuLogoProps {
   isMobile: boolean;
   isOpen: boolean;
   menuWidth: number;
+  activeSection: string;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
+const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, activeSection }) => {
   const [showLogo, setShowLogo] = useState(false);
-  const [useAltLogo, setUseAltLogo] = useState(false);
+  const [useAltLogoScroll, setUseAltLogoScroll] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -23,10 +24,10 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
       // Hysteres för att visa/gömma loggan
       if (scrollingDown) {
         if (scrollY > 200) setShowLogo(true);
-        if (scrollY > 700) setUseAltLogo(true);
+        if (scrollY > 700) setUseAltLogoScroll(true);
       } else {
         if (scrollY < 300) setShowLogo(false);
-        if (scrollY < 500) setUseAltLogo(false);
+        if (scrollY < 500) setUseAltLogoScroll(false);
       }
 
       if (isMobile && isOpen) {
@@ -39,6 +40,8 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobile, isOpen]);
+
+  const useAltLogo = activeSection === "music" || useAltLogoScroll;
 
   const variants = {
     hidden: { opacity: 0, y: -40 },

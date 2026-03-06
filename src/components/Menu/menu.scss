@@ -14,7 +14,7 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 
   @media (min-width: 768px) {
-    padding-right: 56px;
+    padding-right: 12px;
   }
 
   &--light {
@@ -110,23 +110,26 @@
 
   &__icon {
     cursor: pointer;
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
     flex-shrink: 0;
 
     @media (max-width: 767px) {
-      margin-left: 1rem;
-      margin-right: 16px;
+      margin-left: 0.5rem;
+      margin-right: 6px;
     }
 
     @media (min-width: 768px) {
       margin-left: 0;
-      margin-right: 0;
+      margin-right: 2.25rem;
     }
 
     > * {
       color: black;
+      display: block;
     }
   }
 
@@ -135,15 +138,19 @@
     width: 300px;
     position: relative;
     z-index: 0;
+    display: flex;
+    align-items: center;
 
     @media (max-width: 767px) {
       margin-left: 0;
-      padding-left: 0.5rem;
+      padding-left: 0.25rem;
+      width: 100%;
+      max-width: 100vw;
     }
 
     @media (min-width: 768px) {
-      width: 500px;
-      margin-left: -2.25rem;
+      width: 380px;
+      margin-left: -0.5rem;
     }
   }
 
@@ -153,13 +160,21 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    margin-right: 20px;
+    padding-left: 0.25rem;
     align-items: center;
     justify-content: right;
     gap: 1.4rem;
 
+    @media (max-width: 767px) {
+      margin-right: 0;
+      padding-left: 0;
+      justify-content: flex-start;
+      gap: 1.75rem;
+    }
+
     @media (min-width: 768px) {
-      margin-right: 36px;
+      margin-right: 1rem;
+      padding-left: 0.35rem;
       gap: 4rem;
       justify-content: center;
     }
@@ -173,11 +188,23 @@
         color: black;
         font-weight: 600;
         font-size: 18px;
+        text-transform: uppercase;
         padding: 0.25rem 0;
-        transition: all 0.2s ease-in-out;
+        transition: font-size 0.25s ease, border 0.2s ease, opacity 0.2s ease;
 
         &.active {
           border-bottom: 2px solid black;
+        }
+
+        @media (max-width: 767px) {
+          &.active {
+            border-bottom: none;
+            font-size: 1.65rem;
+            font-weight: 800;
+            padding: 0.35rem 0.5rem;
+            background: rgba(0, 0, 0, 0.06);
+            border-radius: 6px;
+          }
         }
 
         &:hover {
@@ -201,6 +228,19 @@
   position: relative;
   z-index: 1;
   flex-shrink: 0;
+  margin-top: 8px;
+
+  @media (max-width: 767px) {
+    margin-left: -1rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 5rem;
+  }
+}
+
+.menu > .menu__animation {
+  margin-top: 8px;
 }
 
 .menu__lang-btn {
@@ -209,10 +249,12 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 26px;
 
   > * {
     color: black;
+    display: block;
   }
 
   @media (max-width: 767px) {

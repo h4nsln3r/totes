@@ -23,7 +23,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
 
   useEffect(() => {
     const updateWidth = () => {
-      setMenuWidth(window.innerWidth >= 768 ? 500 : 220);
+      setMenuWidth(window.innerWidth >= 768 ? 380 : 280);
     };
     updateWidth();
     window.addEventListener('resize', updateWidth);
@@ -31,9 +31,9 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   }, []);
 
   return (
-    <nav className={`menu ${activeSection === 'music' ? 'menu--light' : ''}`}>
+    <nav className={`menu ${activeSection === 'music' ? 'menu--light' : ''} ${activeSection === '' ? 'menu--no-active' : ''}`}>
       <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
-        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
+        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} activeSection={activeSection} />
       </div>
 
       <div className="menu__controls">
@@ -45,11 +45,17 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
 
       <motion.div
         className="menu__animation"
-        animate={{ width: isOpen ? menuWidth : 0 }}
+        animate={{
+          width: isOpen
+            ? isMobile && activeSection === ''
+              ? 200
+              : menuWidth
+            : 0,
+        }}
         initial={{ width: 0 }}
         transition={{ duration: 0.3 }}
       >
-        {isOpen && <MenuLinks activeSection={activeSection} />}
+        {isOpen && <MenuLinks activeSection={activeSection} isMobile={isMobile} />}
       </motion.div>
     </nav>
   );

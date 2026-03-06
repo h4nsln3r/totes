@@ -1,6 +1,11 @@
 // INFO //
 .about {
   background-color: #42a5f5;
+
+  .section__title {
+    text-transform: uppercase;
+  }
+
   .container {
     margin: 0 10px;
   }

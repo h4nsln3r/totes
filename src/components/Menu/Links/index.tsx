@@ -1,36 +1,57 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 
 interface MenuLinksProps {
   activeSection: string;
+  isMobile: boolean;
 }
 
-const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
+const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, isMobile }) => {
   const { t } = useTranslation();
 
-  const links = [
-    { label: t("nav.music"), id: "music" },
-    { label: t("nav.live"), id: "live" },
-    // { label: t("nav.merch"), id: "merch" }, // tillfälligt borttagen tills merch är klar
-    { label: t("nav.about"), id: "about" },
-  ];
+  const links = useMemo(
+    () => [
+      { label: t("nav.music"), id: "music" },
+      { label: t("nav.live"), id: "live" },
+      { label: t("nav.about"), id: "about" },
+    ],
+    [t]
+  );
+
+  const sectionOrder = useMemo(() => ["music", "live", "about"], []);
+
+  const sortedLinks = useMemo(() => {
+    const active = links.find((l) => l.id === activeSection);
+    if (!active) return links;
+    const activeIndex = sectionOrder.indexOf(activeSection);
+    if (activeIndex === -1) return links;
+    const restOrder = [
+      ...sectionOrder.slice(activeIndex + 1),
+      ...sectionOrder.slice(0, activeIndex),
+    ];
+    const rest = restOrder
+      .map((id) => links.find((l) => l.id === id))
+      .filter(Boolean) as typeof links;
+    return [active, ...rest];
+  }, [links, activeSection, sectionOrder]);
+
+  const displayLinks = isMobile ? sortedLinks : links;
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = window.innerWidth >= 768 ? -62 : -56;
-
-      const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
+      const top = element.getBoundingClientRect().top + window.pageYOffset;
+      const y = isMobile
+        ? top - window.innerHeight * 0.1 + 5
+        : top + 15;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
     }
   };
 
   return (
     <ul>
-      {links.map((link) => (
+      {displayLinks.map((link) => (
         <li key={link.id}>
           <a
             className={classNames({ active: activeSection === link.id })}

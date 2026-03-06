@@ -14,7 +14,7 @@ const Info: React.FC<Props> = ({ isMobile }) => {
   const { t } = useTranslation();
   return (
     <SectionWrapper sectionName="about">
-      <h2 className="section__title">{t("info.title")}</h2>
+      {!isMobile && <h2 className="section__title">{t("info.title")}</h2>}
       <div className="container flex__col flex__col--mobile-row">
         <div className="about__presstext">
           <p>{t("info.p1")}</p>

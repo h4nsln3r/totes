@@ -14,16 +14,17 @@
   }
 
   .music__title-column {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 1rem;
 
     @media (min-width: 768px) {
+      display: flex;
       align-self: stretch;
       width: 140px;
       min-width: 140px;
-      padding: 2rem 1rem 2rem 2.5rem; /* mer vänster-padding så titeln ligger närmare videon */
+      padding: 2rem 0.5rem 2rem 3.5rem;
     }
   }
 

@@ -8,12 +8,31 @@ const resources = {
         music: "Music",
         live: "Live",
         about: "About",
+        merch: "Merch",
+      },
+      merch: {
+        title: "Merch",
+        intro: "Totes t-shirt and tote bag — order online and we'll ship it to you.",
+        buy: "Buy",
+        comingSoon: "Coming soon",
+        shipping: "Shipping within Sweden. We'll get in touch after your order.",
+        tshirt: {
+          name: "Totes T-shirt",
+          description: "Black t-shirt with the Totes logo. Unisex fit.",
+          price: "299 kr",
+        },
+        totebag: {
+          name: "Totes Tote Bag",
+          description: "Canvas tote bag with the Totes logo. Perfect for groceries or gigs.",
+          price: "199 kr",
+        },
       },
       music: {
         title: "Music",
       },
       live: {
         title: "Live",
+        shows: "Shows",
         empty: "No gigs right now…",
         moreSoon: "More dates coming soon — follow us on socials.",
         bookUs: "Want to book us?",
@@ -48,12 +67,31 @@ const resources = {
         music: "Musik",
         live: "Live",
         about: "Om",
+        merch: "Merch",
+      },
+      merch: {
+        title: "Merch",
+        intro: "Totes t-shirt och tote bag — beställ online så skickar vi till dig.",
+        buy: "Köp",
+        comingSoon: "Kommer snart",
+        shipping: "Frakt inom Sverige. Vi hör av oss efter din beställning.",
+        tshirt: {
+          name: "Totes T-shirt",
+          description: "Svart t-shirt med Totes logga. Unisex passform.",
+          price: "299 kr",
+        },
+        totebag: {
+          name: "Totes Tote Bag",
+          description: "Tygtote med Totes logga. Perfekt till gig eller matkasse.",
+          price: "199 kr",
+        },
       },
       music: {
         title: "Musik",
       },
       live: {
         title: "Live",
+        shows: "Spelningar",
         empty: "Inga gigs för tillfället…",
         moreSoon: "Fler datum släpps löpande – följ oss i sociala kanaler.",
         bookUs: "Vill du boka oss?",
@@ -88,12 +126,31 @@ const resources = {
         music: "Música",
         live: "Conciertos",
         about: "Sobre nosotros",
+        merch: "Merch",
+      },
+      merch: {
+        title: "Merch",
+        intro: "Camiseta y tote bag de Totes — pide online y te lo enviamos.",
+        buy: "Comprar",
+        comingSoon: "Próximamente",
+        shipping: "Envíos (consultar). Nos pondremos en contacto tras tu pedido.",
+        tshirt: {
+          name: "Camiseta Totes",
+          description: "Camiseta negra con el logo de Totes. Corte unisex.",
+          price: "299 kr",
+        },
+        totebag: {
+          name: "Tote Bag Totes",
+          description: "Bolsa de tela con el logo de Totes. Ideal para el día a día o el concierto.",
+          price: "199 kr",
+        },
       },
       music: {
         title: "Música",
       },
       live: {
         title: "Conciertos",
+        shows: "Conciertos",
         empty: "No hay conciertos por ahora…",
         moreSoon: "Más fechas pronto — síguenos en redes.",
         bookUs: "¿Quieres contratarnos?",
@@ -125,8 +182,8 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en", //init
-  fallbackLng: "en",
+  lng: "sv",
+  fallbackLng: "sv",
   interpolation: {
     escapeValue: false,
   },

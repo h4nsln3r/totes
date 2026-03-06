@@ -18,7 +18,7 @@ interface Props {
 const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   const [menuWidth, setMenuWidth] = useState<number>(300);
 
-  const sectionIds = ['music', 'live', 'about'];
+  const sectionIds = ['music', 'live', 'about']; // 'merch' tillfälligt borttagen
   const activeSection = useScrollSpy(sectionIds);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   }, []);
 
   return (
-    <nav className="menu">
+    <nav className={`menu ${activeSection === 'music' ? 'menu--light' : ''}`}>
       <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
         <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
       </div>
@@ -40,7 +40,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
         <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
           {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
         </div>
-        {isMobile && isOpen ? <></> : <LanguageSwitcher isMenuOpen={isOpen} isMobile={isMobile} />}
+        {isOpen && <LanguageSwitcher isMenuOpen={isOpen} isMobile={isMobile} />}
       </div>
 
       <motion.div

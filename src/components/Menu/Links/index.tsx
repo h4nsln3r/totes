@@ -12,6 +12,7 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection }) => {
   const links = [
     { label: t("nav.music"), id: "music" },
     { label: t("nav.live"), id: "live" },
+    // { label: t("nav.merch"), id: "merch" }, // tillfälligt borttagen tills merch är klar
     { label: t("nav.about"), id: "about" },
   ];
 

@@ -8,7 +8,29 @@
   justify-content: space-between;
   background-color: transparent;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+
+  &--light {
+    .menu__icon > *,
+    .menu__lang-btn > * {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .menu__animation ul li a {
+      color: #fff !important;
+      transition: color 0.3s ease;
+
+      &.active {
+        border-bottom-color: #fff;
+      }
+    }
+
+    .menu__logo img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s ease;
+    }
+  }
 
   @media (max-width: 767px) {
   }
@@ -161,14 +183,32 @@
   > * {
     color: black;
   }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 }
 
-// När menyn öppnas: svävar kvar uppe till höger
+// När menyn öppnas: svävar uppe till höger (desktop)
 .menu__lang-btn--floating {
-  position: fixed; // funkar bäst mot drawer som expanderar
-  top: 14px; // tweak efter er headerhöjd
+  position: fixed !important;
+  top: 14px;
   right: 14px;
-  z-index: 9999; // över menyn
+  z-index: 9999;
+}
+
+// Mobil: liten ikon precis uppe i sidans högra hörn hela tiden när menyn är öppen
+@media (max-width: 767px) {
+  .menu__lang-btn--mobile.menu__lang-btn--floating {
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin: 0;
+    padding: 12px;
+    font-size: 18px;
+    z-index: 9999;
+  }
 }
 
 .lang-modal__backdrop {

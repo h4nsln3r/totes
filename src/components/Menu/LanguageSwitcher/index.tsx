@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaGlobeEurope } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +19,7 @@ interface Props {
   isMobile: boolean;
 }
 
-const LanguageSwitcher: React.FC<Props> = ({ isMenuOpen }) => {
+const LanguageSwitcher: React.FC<Props> = ({ isMenuOpen, isMobile }) => {
   const { i18n, t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -29,16 +30,23 @@ const LanguageSwitcher: React.FC<Props> = ({ isMenuOpen }) => {
     setOpen(false);
   };
 
+  const langButton = (
+    <button
+      className={`menu__lang-btn ${isMenuOpen ? 'menu__lang-btn--floating' : ''} ${isMobile ? 'menu__lang-btn--mobile' : ''}`}
+      aria-label={t('lang.change')}
+      onClick={() => setOpen(true)}
+      type="button"
+    >
+      <FaGlobeEurope />
+    </button>
+  );
+
+  // På mobil när menyn är öppen: rendera knappen i body så den alltid sitter i sidans övre högra hörn
+  const shouldPortal = isMobile && isMenuOpen;
+
   return (
     <>
-      <button
-        className={`menu__lang-btn ${isMenuOpen ? 'menu__lang-btn--floating' : ''}`}
-        aria-label={t('lang.change')}
-        onClick={() => setOpen(true)}
-        type="button"
-      >
-        <FaGlobeEurope />
-      </button>
+      {shouldPortal ? createPortal(langButton, document.body) : langButton}
 
       <AnimatePresence>
         {open && (

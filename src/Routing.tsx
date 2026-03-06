@@ -7,6 +7,7 @@ import Menu from "./components/Menu";
 import Hero from "./sections/Hero";
 import Music from "./sections/Music";
 import Live from "./sections/Live";
+// import Merch from "./sections/Merch";
 import About from "./sections/About";
 
 const Routing = () => {
@@ -29,6 +30,7 @@ const Routing = () => {
         <Hero isMobile={isMobile} isMenuOpen={isMenuOpen} />
         <Music />
         <Live isMobile={isMobile} />
+        {/* <Merch /> */}
         <About isMobile={isMobile} />
       </main>
     </>

@@ -17,21 +17,27 @@ interface Props {
 
 const Live: React.FC<Props> = ({ isMobile }) => {
   const { t } = useTranslation();
+  const title = t("live.title");
+
   return (
     <SectionWrapper sectionName="live">
-      <h2 className="section__title">{t("live.title")}</h2>
-
-      {!isMobile && (
-        <img
-          src={imageAbout}
-          alt="Band"
-          className="live__image live__image--desktop"
-        />
-      )}
+      {!isMobile ? (
+        <div className="live__left-column">
+          <img
+            src={imageAbout}
+            alt="Band"
+            className="live__image live__image--desktop"
+          />
+          <BookUs />
+        </div>
+      ) : null}
 
       <div className="live__content">
         {UPCOMING_GIGS.length > 0 ? (
-          <LiveList gigs={UPCOMING_GIGS} />
+          <>
+            <h3 className="live__shows-title">{t("live.shows")}</h3>
+            <LiveList gigs={UPCOMING_GIGS} />
+          </>
         ) : (
           <div className="live__empty">
             <h4>{t("live.empty")}</h4>
@@ -49,7 +55,15 @@ const Live: React.FC<Props> = ({ isMobile }) => {
             className="live__image live__image--mobile"
           />
         )}
-        <BookUs />
+        {isMobile && <BookUs />}
+      </div>
+
+      <div className="live__title-column">
+        <h2 className="section__title live__title">
+          {title.split("").map((char, i) => (
+            <span key={i} className="live__title-letter">{char}</span>
+          ))}
+        </h2>
       </div>
     </SectionWrapper>
   );

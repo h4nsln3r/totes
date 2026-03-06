@@ -1,13 +1,67 @@
 // INFO //
 .about {
   background-color: #42a5f5;
+  position: relative;
 
   .section__title {
     text-transform: uppercase;
   }
 
+  &__title-row {
+    display: none;
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-left: 4rem;
+      padding-right: 50%;
+      box-sizing: border-box;
+      margin-bottom: 0.5rem;
+      .section__title {
+        margin: 0;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__intro {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.5;
+    @media (min-width: 768px) {
+      font-size: 22px;
+      max-width: 28rem;
+    }
+  }
+
+  &__image-wrap {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      max-width: 55rem;
+      height: 70%;
+      overflow: hidden;
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+        object-position: right top;
+        display: block;
+      }
+    }
+  }
+
   .container {
     margin: 0 10px;
+    @media (min-width: 768px) {
+      margin-left: 4rem;
+      padding-right: 50%;
+      box-sizing: border-box;
+    }
   }
   &__presstext {
     p {
@@ -28,10 +82,46 @@
     }
   }
 
+  &__image-mobile {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
   img {
     max-width: 100%;
     @media (min-width: 769px) {
       max-width: 60rem;
+    }
+  }
+
+  &__bookus-wrap {
+    @media (min-width: 768px) {
+      position: absolute;
+      bottom: 2rem;
+      left: 4rem;
+      .bookus {
+        margin: 0;
+        max-width: none;
+        text-align: left;
+      }
+      .allinks {
+        text-align: left;
+        margin-top: 0.5rem;
+        display: flex;
+        gap: 1rem;
+      }
     }
   }
 }

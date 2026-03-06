@@ -17,7 +17,7 @@ const Routing = () => {
   return (
     <>
       <Helmet>
-        <title>Totes</title>
+        <title>OTES</title>
       </Helmet>
 
       <Menu

@@ -49,13 +49,15 @@ const Live: React.FC<Props> = ({ isMobile }) => {
         {!isMobile && <hr className="live__divider" />}
 
         {isMobile && (
-          <img
-            src={imageMain}
-            alt="Band"
-            className="live__image live__image--mobile"
-          />
+          <div className="live__image-mobile-wrap">
+            <img
+              src={imageMain}
+              alt="Band"
+              className="live__image live__image--mobile"
+            />
+          </div>
         )}
-        {isMobile && <BookUs />}
+        {isMobile && <BookUs variant="footer" />}
       </div>
 
       <div className="live__title-column">

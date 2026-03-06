@@ -1,27 +1,107 @@
 .bookus {
   font-size: 1rem;
   line-height: 1.6;
-  margin-top: 5px;
-  max-width: fit-content;
-  margin: auto;
-  .allinks {
-    margin-top: -10px;
-    text-align: center;
-    svg {
-      margin-top: 20px;
-      font-size: 30px;
-    }
-  }
-  @media (min-width: 769px) {
-    max-width: 600px;
-  }
-
-  p {
-    margin: 0.5rem 0 0;
-  }
 
   a {
     color: inherit;
     text-decoration: underline;
+  }
+
+  &--footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem 0;
+    }
+
+    .bookus__content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0 0.25rem;
+      max-width: 18rem;
+      text-align: left;
+    }
+
+    .bookus__text {
+      font-weight: 600;
+    }
+
+    .bookus__separator {
+      opacity: 0.7;
+      user-select: none;
+    }
+
+    .bookus__mail {
+      word-break: break-word;
+    }
+
+    .bookus__socials-label {
+      opacity: 0.9;
+    }
+
+    .allinks {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0;
+      margin-left: auto;
+      flex-shrink: 0;
+
+      @media (max-width: 767px) {
+        margin-left: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      svg {
+        font-size: 2rem;
+        transition: transform 0.2s ease;
+
+        @media (min-width: 768px) {
+          font-size: 4rem;
+        }
+      }
+
+      a:hover svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // Legacy block layout (e.g. Live section)
+  &:not(&--footer) {
+    margin-top: 5px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    p {
+      margin: 0.5rem 0 0;
+    }
+
+    .allinks {
+      margin-top: -10px;
+      text-align: center;
+
+      svg {
+        margin-top: 20px;
+        font-size: 30px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      max-width: 600px;
+    }
   }
 }

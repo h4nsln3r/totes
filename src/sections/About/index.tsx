@@ -36,12 +36,12 @@ const Info: React.FC<Props> = ({ isMobile }) => {
           <div className="about__presstext--long">
             <p>{t("info.p2")}</p>
           </div>
-          {isMobile && <BookUs />}
+          {isMobile && <BookUs variant="footer" />}
         </div>
       </div>
       {!isMobile && (
         <div className="about__bookus-wrap">
-          <BookUs />
+          <BookUs variant="footer" />
         </div>
       )}
     </SectionWrapper>

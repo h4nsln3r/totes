@@ -3,6 +3,11 @@
   background-color: #42a5f5;
   position: relative;
 
+  @media (min-width: 768px) {
+    min-height: 95vh;
+    min-height: 95dvh;
+  }
+
   .section__title {
     text-transform: uppercase;
   }
@@ -111,14 +116,19 @@
       position: absolute;
       bottom: 2rem;
       left: 4rem;
+      right: 0;
+      padding-right: 1.5rem;
+      box-sizing: border-box;
       .bookus {
         margin: 0;
         max-width: none;
         text-align: left;
+        width: 100%;
       }
       .allinks {
-        text-align: left;
-        margin-top: 0.5rem;
+        text-align: right;
+        margin-top: 0;
+        margin-left: auto;
         display: flex;
         gap: 1rem;
       }

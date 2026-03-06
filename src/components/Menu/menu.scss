@@ -1,14 +1,21 @@
 .menu {
   display: flex;
-  position: sticky;
+  position: fixed;
   top: 0;
-  padding-top: 0px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding-top: 0;
   height: 50px;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+
+  @media (min-width: 768px) {
+    padding-right: 56px;
+  }
 
   &--light {
     .menu__icon > *,
@@ -104,6 +111,19 @@
   &__icon {
     cursor: pointer;
     margin-top: 5px;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+
+    @media (max-width: 767px) {
+      margin-left: 1rem;
+      margin-right: 16px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
     > * {
       color: black;
@@ -113,9 +133,17 @@
   &__animation {
     overflow: hidden;
     width: 300px;
+    position: relative;
+    z-index: 0;
+
+    @media (max-width: 767px) {
+      margin-left: 0;
+      padding-left: 0.5rem;
+    }
 
     @media (min-width: 768px) {
       width: 500px;
+      margin-left: -2.25rem;
     }
   }
 
@@ -170,6 +198,9 @@
 .menu__controls {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
 }
 
 .menu__lang-btn {
@@ -197,15 +228,15 @@
   z-index: 9999;
 }
 
-// Mobil: liten ikon precis uppe i sidans högra hörn hela tiden när menyn är öppen
+// Mobil: ikon precis i hörnet, ingen marginal
 @media (max-width: 767px) {
   .menu__lang-btn--mobile.menu__lang-btn--floating {
     top: 0 !important;
     right: 0 !important;
     left: auto !important;
     bottom: auto !important;
-    margin: 0;
-    padding: 12px;
+    margin: 0 !important;
+    padding: 0 !important;
     font-size: 18px;
     z-index: 9999;
   }

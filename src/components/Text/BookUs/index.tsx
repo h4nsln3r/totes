@@ -3,11 +3,23 @@ import AllLinks from '../../Links/AllLinks';
 import './bookus.scss';
 
 interface BookUsProps {
-  variant?: 'footer' | 'block';
+  variant?: 'footer' | 'block' | 'minimal';
 }
 
 const BookUs: React.FC<BookUsProps> = ({ variant = 'block' }) => {
   const { t } = useTranslation();
+
+  if (variant === 'minimal') {
+    return (
+      <footer className="bookus bookus--minimal">
+        <p className="bookus__line">{t('live.bookUs')}</p>
+        <p className="bookus__line bookus__line--contact">
+          {t('live.bookUsContact')}{' '}
+          <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
+        </p>
+      </footer>
+    );
+  }
 
   if (variant === 'footer') {
     return (

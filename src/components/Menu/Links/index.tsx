@@ -38,15 +38,27 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, isMobile }) => {
 
   const displayLinks = isMobile ? sortedLinks : links;
 
+  /** Måste matcha `.menu { height }` i menu.scss */
+  const FIXED_MENU_HEIGHT_PX = 50;
+  /** Endast Live: scrolla in i sektionen så musik-ytan försvinner och bara ljus/vit Live-yta syns */
+  const LIVE_SCROLL_INTO_SECTION_PX = isMobile ? 88 : 64;
+
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.pageYOffset;
-      const y = isMobile
-        ? top - window.innerHeight * 0.1 + 5
-        : top + 15;
+    if (!element) return;
+
+    const top = element.getBoundingClientRect().top + window.scrollY;
+
+    if (id === "live") {
+      const y = top - FIXED_MENU_HEIGHT_PX - 8 + LIVE_SCROLL_INTO_SECTION_PX;
       window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+      return;
     }
+
+    const y = isMobile
+      ? top - window.innerHeight * 0.1 + 5
+      : top + 15;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   };
 
   return (

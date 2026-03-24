@@ -9,6 +9,7 @@ import Music from './sections/Music';
 import Live from './sections/Live';
 // import Merch from "./sections/Merch";
 import About from './sections/About';
+// import Merch from './sections/Merch';
 
 const Routing = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -25,7 +26,7 @@ const Routing = () => {
       <main>
         <Hero isMobile={isMobile} isMenuOpen={isMenuOpen} />
         <Music />
-        <Live isMobile={isMobile} />
+        <Live isMobile={isMobile} isMenuOpen={isMenuOpen} />
         {/* <Merch /> */}
         <About isMobile={isMobile} />
       </main>

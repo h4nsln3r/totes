@@ -1,6 +1,7 @@
 // LIVE //
 .section.live {
   padding-top: 0;
+  scroll-margin-top: 144px;
 }
 
 .live {
@@ -10,8 +11,50 @@
   background-color: #f2f2f2;
 
   @media (max-width: 767px) {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 3rem;
+    color: #1a1a1a;
+    gap: 0.5rem;
+  }
+
+  /* Rubrik i sektionen (mobil, stängd meny) — inte i menyraden */
+  &__mobile-heading {
+    order: -1;
+    align-self: stretch;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0.35rem 0 0.35rem;
+    text-align: left;
+    text-decoration: none;
+    font-size: clamp(1.85rem, 6.5vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    line-height: 1.1;
+    position: sticky;
+    top: 50px;
+    z-index: 900;
+    background-color: #f2f2f2;
+
+    @media (max-width: 767px) {
+      margin-top: 1.75rem;
+      /* Centrerad text, förskjuten ~20% mot vänster: mitten av raden hamnar vid ~30% av bredden */
+      padding: 0.85rem 40% 0.35rem 0;
+      text-align: center;
+    }
+
+    &--menu-open {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__mobile-heading {
+      display: none;
+    }
   }
 
   @media (min-width: 768px) {
@@ -88,6 +131,12 @@
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+        font-size: 1.2rem;
+        line-height: 1.55;
+
+        p {
+          font-size: 1.2rem;
+        }
 
         .allinks {
           text-align: right;
@@ -101,9 +150,15 @@
     flex-direction: column;
     width: 100%;
 
+    @media (max-width: 767px) {
+      /* Balans mot extra scroll i MenuLinks (bara Live) */
+      padding-top: calc(0.5rem + 4.5rem);
+    }
+
     @media (min-width: 768px) {
       width: 50%;
       margin-right: 2rem;
+      padding-top: 3.25rem;
     }
   }
 
@@ -187,11 +242,10 @@
 
 .live {
   &__image-mobile-wrap {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
     box-sizing: border-box;
 
     @media (min-width: 768px) {
@@ -207,6 +261,8 @@
     &--mobile {
       width: 100%;
       display: block;
+      margin: 0;
+      filter: grayscale(1);
     }
 
     &--desktop {
@@ -228,7 +284,18 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    margin-top: 0.65rem;
     margin-bottom: 50px;
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px) {
+      margin-top: 2.75rem;
+      gap: 1.5rem;
+      max-width: min(34rem, 100%);
+    }
   }
 
   &__item {
@@ -250,8 +317,8 @@
     justify-content: space-between;
     gap: 0;
     width: 100%;
-    font-size: 1.2rem;
-    padding: 0.75rem 1rem;
+    font-size: 1.35rem;
+    padding: 0.75rem 0rem;
     position: relative;
     cursor: pointer;
     background: none;
@@ -259,6 +326,11 @@
     text-align: left;
     font-family: inherit;
     color: inherit;
+
+    @media (min-width: 768px) {
+      font-size: 1.75rem;
+      padding: 0.85rem 0;
+    }
 
     &::after {
       content: '';
@@ -293,6 +365,10 @@
     padding-left: 1.5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
     background: rgba(0, 0, 0, 0.03);
+
+    @media (min-width: 768px) {
+      padding: 0.25rem 1rem 1.15rem 1.5rem;
+    }
   }
 
   &__item-row {
@@ -301,7 +377,12 @@
     align-items: baseline;
     gap: 1rem;
     margin: 0.35rem 0;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
+      margin: 0.45rem 0;
+    }
 
     &:first-child {
       margin-top: 0;
@@ -330,9 +411,13 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: inherit;
     text-decoration: underline;
+
+    @media (min-width: 768px) {
+      font-size: 1.1rem;
+    }
 
     &:hover {
       opacity: 0.85;
@@ -375,5 +460,95 @@
     width: 70%;
     margin: 1rem auto;
   }
+
+  @media (max-width: 767px) {
+    &__list--compact {
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+      max-width: 24rem;
+    }
+
+    &__list--compact &__item {
+      border-bottom: none;
+    }
+
+    &__list--compact &__item-header,
+    &__list--compact &__item-header--static {
+      display: grid;
+      grid-template-columns: minmax(3.1rem, auto) 1fr;
+      column-gap: 1.6rem;
+      align-items: start;
+      justify-content: start;
+      width: 100%;
+      padding: 0.2rem 0;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.45;
+      text-align: left;
+
+      &::after {
+        display: none !important;
+      }
+    }
+
+    &__list--compact &__item-header--static {
+      cursor: default;
+    }
+
+    &__list--compact &__item--has-details &__item-header {
+      cursor: pointer;
+    }
+
+    &__list--compact &__date {
+      margin-right: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    &__list--compact &__venue {
+      margin-left: 0;
+      text-align: center;
+      justify-self: stretch;
+    }
+
+    &__list--compact &__item-detail-inner {
+      padding: 0.65rem 0 0.25rem;
+      margin-top: 0.35rem;
+      border-top: none;
+      background: transparent;
+      font-size: 1.12rem;
+    }
+
+    &__list--compact &__item-row {
+      font-size: 1.12rem;
+    }
+
+    &__list--compact &__item-link {
+      font-size: 1.05rem;
+    }
+  }
 }
 // LIVE END //
+
+.live .bookus--minimal {
+  @media (max-width: 767px) {
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0 0.5rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #1a1a1a;
+
+    .bookus__line {
+      margin: 0;
+
+      &--contact {
+        margin-top: 0.35rem;
+        font-size: 0.88rem;
+      }
+    }
+
+    a {
+      text-underline-offset: 2px;
+    }
+  }
+}

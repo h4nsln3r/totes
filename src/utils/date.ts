@@ -16,3 +16,12 @@ export function formatGigDate(dateStr: string): string {
   const month = SWEDISH_MONTHS[monthIndex] ?? dateStr;
   return `${parseInt(d, 10)} ${month} ${y}`;
 }
+
+/** Kompakt dag/månad för mobil (t.ex. 18/2). Endast för fullständiga ISO-datum. */
+export function formatGigDateCompact(dateStr: string): string {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    return dateStr;
+  }
+  const [, m, d] = dateStr.split("-");
+  return `${parseInt(d, 10)}/${parseInt(m, 10)}`;
+}

@@ -84,9 +84,17 @@
     width: clamp(72px, 22vw, 160px);
     height: auto;
     display: block;
+    transform-origin: 0 0;
     will-change: transform;
     filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.4));
     user-select: none;
+    pointer-events: auto;
+    cursor: grab;
+    touch-action: none;
+
+    &--dragging {
+      cursor: grabbing;
+    }
   }
 
   .video-viewport {

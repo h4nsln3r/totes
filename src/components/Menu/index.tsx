@@ -18,15 +18,21 @@ interface Props {
 const MENU_HEIGHT = 50;
 
 const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
-  const [menuWidth, setMenuWidth] = useState<number>(300);
+  const [menuWidth, setMenuWidth] = useState<number>(() => {
+    if (typeof window === 'undefined') return 280;
+    // 45vw på desktop, annars mobilbredd
+    return window.innerWidth >= 768 ? window.innerWidth * 0.45 : 280;
+  });
   const [isMenuOverMusic, setIsMenuOverMusic] = useState(false);
 
-  const sectionIds = ['music', 'live', 'about']; // 'merch' tillfälligt borttagen
+  const sectionIds = ['live', 'music', 'about']; // 'merch' tillfälligt borttagen
   const activeSection = useScrollSpy(sectionIds);
 
   useEffect(() => {
+    const DESKTOP_MENU_WIDTH_VW = 45;
     const updateWidth = () => {
-      setMenuWidth(window.innerWidth >= 768 ? 380 : 280);
+      // 45vw på desktop (fungerar även som "45% av viewport-bredden")
+      setMenuWidth(window.innerWidth >= 768 ? window.innerWidth * (DESKTOP_MENU_WIDTH_VW / 100) : 280);
     };
     updateWidth();
     window.addEventListener('resize', updateWidth);
@@ -56,25 +62,29 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
       </div>
 
       <div className="menu__controls">
-        <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
-          {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
-        </div>
+        {isMobile && (
+          <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
+            {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
+          </div>
+        )}
         {/* isOpen && <LanguageSwitcher isMenuOpen={isOpen} isMobile={isMobile} /> */}
       </div>
 
       <motion.div
         className="menu__animation"
         animate={{
-          width: isOpen
-            ? isMobile && activeSection === ''
-              ? 200
-              : menuWidth
-            : 0,
+          width: !isMobile
+            ? menuWidth
+            : isOpen
+              ? activeSection === ''
+                ? 200
+                : menuWidth
+              : 0,
         }}
-        initial={{ width: 0 }}
+        initial={{ width: !isMobile ? menuWidth : 0 }}
         transition={{ duration: 0.3 }}
       >
-        {isOpen && <MenuLinks activeSection={activeSection} isMobile={isMobile} />}
+        {(!isMobile || isOpen) && <MenuLinks activeSection={activeSection} isMobile={isMobile} />}
       </motion.div>
     </nav>
   );

@@ -12,31 +12,14 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, isMobile }) => {
 
   const links = useMemo(
     () => [
-      { label: t("nav.music"), id: "music" },
       { label: t("nav.live"), id: "live" },
+      { label: t("nav.music"), id: "music" },
       { label: t("nav.about"), id: "about" },
     ],
     [t]
   );
 
-  const sectionOrder = useMemo(() => ["music", "live", "about"], []);
-
-  const sortedLinks = useMemo(() => {
-    const active = links.find((l) => l.id === activeSection);
-    if (!active) return links;
-    const activeIndex = sectionOrder.indexOf(activeSection);
-    if (activeIndex === -1) return links;
-    const restOrder = [
-      ...sectionOrder.slice(activeIndex + 1),
-      ...sectionOrder.slice(0, activeIndex),
-    ];
-    const rest = restOrder
-      .map((id) => links.find((l) => l.id === id))
-      .filter(Boolean) as typeof links;
-    return [active, ...rest];
-  }, [links, activeSection, sectionOrder]);
-
-  const displayLinks = isMobile ? sortedLinks : links;
+  const displayLinks = links;
 
   /** Måste matcha `.menu { height }` i menu.scss */
   const FIXED_MENU_HEIGHT_PX = 50;
@@ -55,9 +38,21 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, isMobile }) => {
       return;
     }
 
-    const y = isMobile
-      ? top - window.innerHeight * 0.1 + 5
-      : top + 15;
+    if (id === "music") {
+      // Matchar scroll-lockens landning: videon ska inte släppa in nästa sektion i botten.
+      const y = isMobile ? top - window.innerHeight * 0.1 + 5 : top;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+      return;
+    }
+
+    if (id === "about") {
+      // Matcha scroll-lockens landning: vi vill undvika att "nästa sektion smyger in" i botten.
+      const y = isMobile ? top - window.innerHeight * 0.1 + 5 : top;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+      return;
+    }
+
+    const y = isMobile ? top - window.innerHeight * 0.1 + 5 : top;
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   };
 

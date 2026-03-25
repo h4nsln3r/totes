@@ -13,9 +13,7 @@
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 
-  @media (min-width: 768px) {
-    padding-right: 12px;
-  }
+
 
   &--light {
     .menu__icon > *,
@@ -31,6 +29,10 @@
       &.active {
         border-bottom-color: #fff;
       }
+    }
+
+    .menu__animation ul li a::after {
+      background: #fff;
     }
 
     .menu__logo img {
@@ -149,8 +151,8 @@
     }
 
     @media (min-width: 768px) {
-      width: 380px;
-      margin-left: -0.5rem;
+      width: 45vw;
+      margin-left: 0;
     }
   }
 
@@ -173,10 +175,14 @@
     }
 
     @media (min-width: 768px) {
-      margin-right: 1rem;
-      padding-left: 0.35rem;
-      gap: 4rem;
-      justify-content: center;
+      // Fördela länkarna jämnt över hela menytans bredd.
+      width: 100%;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      // Vänsterjustera hela menylänksgruppen (som text-align: left).
+      gap: 10rem;
+      justify-content: flex-start;
     }
 
     li {
@@ -184,26 +190,43 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
         text-decoration: none;
         color: black;
         font-weight: 600;
         font-size: 18px;
-        text-transform: uppercase;
         padding: 0.25rem 0;
-        transition: font-size 0.25s ease, border 0.2s ease, opacity 0.2s ease;
+        transition: font-size 0.25s ease, opacity 0.2s ease;
 
-        &.active {
-          border-bottom: 2px solid black;
+        // Underline (tjock): pseudo-element så aktiv/inaktiv inte ändrar layout/höjd.
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 30px;
+          background: black;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &.active::after {
+          opacity: 1;
         }
 
         @media (max-width: 767px) {
           &.active {
-            border-bottom: none;
             font-size: 1.65rem;
             font-weight: 800;
             padding: 0.35rem 0.5rem;
             background: rgba(0, 0, 0, 0.06);
             border-radius: 6px;
+          }
+
+          // Mobile: ingen tjock underline.
+          &::after {
+            height: 0;
           }
         }
 
@@ -214,9 +237,11 @@
 
         @media (min-width: 768px) {
           font-weight: 400;
-          font-size: 32px;
+          font-size: 34px;
           line-height: 1.2;
-          padding-bottom: 0px;
+          // Reservera plats så alla items håller samma höjd.
+          padding-bottom: 30px;
+          margin-top: 50px;
         }
       }
     }
@@ -229,6 +254,11 @@
   z-index: 1;
   flex-shrink: 0;
   margin-top: 8px;
+
+  @media (min-width: 768px) {
+    // Desktop: menyn är alltid öppen, så ingen hamburger/pil behövs.
+    display: none;
+  }
 
   @media (max-width: 767px) {
     margin-left: -1rem;

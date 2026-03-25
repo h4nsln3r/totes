@@ -1,11 +1,23 @@
+.section.about {
+  // `.section` har padding som gör att "fullskärm" inte blir exakt.
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @media (min-width: 768px) {
+    min-height: 100vh;
+    min-height: 100dvh;
+    box-sizing: border-box;
+  }
+}
+
 // INFO //
 .about {
   background-color: #42a5f5;
   position: relative;
 
   @media (min-width: 768px) {
-    min-height: 95vh;
-    min-height: 95dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .section__title {

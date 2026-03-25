@@ -2,12 +2,19 @@
 .section.live {
   padding-top: 0;
   scroll-margin-top: 144px;
+
+  // För att undvika att "kännas" större än 100vh p.g.a. padding från `.section`.
+  @media (min-width: 768px) {
+    padding-bottom: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
 }
 
 .live {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  
   background-color: #f2f2f2;
 
   @media (max-width: 767px) {
@@ -61,6 +68,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
+    min-height: 100vh;
   }
 
   .live__title-column {
@@ -528,6 +536,7 @@
   }
 }
 // LIVE END //
+
 
 .live .bookus--minimal {
   @media (max-width: 767px) {

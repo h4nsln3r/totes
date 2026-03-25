@@ -1,4 +1,9 @@
 // MUSIC //
+.section.music {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .music {
   position: relative;
   overflow: hidden;
@@ -7,6 +12,11 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  // `.section`-wrappern har padding som gör att en 100vh-video inte riktigt
+  // når fullskärmens kanter. Vi tar bort paddingen för att få “fullskärm” känsla.
+  padding-top: 0;
+  padding-bottom: 0;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -117,18 +127,17 @@
 
   /* 🖥️ Desktop-version */
   @media (min-width: 768px) {
-    padding: 1rem 0 4rem 0;
-    padding-left: 2rem;
+    padding: 0;
 
     .video-viewport {
-      width: 96%;
-      max-width: 1426px;
-      margin: 0 auto 0;
-      aspect-ratio: 16 / 9;
-      height: auto;
-      border-radius: 12px;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      aspect-ratio: auto;
+      height: 100vh;
+      border-radius: 0;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      box-shadow: none;
 
       mux-player {
         position: absolute;

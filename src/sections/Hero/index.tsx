@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import SectionWrapper from "..";
 
-import totesLogoTop from "../../assets/logo/totes_line_1.png";
-import totesLogoBottom from "../../assets/logo/tes.png";
-import totespic from "../../assets/images/totespic.png";
+import TO from "../../assets/logo/to.png";
+import TES from "../../assets/logo/tes.png";
+import TotesBand from "../../assets/images/totespic.png";
 import totesabout from "../../assets/images/totesabout.jpg";
 
 import "./hero.scss";
@@ -28,7 +28,35 @@ const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
 
   return (
     <SectionWrapper sectionName="hero">
-      <div className="logo-top">
+      {!isMobile ? (
+        <>
+      <div className="col--55">
+        <img
+            src={TO}
+            alt="Totes Logo"
+            className="hero__logo"
+            onLoad={onImgLoad}
+          />
+          <img
+            src={TotesBand}
+            alt="Band"
+            className="hero__image"
+            onLoad={onImgLoad}
+          />
+      </div>
+      <div className="col--45 col--flex-end margin__bottom--2">        
+        <img
+            src={TES}
+            alt="Totes Logo"
+            className="hero__logo "
+            onLoad={onImgLoad}
+          />
+      </div>
+      </>
+      ):(
+<></>
+      )}
+      {/* <div className="logo-top">
         {!isMenuOpen && isMobile ? (
           <img
             src={totesLogoTop}
@@ -72,7 +100,7 @@ const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
             onLoad={onImgLoad}
           />
         </div>
-      </div>
+      </div> */}
     </SectionWrapper>
   );
 };

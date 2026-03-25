@@ -6,9 +6,10 @@ interface MenuLogoProps {
   isMobile: boolean;
   isOpen: boolean;
   menuWidth: number;
+  activeSection: string;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
+const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, activeSection }) => {
   const [showLogo, setShowLogo] = useState(false);
   const lastScrollY = useRef(0);
 
@@ -43,9 +44,11 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
     exit: { opacity: 0, y: -40 },
   };
 
+  const hideOnContact = activeSection === "contact";
+
   return (
     <AnimatePresence mode="wait">
-      {showLogo && (
+      {showLogo && !hideOnContact && (
         <motion.div
           key="menu-logo-symbol"
           initial="hidden"

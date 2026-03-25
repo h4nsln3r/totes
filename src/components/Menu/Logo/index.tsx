@@ -1,18 +1,15 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import totesLogoTop from "../../../assets/logo/totes_line_1.png";
-import totesLogoAlt from "../../../assets/logo/totes_svart_symbol.png"; // ersätt med din riktiga fil
+import totesLogoSymbol from "../../../assets/logo/totes_svart_symbol.png";
 
 interface MenuLogoProps {
   isMobile: boolean;
   isOpen: boolean;
   menuWidth: number;
-  activeSection: string;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, activeSection }) => {
+const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen }) => {
   const [showLogo, setShowLogo] = useState(false);
-  const [useAltLogoScroll, setUseAltLogoScroll] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -21,13 +18,10 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, active
       const scrollingDown = scrollY > lastScrollY.current;
       lastScrollY.current = scrollY;
 
-      // Hysteres för att visa/gömma loggan
       if (scrollingDown) {
         if (scrollY > 200) setShowLogo(true);
-        if (scrollY > 700) setUseAltLogoScroll(true);
       } else {
         if (scrollY < 300) setShowLogo(false);
-        if (scrollY < 500) setUseAltLogoScroll(false);
       }
 
       if (isMobile && isOpen) {
@@ -36,12 +30,12 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, active
       }
     };
 
-    handleScroll(); // direkt vid mount
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobile, isOpen]);
 
-  const useAltLogo = activeSection === "music" || useAltLogoScroll;
+  const imgClass = !isMobile ? "menu__logo--desktop" : "menu__logo--mobile";
 
   const variants = {
     hidden: { opacity: 0, y: -40 },
@@ -49,20 +43,11 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, active
     exit: { opacity: 0, y: -40 },
   };
 
-  const logoToShow = useAltLogo ? totesLogoAlt : totesLogoTop;
-  const imgClass = !isMobile
-    ? useAltLogo
-      ? "menu__logo--mobile-alt"
-      : "menu__logo--mobile"
-    : useAltLogo
-    ? "menu__logo--desktop-alt"
-    : "menu__logo--desktop";
-
   return (
     <AnimatePresence mode="wait">
       {showLogo && (
         <motion.div
-          key={logoToShow}
+          key="menu-logo-symbol"
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -71,7 +56,7 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, active
           className={"menu__animation"}
           style={{ width: menuWidth - 20 }}
         >
-          <img src={logoToShow} alt="Totes Logo" className={imgClass} />
+          <img src={totesLogoSymbol} alt="Totes Logo" className={imgClass} />
         </motion.div>
       )}
     </AnimatePresence>

@@ -68,7 +68,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
       } ${activeSection === '' ? 'menu--no-active' : ''} ${shouldHideMenu ? 'menu--hide' : ''}`}
     >
       <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
-        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} activeSection={activeSection} />
+        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} />
       </div>
 
       <div className="menu__controls">

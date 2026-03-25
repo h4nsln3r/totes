@@ -7,7 +7,8 @@ interface Props {
   isMobile: boolean;
 }
 
-const Contact: React.FC<Props> = () => {
+const Contact: React.FC<Props> = ({ isMobile }) => {
+  void isMobile;
   return (
     <SectionWrapper sectionName="contact" className="contact">
       <div className="contact__stage">

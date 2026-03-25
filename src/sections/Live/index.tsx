@@ -1,44 +1,35 @@
 import SectionWrapper from '..';
-import { FaMusic } from 'react-icons/fa';
-
-import imageMain from '../../assets/images/totespic.png';
-import imageAbout from '../../assets/images/totesabout.jpg';
 
 import { UPCOMING_GIGS } from '../../data/gigs';
-import BookUs from '../../components/Text/BookUs';
 
 import './live.scss';
 import LiveList from './LiveList';
-import { useTranslation } from 'react-i18next';
 import TotesBass from '../../assets/sketches/bas.png';
+
 interface Props {
   isMobile: boolean;
   isMenuOpen?: boolean;
 }
 
-const Live: React.FC<Props> = ({ isMobile, isMenuOpen = false }) => {
-  const { t } = useTranslation();
-  const title = t('live.title');
-
+const Live: React.FC<Props> = ({ isMobile }) => {
+  void isMobile;
   return (
     <SectionWrapper sectionName="live">
-     <div className="col--55 col--flex-end">        
-      <img
-        src={TotesBass}
-        alt="Totes Logo"
-        className="live__images"
-        />
+      <div className="col--55 col--flex-end">
+        <img src={TotesBass} alt="Totes Logo" className="live__images" />
       </div>
-     <div className="col--45">
-        <ul className="list__live">
-          {UPCOMING_GIGS.map((gig) => (
-            <li key={gig.date}>
-              <span className="">{gig.date}</span>
-              <span className="">{gig.venue}</span>
-            </li>
-          ))}
-        </ul>
-     </div>
+
+      <div className="col--45 live__right">
+        <div className="live__up-wrap">
+          {/* Vi vill ha format som i bilden (t.ex. 25/5), så vi kör compact även på desktop. */}
+          <LiveList gigs={UPCOMING_GIGS} compactDates />
+        </div>
+
+        {/*
+          Past gigs: kommenterat tills vi är nöjda med gigg-listans "växa från mitten"-beteende.
+          När vi är klara kan vi aktivera igen.
+        */}
+      </div>
     </SectionWrapper>
   );
 };

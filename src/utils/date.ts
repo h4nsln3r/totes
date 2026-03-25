@@ -17,11 +17,17 @@ export function formatGigDate(dateStr: string): string {
   return `${parseInt(d, 10)} ${month} ${y}`;
 }
 
-/** Kompakt dag/månad för mobil (t.ex. 18/2). Endast för fullständiga ISO-datum. */
+/** Kompakt dag/månad (t.ex. 18/2). Hanterar även YYYY-MM -> m/yy. */
 export function formatGigDateCompact(dateStr: string): string {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
-    return dateStr;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    const [, m, d] = dateStr.split('-');
+    return `${parseInt(d, 10)}/${parseInt(m, 10)}`;
   }
-  const [, m, d] = dateStr.split("-");
-  return `${parseInt(d, 10)}/${parseInt(m, 10)}`;
+
+  if (/^\d{4}-\d{2}$/.test(dateStr)) {
+    const [y, m] = dateStr.split('-');
+    return `${parseInt(m, 10)}/${y.slice(-2)}`;
+  }
+
+  return dateStr;
 }

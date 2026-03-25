@@ -106,6 +106,14 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
     };
 
     const onWheel = (e: WheelEvent) => {
+      const targetEl = e.target as HTMLElement | null;
+      const isInPastContent = Boolean(targetEl?.closest('.live__past-content'));
+
+      if (isInPastContent) {
+        // Låt användaren scrolla inne i past-gigs utan att scroll-lock steppar sektioner.
+        return;
+      }
+
       if (lockedRef.current) {
         // Behåll "snap"-känslan: tillåt inte vanlig scroll att flytta runt oss
         // medan vi redan smooth-scrollar till en sektion.

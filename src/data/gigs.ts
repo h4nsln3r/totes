@@ -10,6 +10,38 @@ export const UPCOMING_GIGS: Gig[] = [
     facebookLink: 'https://www.facebook.com/events/1195702432772114',
     time: '19:00',
   },
+  {
+    date: '2026-02-18',
+    city: 'Malmö',
+    adress: 'Annelundsgården',
+    venue: 'Annelundsgården',
+    facebookLink: 'https://www.facebook.com/events/1195702432772114',
+    time: '19:00',
+  },
+  {
+    date: '2026-02-18',
+    city: 'Malmö',
+    adress: 'Annelundsgården',
+    venue: 'Annelundsgården',
+    facebookLink: 'https://www.facebook.com/events/1195702432772114',
+    time: '19:00',
+  },
+  {
+    date: '2026-02-18',
+    city: 'Malmö',
+    adress: 'Annelundsgården',
+    venue: 'Annelundsgården',
+    facebookLink: 'https://www.facebook.com/events/1195702432772114',
+    time: '19:00',
+  },
+  {
+    date: '2026-02-18',
+    city: 'Malmö',
+    adress: 'Annelundsgården',
+    venue: 'Annelundsgården',
+    facebookLink: 'https://www.facebook.com/events/1195702432772114',
+    time: '19:00',
+  },
 ];
 
 export const PAST_GIGS: Gig[] = [

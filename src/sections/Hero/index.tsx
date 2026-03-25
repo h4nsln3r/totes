@@ -4,16 +4,19 @@ import SectionWrapper from "..";
 import TO from "../../assets/logo/to.png";
 import TES from "../../assets/logo/tes.png";
 import TotesBand from "../../assets/images/totespic.png";
-import totesabout from "../../assets/images/totesabout.jpg";
 
 import "./hero.scss";
 
 interface Props {
   isMobile: boolean;
-  isMenuOpen: boolean;
+  isMenuOpen?: boolean;
 }
 
-const Hero: React.FC<Props> = ({ isMobile, isMenuOpen }) => {
+const Hero: React.FC<Props> = (props) => {
+  const { isMobile } = props;
+  // prop används inte i aktiv layout just nu (det finns bara i kommenterad kod),
+  // men vi "markerar" den som använd för att klara noUnusedLocals.
+  void props.isMenuOpen;
   const onImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.classList.add("hero-img-loaded");
   };

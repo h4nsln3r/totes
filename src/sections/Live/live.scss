@@ -261,6 +261,50 @@
   }
 }
 
+// Slide-in för basen första gången sektionen syns.
+// Vi lägger detta här eftersom `live.scss` laddas efter `section.scss`.
+.live .live__images {
+  opacity: 0;
+  transform: translateX(-160px) rotate(-31deg);
+  // Ingen transition: vi animerar med keyframes för att få recoil/overshoot.
+}
+
+.live .live__images--entered {
+  opacity: 1;
+  animation: live-bass-slide-in 1.05s cubic-bezier(0.15, 0.9, 0.2, 1) both;
+}
+
+@media (max-width: 767px) {
+  .live .live__images {
+    opacity: 1;
+    transform: rotate(-31deg);
+  }
+}
+
+@keyframes live-bass-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-220px) rotate(-31deg);
+  }
+  // Fart in + kraftigt överskjut.
+  55% {
+    opacity: 1;
+    transform: translateX(70px) rotate(-31deg);
+  }
+  // Broms/recoil tillbaka tydligare.
+  70% {
+    transform: translateX(-35px) rotate(-31deg);
+  }
+  // Lugn ner igen.
+  85% {
+    transform: translateX(8px) rotate(-31deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(-31deg);
+  }
+}
+
 @keyframes live-empty-pulse {
   0%,
   100% {

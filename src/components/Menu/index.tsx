@@ -25,8 +25,9 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   });
   const [isMenuOverMusic, setIsMenuOverMusic] = useState(false);
 
-  const sectionIds = ['live', 'music', 'about']; // 'merch' tillfälligt borttagen
+  const sectionIds = ['live', 'music', 'about', 'contact']; // 'merch' tillfälligt borttagen
   const activeSection = useScrollSpy(sectionIds);
+  const shouldHideMenu = activeSection === 'contact';
 
   useEffect(() => {
     const DESKTOP_MENU_WIDTH_VW = 45;
@@ -56,7 +57,16 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   }, []);
 
   return (
-    <nav className={`menu ${isMenuOverMusic && activeSection !== 'live' && activeSection !== 'about' ? 'menu--light' : ''} ${activeSection === '' ? 'menu--no-active' : ''}`}>
+    <nav
+      className={`menu ${
+        isMenuOverMusic &&
+        activeSection !== 'live' &&
+        activeSection !== 'about' &&
+        activeSection !== 'contact'
+          ? 'menu--light'
+          : ''
+      } ${activeSection === '' ? 'menu--no-active' : ''} ${shouldHideMenu ? 'menu--hide' : ''}`}
+    >
       <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
         <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} activeSection={activeSection} />
       </div>

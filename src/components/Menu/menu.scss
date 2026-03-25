@@ -11,7 +11,9 @@
   justify-content: space-between;
   background-color: transparent;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease,
+    transform 0.35s ease;
+  will-change: transform;
 
 
 
@@ -42,6 +44,12 @@
   }
 
   @media (max-width: 767px) {
+  }
+
+  &--hide {
+    @media (min-width: 768px) {
+      transform: translateY(-60px);
+    }
   }
 
   &__logo {

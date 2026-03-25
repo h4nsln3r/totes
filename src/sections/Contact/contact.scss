@@ -1,0 +1,52 @@
+.section.contact {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @media (min-width: 768px) {
+    min-height: 100vh;
+    min-height: 100dvh;
+    box-sizing: border-box;
+  }
+}
+
+.contact {
+  background-color: #ff4a00;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.contact__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.contact__instruments {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact__email {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.1rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+

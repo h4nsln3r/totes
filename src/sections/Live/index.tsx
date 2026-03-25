@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 import SectionWrapper from '..';
 
 import { UPCOMING_GIGS } from '../../data/gigs';
@@ -13,10 +15,41 @@ interface Props {
 
 const Live: React.FC<Props> = ({ isMobile }) => {
   void isMobile;
+  const [enterCount, setEnterCount] = useState(0);
+  const inViewRef = useRef(false);
+
+  useEffect(() => {
+    const liveEl = document.getElementById('live');
+    if (!liveEl) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const nextInView = Boolean(entry?.isIntersecting);
+
+        // Trigga animation varje gång vi "går in" i viewporten igen.
+        if (nextInView && !inViewRef.current) {
+          setEnterCount((c) => c + 1);
+        }
+
+        inViewRef.current = nextInView;
+      },
+      { threshold: 0.25 }
+    );
+
+    io.observe(liveEl);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <SectionWrapper sectionName="live">
       <div className="col--55 col--flex-end">
-        <img src={TotesBass} alt="Totes Logo" className="live__images" />
+        <img
+          src={TotesBass}
+          alt="Totes Logo"
+          key={enterCount}
+          className="live__images live__images--entered"
+        />
       </div>
 
       <div className="col--45 live__right">

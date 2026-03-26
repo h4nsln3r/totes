@@ -4,6 +4,7 @@ import SectionWrapper from "..";
 import TO from "../../assets/logo/to.png";
 import TES from "../../assets/logo/tes.png";
 import TotesBand from "../../assets/images/totespic.png";
+import TotesBandMobile from "../../assets/images/totesabout.jpg";
 
 import "./hero.scss";
 
@@ -57,7 +58,26 @@ const Hero: React.FC<Props> = (props) => {
       </div>
       </>
       ):(
-<></>
+        <div className="hero__container">   
+          <img
+            src={TO}
+            alt="Totes Logo"
+            className="hero__logo hero__logo--sm hero__logo--sm-1"
+            onLoad={onImgLoad}
+          />
+          <img
+            src={TotesBandMobile}
+            alt="Band"
+            className="band-img"
+            onLoad={onImgLoad}
+          />
+                  <img
+            src={TES}
+            alt="Totes Logo"
+            className="hero__logo hero__logo--sm hero__logo--sm-2"
+            onLoad={onImgLoad}
+          />
+        </div>
       )}
       {/* <div className="logo-top">
         {!isMenuOpen && isMobile ? (

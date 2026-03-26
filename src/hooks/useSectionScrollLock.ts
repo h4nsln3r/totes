@@ -47,6 +47,13 @@ const scrollToSectionId = (id: string, menuHeightPx: number, extraOffsetPx = 0) 
   return clamped;
 };
 
+/** True om ett steg i den riktningen faktiskt byter sektion. */
+const canStepToAdjacentSection = (sectionIds: string[], menuHeightPx: number, direction: 1 | -1) => {
+  const currentIndex = getSectionIndexFromScroll(sectionIds, menuHeightPx);
+  const nextIndex = clampIndex(currentIndex + direction, 0, sectionIds.length - 1);
+  return nextIndex !== currentIndex;
+};
+
 export function useSectionScrollLock(sectionIds: string[], options?: UseSectionScrollLockOptions) {
   const {
     disabled = false,
@@ -121,15 +128,37 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
         return;
       }
 
-      // Låt trackpad “småscroll” vara, men kräver tydlig scroll-hastighet/tryck.
       const deltaY = e.deltaY ?? 0;
+      if (deltaY === 0) return;
+
+      // Mushjul skickar oftast DOM_DELTA_LINE (~100px/notch) och når sällan tröskeln på en
+      // enda event — då blandades naturlig scroll med snap. Ett line/page-steg = ett sektionssteg.
+      const isDiscreteWheel =
+        e.deltaMode === WheelEvent.DOM_DELTA_LINE || e.deltaMode === WheelEvent.DOM_DELTA_PAGE;
+
+      if (isDiscreteWheel) {
+        const direction: 1 | -1 = deltaY > 0 ? 1 : -1;
+        if (!canStepToAdjacentSection(sectionIds, menuHeightPx, direction)) {
+          return;
+        }
+        e.preventDefault();
+        wheelAccumRef.current = 0;
+        tryStep(direction);
+        return;
+      }
+
+      // Trackpad: låt “småscroll” ackumuleras tills det känns som ett tydligt steg.
       wheelAccumRef.current += deltaY;
 
       if (Math.abs(wheelAccumRef.current) < wheelThresholdPx) return;
 
-      // Vi gör “steget” och låser scrollen så man inte hamnar mellan sektioner.
-      e.preventDefault();
       const direction: 1 | -1 = wheelAccumRef.current > 0 ? 1 : -1;
+      if (!canStepToAdjacentSection(sectionIds, menuHeightPx, direction)) {
+        wheelAccumRef.current = 0;
+        return;
+      }
+
+      e.preventDefault();
       wheelAccumRef.current = 0;
       tryStep(direction);
     };

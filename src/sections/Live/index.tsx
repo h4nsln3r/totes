@@ -8,6 +8,8 @@ import './live.scss';
 import LiveList from './LiveList';
 import TotesBass from '../../assets/sketches/bas.png';
 
+import TotesBandMobile from '../../assets/images/totespic.png';
+
 interface Props {
   isMobile: boolean;
   isMenuOpen?: boolean;
@@ -43,7 +45,9 @@ const Live: React.FC<Props> = ({ isMobile }) => {
 
   return (
     <SectionWrapper sectionName="live">
-      <div className="col--55 col--flex-end">
+        {!isMobile ? (
+          <>
+        <div className="col--55 col--flex-end">
         <img
           src={TotesBass}
           alt="Totes Logo"
@@ -63,6 +67,16 @@ const Live: React.FC<Props> = ({ isMobile }) => {
           När vi är klara kan vi aktivera igen.
         */}
       </div>
+          </>
+        ) : (
+          <>
+          <h2 className="live__mobile-title">Live</h2>
+            <LiveList gigs={UPCOMING_GIGS} compactDates={true} />
+           <img src={TotesBandMobile} alt="Band" className="live__image live__image--mobile" />
+           <p className="live__mobile-cta">Vill du boka oss?<br />Hör av dig till <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a></p>
+          </>
+        )}
+
     </SectionWrapper>
   );
 };

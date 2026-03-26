@@ -4,6 +4,7 @@ type UseSectionScrollLockOptions = {
   disabled?: boolean;
   menuHeightPx?: number;
   wheelThresholdPx?: number;
+  touchThresholdPx?: number;
   unlockAfterMs?: number;
   sectionExtraOffsetPx?: Record<string, number>;
 };
@@ -59,6 +60,7 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
     disabled = false,
     menuHeightPx = 50,
     wheelThresholdPx = 110,
+    touchThresholdPx = 60,
     unlockAfterMs = 900,
     sectionExtraOffsetPx = {},
   } = options ?? {};
@@ -68,6 +70,9 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
   const wheelAccumRef = useRef(0);
   const lockedRef = useRef(false);
   const unlockRafRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+  const touchLastYRef = useRef<number | null>(null);
+  const touchTargetElRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (disabled) return;
@@ -177,17 +182,70 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
       tryStep(wantsNext ? 1 : -1);
     };
 
+    const onTouchStart = (e: TouchEvent) => {
+      const touch = e.changedTouches?.[0];
+      if (!touch) return;
+      touchStartYRef.current = touch.clientY;
+      touchLastYRef.current = touch.clientY;
+      touchTargetElRef.current = e.target as HTMLElement | null;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const targetEl = touchTargetElRef.current ?? (e.target as HTMLElement | null);
+      const isInPastContent = Boolean(targetEl?.closest('.live__past-content'));
+      if (isInPastContent) return;
+
+      const startY = touchStartYRef.current;
+      const touch = e.changedTouches?.[0];
+      if (startY == null || !touch) return;
+
+      // Blockera naturlig mobilscroll för tydlig "snap/gummiband"-känsla.
+      e.preventDefault();
+
+      if (lockedRef.current) return;
+
+      const deltaY = startY - touch.clientY;
+      touchLastYRef.current = touch.clientY;
+      if (Math.abs(deltaY) < touchThresholdPx) return;
+
+      const direction: 1 | -1 = deltaY > 0 ? 1 : -1;
+      if (!canStepToAdjacentSection(sectionIds, menuHeightPx, direction)) {
+        touchStartYRef.current = touch.clientY;
+        return;
+      }
+      tryStep(direction);
+      // Starta om swipe-referensen så samma drag inte triggar flera hopp direkt.
+      touchStartYRef.current = touch.clientY;
+    };
+
+    const onTouchEnd = (_e: TouchEvent) => {
+      touchStartYRef.current = null;
+      touchLastYRef.current = null;
+      const targetEl = touchTargetElRef.current;
+      touchTargetElRef.current = null;
+      if (targetEl?.closest('.live__past-content')) return;
+    };
+
     window.addEventListener('wheel', onWheel, { passive: false });
     window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
 
     return () => {
       window.removeEventListener('wheel', onWheel as EventListener);
       window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('touchstart', onTouchStart as EventListener);
+      window.removeEventListener('touchmove', onTouchMove as EventListener);
+      window.removeEventListener('touchend', onTouchEnd as EventListener);
       if (unlockRafRef.current != null) cancelAnimationFrame(unlockRafRef.current);
       lockedRef.current = false;
       wheelAccumRef.current = 0;
       unlockRafRef.current = null;
+      touchStartYRef.current = null;
+      touchLastYRef.current = null;
+      touchTargetElRef.current = null;
     };
-  }, [disabled, sectionKey, menuHeightPx, wheelThresholdPx, unlockAfterMs, sectionIds]);
+  }, [disabled, sectionKey, menuHeightPx, wheelThresholdPx, touchThresholdPx, unlockAfterMs, sectionIds]);
 }
 

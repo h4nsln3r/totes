@@ -18,9 +18,10 @@ const Routing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useSectionScrollLock(['hero', 'live', 'music', 'about', 'contact'], {
-    disabled: isMobile,
+    disabled: isMenuOpen,
     menuHeightPx: 50,
     wheelThresholdPx: 140,
+    touchThresholdPx: 65,
     unlockAfterMs: 1000,
     // Kompensera för att Music-videon ska kännas "fullskärm" även med den fasta menyn.
     // Menyn döljs i `contact`, så vi kompenserar menyns 50px här.

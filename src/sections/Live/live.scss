@@ -2,7 +2,7 @@
 .section.live {
   padding-top: 0;
   scroll-margin-top: 144px;
-
+  height: 100dvh;
   // För att undvika att "kännas" större än 100vh p.g.a. padding från `.section`.
   @media (min-width: 768px) {
     padding-bottom: 0;
@@ -15,6 +15,7 @@
 .live {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   @media (min-width: 768px) {
     height: 100%;
   }
@@ -27,6 +28,37 @@
     padding-bottom: 3rem;
     color: #1a1a1a;
     gap: 0.5rem;
+  }
+
+  &__mobile-title {
+    @media (max-width: 767px) {
+      margin: 20px 0px 2rem 0px;
+      width: 100%;
+      text-align: center;
+      font-size: clamp(2rem, 7.5vw, 2.35rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__mobile-cta {
+    @media (max-width: 767px) {
+      width: fit-content;
+      margin: auto 0 0 auto;
+      padding-bottom: 0.1rem;
+      text-align: left;
+      font-size: 0.72rem;
+      line-height: 1.12;
+
+      a {
+        color: #000;
+      }
+    }
   }
 
   /* Rubrik i sektionen (mobil, stängd meny) — inte i menyraden */
@@ -663,8 +695,8 @@
 
   @media (max-width: 767px) {
     &__list--compact {
-      gap: 1.75rem;
-      margin-bottom: 2.5rem;
+      gap: 0.55rem;
+      margin-bottom: 1.6rem;
       max-width: 24rem;
     }
 
@@ -676,14 +708,14 @@
     &__list--compact &__item-header--static {
       display: grid;
       grid-template-columns: minmax(3.1rem, auto) 1fr;
-      column-gap: 1.6rem;
+      column-gap: 1.7rem;
       align-items: start;
       justify-content: start;
       width: 100%;
-      padding: 0.2rem 0;
-      font-size: 1.4rem;
-      font-weight: 400;
-      line-height: 1.45;
+      padding: 0.08rem 0;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.18;
       text-align: left;
 
       &::after {
@@ -706,24 +738,25 @@
 
     &__list--compact &__venue {
       margin-left: 0;
-      text-align: center;
+      text-align: left;
       justify-self: stretch;
     }
 
     &__list--compact &__item-detail-inner {
-      padding: 0.65rem 0 0.25rem;
-      margin-top: 0.35rem;
+      padding: 0.45rem 0 0.18rem;
+      margin-top: 0.18rem;
       border-top: none;
       background: transparent;
-      font-size: 1.12rem;
+      font-size: 0.98rem;
     }
 
     &__list--compact &__item-row {
-      font-size: 1.12rem;
+      font-size: 0.95rem;
+      margin: 0.22rem 0;
     }
 
     &__list--compact &__item-link {
-      font-size: 1.05rem;
+      font-size: 0.92rem;
     }
   }
 }

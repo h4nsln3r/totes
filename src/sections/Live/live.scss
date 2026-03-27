@@ -3,6 +3,7 @@
   padding-top: 0;
   scroll-margin-top: 144px;
   height: 100dvh;
+
   // För att undvika att "kännas" större än 100vh p.g.a. padding från `.section`.
   @media (min-width: 768px) {
     padding-bottom: 0;
@@ -16,10 +17,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
   @media (min-width: 768px) {
     height: 100%;
   }
-  
+
   background-color: #f2f2f2;
 
   @media (max-width: 767px) {
@@ -49,7 +51,7 @@
   &__mobile-cta {
     @media (max-width: 767px) {
       width: fit-content;
-      margin: auto 0 0 auto;
+      margin: 0 0 0 auto;
       padding-bottom: 0.1rem;
       text-align: left;
       font-size: 0.72rem;
@@ -318,19 +320,23 @@
     opacity: 0;
     transform: translateX(-220px) rotate(-31deg);
   }
+
   // Fart in + kraftigt överskjut.
   55% {
     opacity: 1;
     transform: translateX(70px) rotate(-31deg);
   }
+
   // Broms/recoil tillbaka tydligare.
   70% {
     transform: translateX(-35px) rotate(-31deg);
   }
+
   // Lugn ner igen.
   85% {
     transform: translateX(8px) rotate(-31deg);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0) rotate(-31deg);
@@ -338,11 +344,13 @@
 }
 
 @keyframes live-empty-pulse {
+
   0%,
   100% {
     opacity: 0.7;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.05);
@@ -378,6 +386,7 @@
       width: 510px;
       height: auto;
       object-fit: contain;
+
       @media (min-width: 768px) {
         display: block;
         margin: 0 2rem 0 0;
@@ -429,6 +438,7 @@
   }
 
   @media (min-width: 768px) {
+
     // Flytta ner "giggs"-listan lite så den inte hamnar för högt.
     .live__lists--up .live__list {
       transform: translateY(0);
@@ -466,9 +476,11 @@
 
     @media (min-width: 768px) {
       font-size: 1.3rem;
+
       &::before {
         width: 7.5rem;
       }
+
       justify-content: flex-start;
       padding-left: 1.5rem;
       text-align: left;
@@ -736,6 +748,7 @@
     margin-top: 5px;
     max-width: 600px;
     margin: auto;
+
     p {
       margin: 0.5rem 0;
     }
@@ -819,6 +832,7 @@
     }
   }
 }
+
 // LIVE END //
 
 

@@ -127,27 +127,60 @@ const Info: React.FC<Props> = ({ isMobile }) => {
 
   return (
     <SectionWrapper sectionName="about">
-      <div className="col--55 margin__top--auto">
-        <img className="about__image" src={totespic} alt="Band" />
-      </div>
-      <div className="col--45">
-        <div className="about__sax-wrap" aria-hidden>
-          <div className="about__sax-hover-scale">
-            <div ref={spinWrapRef} className="about__sax-spin">
-              <img
-                className="about__sax"
-                src={saxPic}
-                alt=""
-                draggable={false}
-                onPointerDown={onPointerDown}
-                onPointerMove={onPointerMove}
-                onPointerUp={endDrag}
-                onPointerCancel={endDrag}
-              />
+      {isMobile ? (
+        <>
+          <div className="about__center-copy">
+            <p>Vi är ett band från Kalmar men vi bor i Malmö. Vi gillar starka melodier och sväninga rytmer och mullrande bas.</p>
+            <br />
+            <p>I sommar spelar vi på flera ställen i Malmö. Och snart kommer även debutsingeln Sure/Unshore</p>
+          </div>
+          <div className="about__sax-wrap--sm" aria-hidden>
+            <div className="about__sax-hover-scale about__sax-hover-scale">
+              <div ref={spinWrapRef} className="about__sax-spin">
+                <img
+                  className="about__sax"
+                  src={saxPic}
+                  alt=""
+                  draggable={false}
+                  onPointerDown={onPointerDown}
+                  onPointerMove={onPointerMove}
+                  onPointerUp={endDrag}
+                  onPointerCancel={endDrag}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <>
+          <div className="col--55 margin__top--auto">
+            <img className="about__image" src={totespic} alt="Band" />
+          </div>
+          <div className="col--45">
+            <div className="about__center-copy">
+              <p>Vi är ett band från Kalmar men vi bor i Malmö. Vi gillar starka melodier och sväninga rytmer och mullrande bas.</p>
+              <br />
+              <p>I sommar spelar vi på flera ställen i Malmö. Och snart kommer även debutsingeln Sure/Unshore</p>
+            </div>
+            <div className="about__sax-wrap" aria-hidden>
+              <div className="about__sax-hover-scale">
+                <div ref={spinWrapRef} className="about__sax-spin">
+                  <img
+                    className="about__sax"
+                    src={saxPic}
+                    alt=""
+                    draggable={false}
+                    onPointerDown={onPointerDown}
+                    onPointerMove={onPointerMove}
+                    onPointerUp={endDrag}
+                    onPointerCancel={endDrag}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>)}
+
     </SectionWrapper>
   );
 };

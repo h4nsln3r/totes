@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import trummor from '../../assets/trummor.png';
+import trummor from '../../assets/sketches/trummor.png';
 
 const MIN_SPEED = 55;
 const MAX_SPEED = 110;

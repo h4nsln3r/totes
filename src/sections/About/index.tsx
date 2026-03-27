@@ -17,7 +17,6 @@ function unwrapDegDelta(delta: number): number {
 }
 
 const Info: React.FC<Props> = ({ isMobile }) => {
-  void isMobile;
   const spinWrapRef = useRef<HTMLDivElement>(null);
   const spinDegRef = useRef(0);
   const velocityDegPerSecRef = useRef(0);
@@ -125,6 +124,15 @@ const Info: React.FC<Props> = ({ isMobile }) => {
     }
   };
 
+  const interactiveSaxHandlers = isMobile
+    ? {}
+    : {
+        onPointerDown,
+        onPointerMove,
+        onPointerUp: endDrag,
+        onPointerCancel: endDrag,
+      };
+
   return (
     <SectionWrapper sectionName="about">
       {isMobile ? (
@@ -142,10 +150,7 @@ const Info: React.FC<Props> = ({ isMobile }) => {
                   src={saxPic}
                   alt=""
                   draggable={false}
-                  onPointerDown={onPointerDown}
-                  onPointerMove={onPointerMove}
-                  onPointerUp={endDrag}
-                  onPointerCancel={endDrag}
+                  {...interactiveSaxHandlers}
                 />
               </div>
             </div>
@@ -170,10 +175,7 @@ const Info: React.FC<Props> = ({ isMobile }) => {
                     src={saxPic}
                     alt=""
                     draggable={false}
-                    onPointerDown={onPointerDown}
-                    onPointerMove={onPointerMove}
-                    onPointerUp={endDrag}
-                    onPointerCancel={endDrag}
+                    {...interactiveSaxHandlers}
                   />
                 </div>
               </div>

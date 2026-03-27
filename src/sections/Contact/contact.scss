@@ -1,6 +1,7 @@
 .section.contact {
   padding-top: 0;
   padding-bottom: 0;
+  position: relative;
 
   @media (min-width: 768px) {
     min-height: 100vh;
@@ -10,8 +11,9 @@
 }
 
 .contact {
+
   background-color: #ff4a00;
-  position: relative;
+
   overflow: hidden;
 
   display: flex;
@@ -34,6 +36,57 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.contact__instrument {
+  @media (min-width: 768px) {
+    position: absolute;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.95;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
+  }
+}
+
+.contact__instrument--sax {
+  @media (min-width: 768px) {
+    width: clamp(100px, 12vw, 240px);
+    right: 18%;
+    bottom: -1200%;
+    transform: rotate(-14deg);
+  }
+}
+
+.contact__instrument--bas {
+  @media (min-width: 768px) {
+    width: clamp(150px, 13vw, 250px);
+    top: -800%;
+    left: 6%;
+    transform: rotate(9deg);
+  }
+}
+
+.contact__instrument--gitarr {
+  @media (min-width: 768px) {
+    width: clamp(240px, 26vw, 380px);
+    top: -800%;
+    right: 25%;
+    transform: rotate(12deg);
+  }
+}
+
+.contact__instrument--trummor {
+  @media (min-width: 768px) {
+    width: clamp(220px, 20vw, 380px);
+    left: 33%;
+    bottom: -860%;
+    transform: rotate(-6deg);
+  }
 }
 
 .contact__email {
@@ -48,4 +101,3 @@
     text-decoration: none;
   }
 }
-

@@ -3,7 +3,7 @@ import totespic from "../../assets/images/totesabout.jpg";
 import saxPic from "../../assets/sketches/sax.png";
 
 import "./about.scss";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Props {
   isMobile: boolean;
@@ -18,12 +18,14 @@ function unwrapDegDelta(delta: number): number {
 
 const Info: React.FC<Props> = ({ isMobile }) => {
   const spinWrapRef = useRef<HTMLDivElement>(null);
+  const saxWrapDesktopRef = useRef<HTMLDivElement>(null);
   const spinDegRef = useRef(0);
   const velocityDegPerSecRef = useRef(0);
   const draggingRef = useRef(false);
   const dragRef = useRef({ lastAngle: 0, lastTime: 0, cx: 0, cy: 0 });
   const rafRef = useRef<number>(0);
   const inertiaTimeRef = useRef<number | null>(null);
+  const [isDesktopSaxVisible, setIsDesktopSaxVisible] = useState(false);
 
   const applySpin = useCallback(() => {
     const el = spinWrapRef.current;
@@ -68,6 +70,24 @@ const Info: React.FC<Props> = ({ isMobile }) => {
     applySpin();
     return () => stopInertia();
   }, [applySpin, stopInertia]);
+
+  useEffect(() => {
+    if (isMobile) return;
+    const saxWrap = saxWrapDesktopRef.current;
+    const section = saxWrap?.closest(".section.about");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsDesktopSaxVisible(entry.isIntersecting);
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [isMobile]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLImageElement>) => {
     stopInertia();
@@ -167,7 +187,11 @@ const Info: React.FC<Props> = ({ isMobile }) => {
               <br />
               <p>I sommar spelar vi på flera ställen i Malmö. Och snart kommer även debutsingeln Sure/Unshore</p>
             </div>
-            <div className="about__sax-wrap" aria-hidden>
+            <div
+              ref={saxWrapDesktopRef}
+              className={`about__sax-wrap ${isDesktopSaxVisible ? "about__sax-wrap--entered" : ""}`}
+              aria-hidden
+            >
               <div className="about__sax-hover-scale">
                 <div ref={spinWrapRef} className="about__sax-spin">
                   <img

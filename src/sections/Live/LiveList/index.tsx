@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaFacebook } from 'react-icons/fa';
-import { useTranslation } from 'react-i18next';
+import { FaFacebook } from 'react-icons/fa';
 import { Gig } from '../../../types/gigs';
 import { heightExpandVariants } from '../../../constants/animations';
 import { formatGigDate, formatGigDateCompact } from '../../../utils/date';
@@ -14,7 +13,6 @@ type Props = {
 };
 
 const LiveList = ({ gigs, compactDates = false }: Props) => {
-  const { t } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   // const text = emptyText ?? t("live.empty");
@@ -27,7 +25,7 @@ const LiveList = ({ gigs, compactDates = false }: Props) => {
     <ul className={`live__list${compactDates ? ' live__list--compact' : ''}`}>
       {gigs.map((gig, i) => {
         const isExpanded = expandedIndex === i;
-        const hasDetails = gig.city || gig.time || gig.adress || gig.link || gig.facebookLink;
+        const hasDetails = Boolean(gig.city || gig.time || gig.adress || gig.facebookLink);
         const dateLabel = compactDates ? formatGigDateCompact(gig.date) : formatGigDate(gig.date);
 
         const headerInner = (
@@ -74,46 +72,32 @@ const LiveList = ({ gigs, compactDates = false }: Props) => {
                     transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                   >
                     <div className="live__item-detail-inner">
-                      {gig.city && (
-                        <p className="live__item-row">
-                          <span className="live__item-label">{t('live.city')}</span>
-                          <span className="live__item-value">{gig.city}</span>
-                        </p>
-                      )}
-                      {gig.adress && (
-                        <p className="live__item-row">
-                          <span className="live__item-label">{t('live.address')}</span>
-                          <span className="live__item-value">{gig.adress}</span>
-                        </p>
-                      )}
-                      {gig.time && (
-                        <p className="live__item-row">
-                          <span className="live__item-label">{t('live.time')}</span>
-                          <span className="live__item-value">{gig.time}</span>
-                        </p>
-                      )}
-                      <div className="live__item-links">
-                        {gig.link && (
-                          <a
-                            href={gig.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="live__item-link"
-                          >
-                            <FaExternalLinkAlt aria-hidden />
-                            {t('live.eventLink')}
-                          </a>
+                      <div className="live__item-main-row">
+                        {(gig.city || gig.adress) && (
+                          <div className="live__item-location-col">
+                            {gig.city && <span className="live__item-value">{gig.city}</span>}
+                            {gig.adress && <span className="live__item-value">{gig.adress}</span>}
+                          </div>
                         )}
-                        {gig.facebookLink && (
-                          <a
-                            href={gig.facebookLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="live__item-link live__item-link--facebook"
-                          >
-                            <FaFacebook aria-hidden />
-                            Facebook
-                          </a>
+                        {(gig.time || gig.facebookLink) && (
+                          <div className="live__item-meta-row">
+                            {gig.time && (
+                              <span className="live__item-time">{gig.time}</span>
+                            )}
+                            {gig.facebookLink && (
+                              <div className="live__item-links">
+                                <a
+                                  href={gig.facebookLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="live__item-link live__item-link--facebook"
+                                  aria-label="Facebook event"
+                                >
+                                  <FaFacebook aria-hidden />
+                                </a>
+                              </div>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>

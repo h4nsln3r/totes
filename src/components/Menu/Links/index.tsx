@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import classNames from "classnames";
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -11,33 +10,10 @@ import {
 interface MenuLinksProps {
   activeSection: string;
   isMobile: boolean;
-  /** När mobilmenyn är öppen: stagger-animation på länkar */
-  mobileNavOpen?: boolean;
   onLinkClick?: () => void;
 }
 
-const mobileListVariantsClosed = {
-  closed: {},
-  open: {
-    transition: { staggerChildren: 0.055, delayChildren: 0.06 },
-  },
-};
-
-const mobileItemVariants = {
-  closed: { opacity: 0, x: 20 },
-  open: {
-    opacity: 1,
-    x: 0,
-    transition: { type: "spring" as const, stiffness: 420, damping: 30 },
-  },
-};
-
-const MenuLinks: React.FC<MenuLinksProps> = ({
-  activeSection,
-  isMobile,
-  mobileNavOpen,
-  onLinkClick,
-}) => {
+const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, isMobile, onLinkClick }) => {
   const { t } = useTranslation();
 
   const links = useMemo(
@@ -74,40 +50,20 @@ const MenuLinks: React.FC<MenuLinksProps> = ({
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   };
 
-  if (isMobile && mobileNavOpen) {
-    return (
-      <motion.ul
-        variants={mobileListVariantsClosed}
-        initial="closed"
-        animate="open"
-      >
-        {displayLinks.map((link) => (
-          <motion.li key={link.id} variants={mobileItemVariants}>
-            <a
-              className={classNames({ active: activeSection === link.id })}
-              onClick={() => {
-                scrollToId(link.id);
-                onLinkClick?.();
-              }}
-            >
-              {link.label}
-            </a>
-          </motion.li>
-        ))}
-      </motion.ul>
-    );
-  }
+  const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    scrollToId(id);
+    onLinkClick?.();
+  };
 
   return (
     <ul>
       {displayLinks.map((link) => (
         <li key={link.id}>
           <a
+            href={`#${link.id}`}
             className={classNames({ active: activeSection === link.id })}
-            onClick={() => {
-              scrollToId(link.id);
-              onLinkClick?.();
-            }}
+            onClick={(e) => onNavClick(e, link.id)}
           >
             {link.label}
           </a>

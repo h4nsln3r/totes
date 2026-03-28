@@ -334,6 +334,12 @@
 @media (max-width: 767px) {
   .menu--mobile-open {
     background: transparent;
+
+    /* Över helskärmspanelen (1001) så T-loggan och stäng-ikon syns och går att klicka */
+    .menu__logo,
+    .menu__controls {
+      z-index: 1100;
+    }
   }
 
   .menu > .menu__animation {

@@ -17,6 +17,16 @@ interface Props {
 
 const MENU_HEIGHT = 50;
 
+const scrollToHero = () => {
+  const el = document.getElementById('hero');
+  if (!el) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+  const y = el.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+};
+
 const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   const [menuWidth, setMenuWidth] = useState<number>(() => {
     if (typeof window === 'undefined') return 280;
@@ -56,6 +66,24 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
     };
   }, []);
 
+  /** Ingen position:fixed — den nollställde scroll för många. Bara overflow när menyn är öppen. */
+  useEffect(() => {
+    if (!isMobile || !isOpen) return;
+
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+    };
+  }, [isMobile, isOpen]);
+
   const mobilePanelTransition = {
     type: 'spring' as const,
     stiffness: 380,
@@ -94,7 +122,13 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
           isMobile && isOpen ? 'menu--mobile-open' : ''
         }`}
       >
-        <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
+        <div
+          className="menu__logo"
+          onClick={() => {
+            if (isMobile && isOpen) setIsOpen(false);
+            scrollToHero();
+          }}
+        >
           <MenuLogo isMobile={isMobile} menuWidth={menuWidth} activeSection={activeSection} />
         </div>
 
@@ -121,11 +155,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
                   opacity: 1,
                 }
           }
-          initial={
-            isMobile
-              ? { x: '100%', opacity: 0 }
-              : { width: menuWidth, x: 0, opacity: 1 }
-          }
+          initial={isMobile ? false : { width: menuWidth, x: 0, opacity: 1 }}
           transition={
             isMobile
               ? {
@@ -136,17 +166,14 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
           }
           style={isMobile ? { pointerEvents: isOpen ? 'auto' : 'none' } : undefined}
         >
-          {(!isMobile || isOpen) && (
-            <MenuLinks
-              activeSection={activeSection}
-              isMobile={isMobile}
-              mobileNavOpen={isMobile && isOpen}
-              onLinkClick={() => {
-                if (!isMobile) return;
-                window.setTimeout(() => setIsOpen(false), 220);
-              }}
-            />
-          )}
+          <MenuLinks
+            activeSection={activeSection}
+            isMobile={isMobile}
+            onLinkClick={() => {
+              if (!isMobile) return;
+              setIsOpen(false);
+            }}
+          />
         </motion.div>
       </nav>
     </>

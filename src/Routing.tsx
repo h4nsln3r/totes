@@ -11,6 +11,7 @@ import Live from './sections/Live';
 import About from './sections/About';
 import Contact from './sections/Contact';
 // import Merch from './sections/Merch';
+import { SECTION_SCROLL_EXTRA_OFFSET_PX, SECTION_SCROLL_MENU_HEIGHT_PX } from './constants/sectionScroll';
 import { useSectionScrollLock } from './hooks/useSectionScrollLock';
 
 const Routing = () => {
@@ -19,13 +20,13 @@ const Routing = () => {
 
   useSectionScrollLock(['hero', 'live', 'music', 'about', 'contact'], {
     disabled: isMenuOpen,
-    menuHeightPx: 50,
+    menuHeightPx: SECTION_SCROLL_MENU_HEIGHT_PX,
     wheelThresholdPx: 140,
     touchThresholdPx: 65,
     unlockAfterMs: 1000,
     // Kompensera för att Music-videon ska kännas "fullskärm" även med den fasta menyn.
     // Menyn döljs i `contact`, så vi kompenserar menyns 50px här.
-    sectionExtraOffsetPx: { live: 56, music: 50, about: 50, contact: 50 },
+    sectionExtraOffsetPx: SECTION_SCROLL_EXTRA_OFFSET_PX,
   });
 
   return (

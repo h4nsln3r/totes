@@ -4,37 +4,34 @@ import totesLogoSymbol from "../../../assets/logo/totes_svart_symbol.png";
 
 interface MenuLogoProps {
   isMobile: boolean;
-  isOpen: boolean;
   menuWidth: number;
   activeSection: string;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, activeSection }) => {
+const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, activeSection }) => {
   const [showLogo, setShowLogo] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
+    const showLogoAt = isMobile ? 90 : 200;
+    const hideLogoAt = isMobile ? 60 : 120;
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const scrollingDown = scrollY > lastScrollY.current;
       lastScrollY.current = scrollY;
 
       if (scrollingDown) {
-        if (scrollY > 200) setShowLogo(true);
+        if (scrollY > showLogoAt) setShowLogo(true);
       } else {
-        if (scrollY < 300) setShowLogo(false);
-      }
-
-      if (isMobile && isOpen) {
-        setShowLogo(true);
-        return;
+        if (scrollY < hideLogoAt) setShowLogo(false);
       }
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile, isOpen]);
+  }, [isMobile]);
 
   const imgClass = !isMobile ? "menu__logo--desktop" : "menu__logo--mobile";
 
@@ -56,7 +53,7 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, isOpen, active
           exit="exit"
           variants={variants}
           transition={{ duration: 0.2 }}
-          className={"menu__animation"}
+          className="menu__logo-animation"
           style={{ width: menuWidth - 20 }}
         >
           <img src={totesLogoSymbol} alt="Totes Logo" className={imgClass} />

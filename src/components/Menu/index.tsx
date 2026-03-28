@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import MenuLinks from './Links';
@@ -56,47 +56,100 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
     };
   }, []);
 
+  const mobilePanelTransition = {
+    type: 'spring' as const,
+    stiffness: 380,
+    damping: 34,
+    mass: 0.85,
+  };
+
   return (
-    <nav
-      className={`menu ${
-        isMenuOverMusic &&
-        activeSection !== 'live' &&
-        activeSection !== 'about' &&
-        activeSection !== 'contact'
-          ? 'menu--light'
-          : ''
-      } ${activeSection === '' ? 'menu--no-active' : ''} ${shouldHideMenu ? 'menu--hide' : ''}`}
-    >
-      <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
-        <MenuLogo isMobile={isMobile} isOpen={isOpen} menuWidth={menuWidth} activeSection={activeSection} />
-      </div>
+    <>
+      {isMobile && (
+        <AnimatePresence>
+          {isOpen && (
+            <motion.button
+              type="button"
+              aria-label="Stäng meny"
+              className="menu__mobile-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              onClick={() => setIsOpen(false)}
+            />
+          )}
+        </AnimatePresence>
+      )}
 
-      <div className="menu__controls">
-        {isMobile && (
-          <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
-            {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
-          </div>
-        )}
-        {/* isOpen && <LanguageSwitcher isMenuOpen={isOpen} isMobile={isMobile} /> */}
-      </div>
-
-      <motion.div
-        className="menu__animation"
-        animate={{
-          width: !isMobile
-            ? menuWidth
-            : isOpen
-              ? activeSection === ''
-                ? 200
-                : menuWidth
-              : 0,
-        }}
-        initial={{ width: !isMobile ? menuWidth : 0 }}
-        transition={{ duration: 0.3 }}
+      <nav
+        className={`menu ${
+          isMenuOverMusic &&
+          activeSection !== 'live' &&
+          activeSection !== 'about' &&
+          activeSection !== 'contact'
+            ? 'menu--light'
+            : ''
+        } ${activeSection === '' ? 'menu--no-active' : ''} ${shouldHideMenu ? 'menu--hide' : ''} ${
+          isMobile && isOpen ? 'menu--mobile-open' : ''
+        }`}
       >
-        {(!isMobile || isOpen) && <MenuLinks activeSection={activeSection} isMobile={isMobile} />}
-      </motion.div>
-    </nav>
+        <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="menu__logo">
+          <MenuLogo isMobile={isMobile} menuWidth={menuWidth} activeSection={activeSection} />
+        </div>
+
+        <div className="menu__controls">
+          {isMobile && (
+            <div className="menu__icon" onClick={() => setIsOpen(!isOpen)}>
+              {!isOpen ? <MenuIcon fontSize="large" /> : <ArrowForwardIosIcon fontSize="medium" />}
+            </div>
+          )}
+          {/* isOpen && <LanguageSwitcher isMenuOpen={isOpen} isMobile={isMobile} /> */}
+        </div>
+
+        <motion.div
+          className={`menu__animation${isMobile ? ' menu__animation--mobile-sheet' : ''}`}
+          animate={
+            isMobile
+              ? {
+                  x: isOpen ? 0 : '100%',
+                  opacity: isOpen ? 1 : 0,
+                }
+              : {
+                  width: menuWidth,
+                  x: 0,
+                  opacity: 1,
+                }
+          }
+          initial={
+            isMobile
+              ? { x: '100%', opacity: 0 }
+              : { width: menuWidth, x: 0, opacity: 1 }
+          }
+          transition={
+            isMobile
+              ? {
+                  x: mobilePanelTransition,
+                  opacity: { duration: 0.22, ease: [0.22, 1, 0.36, 1] },
+                }
+              : { duration: 0.3 }
+          }
+          style={isMobile ? { pointerEvents: isOpen ? 'auto' : 'none' } : undefined}
+        >
+          {(!isMobile || isOpen) && (
+            <MenuLinks
+              activeSection={activeSection}
+              isMobile={isMobile}
+              mobileNavOpen={isMobile && isOpen}
+              onLinkClick={() => {
+                if (!isMobile) return;
+                window.setTimeout(() => setIsOpen(false), 220);
+              }}
+            />
+          )}
+        </motion.div>
+      </nav>
+    </>
   );
 };
 

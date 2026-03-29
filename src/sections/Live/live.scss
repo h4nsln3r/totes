@@ -11,6 +11,24 @@
     min-height: 100vh;
     height: 100vh;
   }
+
+  /*
+   * Mobil: `section.scss` har `.section p { font-size: 1.1rem }` (0,1,1) som slår `.live__mobile-cta` (0,1,0).
+   * Endast mobil — desktop påverkas inte (samma markup finns inte i desktop-layouten).
+   */
+  @media (max-width: 767px) {
+    p.live__mobile-cta {
+      font-size: clamp(0.92rem, 3.5vw, 1.12rem);
+      line-height: 1.32;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+
+      a {
+        font-size: inherit;
+        color: #000;
+      }
+    }
+  }
 }
 
 .live {
@@ -25,8 +43,8 @@
   background-color: #f2f2f2;
 
   @media (max-width: 767px) {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
     padding-bottom: 3rem;
     color: #1a1a1a;
     gap: 0.5rem;
@@ -48,18 +66,47 @@
     }
   }
 
+  &__mobile-cta-row {
+    @media (max-width: 767px) {
+      position: relative;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 0 auto;
+      /* Utrymme så absolut positionerad bas inte klipps / krockar med kant */
+      padding-left: clamp(2.85rem, 16vw, 4.25rem);
+    }
+  }
+
+  /* Typsnitt: se `.section.live p.live__mobile-cta` (slår `.section p`) */
   &__mobile-cta {
     @media (max-width: 767px) {
-      width: fit-content;
-      margin: 0 0 0 auto;
+      margin: 0;
       padding-bottom: 0.1rem;
       text-align: left;
-      font-size: 0.72rem;
-      line-height: 1.12;
+    }
+  }
 
-      a {
-        color: #000;
-      }
+  /* Håll "Hör av dig till" + e-post på en rad (ingen radbrytning mitt i meningen). */
+  &__mobile-cta-mail {
+    @media (max-width: 767px) {
+      white-space: nowrap;
+    }
+  }
+
+  /* Utanför textflödet — påverkar inte radbrytning eller bredd på stycket */
+  &__mobile-cta-bass {
+    @media (max-width: 767px) {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: clamp(40px, 12vw, 56px);
+      height: auto;
+      display: block;
+      object-fit: contain;
+      transform: translateY(-50%) rotate(-14deg);
+      transform-origin: center center;
+      opacity: 0.92;
+      pointer-events: none;
     }
   }
 
@@ -624,6 +671,12 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 0.75rem;
+
+    @media (max-width: 767px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      box-sizing: border-box;
+    }
   }
 
   &__item-location-col {
@@ -769,7 +822,9 @@
     &__list--compact {
       gap: 0.55rem;
       margin-bottom: 1.6rem;
-      max-width: 24rem;
+      max-width: none;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     &__list--compact &__item {
@@ -779,12 +834,12 @@
     &__list--compact &__item-header,
     &__list--compact &__item-header--static {
       display: grid;
-      grid-template-columns: minmax(3.1rem, auto) 1fr;
-      column-gap: 1.7rem;
+      grid-template-columns: minmax(3.1rem, auto) minmax(0, 1fr);
+      column-gap: 1.35rem;
       align-items: start;
       justify-content: start;
       width: 100%;
-      padding: 0.08rem 0;
+      padding: 0.08rem 0.2rem;
       font-size: 1.8rem;
       font-weight: 300;
       line-height: 1.18;
@@ -812,14 +867,23 @@
       margin-left: 0;
       text-align: left;
       justify-self: stretch;
+      min-width: 0;
+      padding: 0.05rem 0.15rem 0.05rem 0.2rem;
+      overflow-wrap: break-word;
+      word-break: normal;
     }
 
     &__list--compact &__item-detail-inner {
-      padding: 0.45rem 0 0.18rem;
+      padding: 0.45rem 0.35rem 0.18rem;
       margin-top: 0.18rem;
       border-top: none;
       background: transparent;
       font-size: 0.98rem;
+    }
+
+    &__list--compact &__item-main-row {
+      padding-left: 0.7rem;
+      padding-right: 0.7rem;
     }
 
     &__list--compact &__item-row {

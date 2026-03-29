@@ -73,7 +73,22 @@ const Live: React.FC<Props> = ({ isMobile }) => {
           <h2 className="live__mobile-title">Live</h2>
             <LiveList gigs={UPCOMING_GIGS} compactDates={true} />
            <img src={TotesBandMobile} alt="Band" className="live__image live__image--mobile" />
-           <p className="live__mobile-cta">Vill du boka oss?<br />Hör av dig till <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a></p>
+           <div className="live__mobile-cta-row">
+             <p className="live__mobile-cta">
+               Vill du boka oss?
+               <br />
+               <span className="live__mobile-cta-mail">
+                 Hör av dig till{' '}
+                 <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
+               </span>
+             </p>
+             <img
+               src={TotesBass}
+               alt=""
+               className="live__mobile-cta-bass"
+               decoding="async"
+             />
+           </div>
           </>
         )}
 

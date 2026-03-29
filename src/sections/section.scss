@@ -4,6 +4,15 @@
   min-height: 90dvh;
   padding-top: 1rem;
   padding-bottom: 4rem;
+
+  /* Mobil: hel viewport — tidigare 90vh gav kortare sektioner än Live (100dvh). */
+  @media (max-width: 767px) {
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* iOS: max(svh,dvh) minskar glapp när verktygsfält/adressfält ändrar höjd */
+    min-height: max(100svh, 100dvh);
+  }
+
   @media (min-width: 768px) {
     min-height: 100vh;
     min-height: 100dvh;

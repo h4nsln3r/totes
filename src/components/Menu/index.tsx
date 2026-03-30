@@ -35,7 +35,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   });
   const [isMenuOverMusic, setIsMenuOverMusic] = useState(false);
 
-  const sectionIds = ['live', 'music', 'about', 'contact']; // 'merch' tillfälligt borttagen
+  const sectionIds = ['live', 'music', 'about', 'contact', 'past-gigs']; // 'merch' tillfälligt borttagen
   const activeSection = useScrollSpy(sectionIds);
   const shouldHideMenu = activeSection === 'contact';
 
@@ -115,7 +115,8 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
           isMenuOverMusic &&
           activeSection !== 'live' &&
           activeSection !== 'about' &&
-          activeSection !== 'contact'
+          activeSection !== 'contact' &&
+          activeSection !== 'past-gigs'
             ? 'menu--light'
             : ''
         } ${activeSection === '' ? 'menu--no-active' : ''} ${shouldHideMenu ? 'menu--hide' : ''} ${

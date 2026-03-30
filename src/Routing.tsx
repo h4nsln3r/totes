@@ -10,6 +10,7 @@ import Live from './sections/Live';
 // import Merch from "./sections/Merch";
 import About from './sections/About';
 import Contact from './sections/Contact';
+import PastGigsPhoto from './sections/PastGigsPhoto';
 // import Merch from './sections/Merch';
 import { SECTION_SCROLL_EXTRA_OFFSET_PX, SECTION_SCROLL_MENU_HEIGHT_PX } from './constants/sectionScroll';
 import { useSectionScrollLock } from './hooks/useSectionScrollLock';
@@ -18,7 +19,7 @@ const Routing = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useSectionScrollLock(['hero', 'live', 'music', 'about', 'contact'], {
+  useSectionScrollLock(['hero', 'live', 'music', 'about', 'contact', 'past-gigs'], {
     disabled: isMenuOpen,
     menuHeightPx: SECTION_SCROLL_MENU_HEIGHT_PX,
     wheelThresholdPx: 140,
@@ -44,6 +45,7 @@ const Routing = () => {
         {/* <Merch /> */}
         <About isMobile={isMobile} />
         <Contact isMobile={isMobile} />
+        <PastGigsPhoto />
       </main>
     </>
   );

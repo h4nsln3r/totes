@@ -36,24 +36,35 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  display: none;
-
-  @media (min-width: 768px) {
-    display: block;
-  }
+  display: block;
 }
 
 .contact__instrument {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.16));
+
   @media (min-width: 768px) {
-    position: absolute;
-    height: auto;
-    object-fit: contain;
     opacity: 0.95;
     filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
   }
 }
 
 .contact__instrument--sax {
+
+  display: none;
+
+  @media (max-width: 767px) {
+    width: clamp(100px, 11vw, 56px);
+    bottom: -1200%;
+    left: 16%;
+    right: auto;
+
+    transform: rotate(-39deg);
+  }
+
   @media (min-width: 768px) {
     width: clamp(100px, 12vw, 240px);
     right: 18%;
@@ -63,6 +74,15 @@
 }
 
 .contact__instrument--bas {
+  @media (max-width: 767px) {
+    width: clamp(100px, 10vw, 52px);
+    bottom: -800%;
+    right: -2%;
+    left: auto;
+
+    transform: rotate(11deg);
+  }
+
   @media (min-width: 768px) {
     width: clamp(150px, 13vw, 250px);
     top: -800%;
@@ -72,6 +92,15 @@
 }
 
 .contact__instrument--gitarr {
+  @media (max-width: 767px) {
+    width: clamp(156px, 16vw, 84px);
+    bottom: 460%;
+    left: 20%;
+    top: auto;
+    right: auto;
+    transform: rotate(16deg);
+  }
+
   @media (min-width: 768px) {
     width: clamp(240px, 26vw, 380px);
     top: -800%;
@@ -81,6 +110,15 @@
 }
 
 .contact__instrument--trummor {
+  @media (max-width: 767px) {
+    width: clamp(260px, 14vw, 76px);
+    bottom: -1232%;
+    right: 30%;
+    top: auto;
+    left: auto;
+    transform: rotate(0deg);
+  }
+
   @media (min-width: 768px) {
     width: clamp(220px, 20vw, 380px);
     left: 33%;
@@ -91,6 +129,7 @@
 
 .contact__email {
   position: relative;
+  z-index: 1;
   font-size: clamp(1.1rem, 3.5vw, 2rem);
   font-weight: 600;
   color: #1a1a1a;

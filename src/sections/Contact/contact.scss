@@ -53,16 +53,8 @@
 }
 
 .contact__instrument--sax {
-
-  display: none;
-
   @media (max-width: 767px) {
-    width: clamp(100px, 11vw, 56px);
-    bottom: -1200%;
-    left: 16%;
-    right: auto;
-
-    transform: rotate(-39deg);
+    display: none;
   }
 
   @media (min-width: 768px) {

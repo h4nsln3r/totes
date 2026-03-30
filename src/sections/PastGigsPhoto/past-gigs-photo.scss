@@ -12,6 +12,12 @@
     min-height: 100vh;
     min-height: 100dvh;
     min-height: max(100svh, 100dvh);
+
+    picture {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
   }
 
   &__image {
@@ -22,30 +28,5 @@
     object-fit: cover;
     object-position: center;
     display: block;
-  }
-
-  /* Samma typografi som `.live__mobile-title` (Live-sektionen), placerad längst ner */
-  &__title {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    padding: 0 0.65rem;
-    padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
-    font-size: clamp(2rem, 7.5vw, 2.35rem);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: 0.01em;
-    color: #1a1a1a;
-
-    @media (min-width: 768px) {
-      padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
-      font-size: clamp(2rem, 4vw, 2.75rem);
-    }
   }
 }

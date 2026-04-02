@@ -6,6 +6,7 @@ type UseSectionScrollLockOptions = {
   wheelThresholdPx?: number;
   touchThresholdPx?: number;
   unlockAfterMs?: number;
+  wheelStepCooldownMs?: number;
   sectionExtraOffsetPx?: Record<string, number>;
 };
 
@@ -62,12 +63,15 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
     wheelThresholdPx = 110,
     touchThresholdPx = 60,
     unlockAfterMs = 900,
+    wheelStepCooldownMs = 420,
     sectionExtraOffsetPx = {},
   } = options ?? {};
 
   const sectionKey = useMemo(() => sectionIds.join('|'), [sectionIds]);
 
   const wheelAccumRef = useRef(0);
+  const lastWheelDirectionRef = useRef<1 | -1 | null>(null);
+  const wheelBlockUntilRef = useRef(0);
   const lockedRef = useRef(false);
   const unlockRafRef = useRef<number | null>(null);
   const touchStartYRef = useRef<number | null>(null);
@@ -87,6 +91,13 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
         if (stillCloseEnough || timedOut) {
           lockedRef.current = false;
           wheelAccumRef.current = 0;
+          lastWheelDirectionRef.current = null;
+          // Viktigt för touchpad: blockera en kort stund även EFTER att snapen är klar
+          // så kvarvarande inertia inte triggar ett extra sektionshopp.
+          wheelBlockUntilRef.current = Math.max(
+            wheelBlockUntilRef.current,
+            performance.now() + wheelStepCooldownMs
+          );
           unlockRafRef.current = null;
           return;
         }
@@ -133,8 +144,15 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
         return;
       }
 
+      // Touchpad-inertia efter ett snap-steg kan annars orsaka oönskade extra hopp.
+      if (performance.now() < wheelBlockUntilRef.current) {
+        e.preventDefault();
+        return;
+      }
+
       const deltaY = e.deltaY ?? 0;
       if (deltaY === 0) return;
+      const direction: 1 | -1 = deltaY > 0 ? 1 : -1;
 
       // Mushjul skickar oftast DOM_DELTA_LINE (~100px/notch) och når sällan tröskeln på en
       // enda event — då blandades naturlig scroll med snap. Ett line/page-steg = ett sektionssteg.
@@ -142,30 +160,47 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
         e.deltaMode === WheelEvent.DOM_DELTA_LINE || e.deltaMode === WheelEvent.DOM_DELTA_PAGE;
 
       if (isDiscreteWheel) {
-        const direction: 1 | -1 = deltaY > 0 ? 1 : -1;
         if (!canStepToAdjacentSection(sectionIds, menuHeightPx, direction)) {
           return;
         }
         e.preventDefault();
         wheelAccumRef.current = 0;
+        lastWheelDirectionRef.current = null;
         tryStep(direction);
+        wheelBlockUntilRef.current = Math.max(
+          wheelBlockUntilRef.current,
+          performance.now() + wheelStepCooldownMs
+        );
         return;
       }
 
-      // Trackpad: låt “småscroll” ackumuleras tills det känns som ett tydligt steg.
+      // Trackpad: bygg upp intention, men lås naturlig scroll så sidan inte driver mellan sektioner.
+      if (!canStepToAdjacentSection(sectionIds, menuHeightPx, direction)) {
+        wheelAccumRef.current = 0;
+        lastWheelDirectionRef.current = null;
+        return;
+      }
+      e.preventDefault();
+
+      // Om användaren byter riktning: starta om ackumuleringen för att undvika "ryckiga" dubbelsnap.
+      if (lastWheelDirectionRef.current != null && lastWheelDirectionRef.current !== direction) {
+        wheelAccumRef.current = 0;
+      }
+      lastWheelDirectionRef.current = direction;
+
+      // Trackpad: låt småscroll ackumuleras tills tröskeln känns som ett tydligt steg.
       wheelAccumRef.current += deltaY;
 
       if (Math.abs(wheelAccumRef.current) < wheelThresholdPx) return;
 
-      const direction: 1 | -1 = wheelAccumRef.current > 0 ? 1 : -1;
-      if (!canStepToAdjacentSection(sectionIds, menuHeightPx, direction)) {
-        wheelAccumRef.current = 0;
-        return;
-      }
-
-      e.preventDefault();
+      const stepDirection: 1 | -1 = wheelAccumRef.current > 0 ? 1 : -1;
       wheelAccumRef.current = 0;
-      tryStep(direction);
+      lastWheelDirectionRef.current = null;
+      tryStep(stepDirection);
+      wheelBlockUntilRef.current = Math.max(
+        wheelBlockUntilRef.current,
+        performance.now() + wheelStepCooldownMs
+      );
     };
 
     const onKeyDown = (e: KeyboardEvent) => {
@@ -241,11 +276,22 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
       if (unlockRafRef.current != null) cancelAnimationFrame(unlockRafRef.current);
       lockedRef.current = false;
       wheelAccumRef.current = 0;
+      lastWheelDirectionRef.current = null;
+      wheelBlockUntilRef.current = 0;
       unlockRafRef.current = null;
       touchStartYRef.current = null;
       touchLastYRef.current = null;
       touchTargetElRef.current = null;
     };
-  }, [disabled, sectionKey, menuHeightPx, wheelThresholdPx, touchThresholdPx, unlockAfterMs, sectionIds]);
+  }, [
+    disabled,
+    sectionKey,
+    menuHeightPx,
+    wheelThresholdPx,
+    touchThresholdPx,
+    unlockAfterMs,
+    wheelStepCooldownMs,
+    sectionIds,
+  ]);
 }
 

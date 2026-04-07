@@ -126,4 +126,38 @@
   }
 }
 
+/* Mindre desktop (768–1279px): luft + flex utan overflow. #live utelämnad medvetet. */
+@media (min-width: 768px) {
+  #about.section,
+  #contact.section {
+    padding-left: clamp(0.5rem, 3vw, 2.5rem);
+    padding-right: clamp(0.5rem, 3vw, 2.5rem);
+    box-sizing: border-box;
+  }
+
+  #about.section .col--55,
+  #about.section .col--45 {
+    min-width: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  #hero.section {
+    padding-left: clamp(0.75rem, 2.5vw, 1.75rem);
+    padding-right: clamp(0.75rem, 2.5vw, 1.75rem);
+    box-sizing: border-box;
+  }
+
+  #music.section {
+    overflow-x: hidden;
+  }
+
+  .section.past-gigs,
+  #merch.section {
+    padding-left: clamp(0.5rem, 3vw, 1.5rem);
+    padding-right: clamp(0.5rem, 3vw, 1.5rem);
+    box-sizing: border-box;
+  }
+}
+
 

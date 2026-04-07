@@ -195,6 +195,22 @@
       }
     }
   }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    .music__bounce-img {
+      width: clamp(64px, 17vw, 140px);
+    }
+
+    .music__title-column {
+      width: clamp(100px, 11vw, 140px);
+      min-width: clamp(100px, 11vw, 140px);
+      padding: 1.5rem 0.35rem 1.5rem clamp(1rem, 2.5vw, 3rem);
+    }
+
+    .music__title {
+      font-size: clamp(2.5rem, 8vmin, 6rem);
+    }
+  }
 }
 
 // MUSIC END //

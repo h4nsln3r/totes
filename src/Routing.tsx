@@ -45,7 +45,7 @@ const Routing = () => {
         {/* <Merch /> */}
         <About isMobile={isMobile} />
         <Contact isMobile={isMobile} />
-        <PastGigsPhoto />
+        {/* <PastGigsPhoto /> */}
       </main>
     </>
   );

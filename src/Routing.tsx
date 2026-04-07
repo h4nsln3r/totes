@@ -10,7 +10,7 @@ import Live from './sections/Live';
 // import Merch from "./sections/Merch";
 import About from './sections/About';
 import Contact from './sections/Contact';
-import PastGigsPhoto from './sections/PastGigsPhoto';
+// import PastGigsPhoto from './sections/PastGigsPhoto';
 // import Merch from './sections/Merch';
 import { SECTION_SCROLL_EXTRA_OFFSET_PX, SECTION_SCROLL_MENU_HEIGHT_PX } from './constants/sectionScroll';
 import { useSectionScrollLock } from './hooks/useSectionScrollLock';

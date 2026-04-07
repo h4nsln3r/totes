@@ -17,6 +17,18 @@ interface Props {
 
 const MENU_HEIGHT = 50;
 
+/** Tre länkar + 10rem-gap behöver ~560px; under det klippte gamla 45vw bort meny på smal desktop. */
+const DESKTOP_MENU_MIN_WIDTH_PX = 580;
+const DESKTOP_MENU_LOGO_AND_MARGIN_PX = 130;
+
+function getMenuPanelWidthPx(viewportWidth: number): number {
+  if (viewportWidth < 768) return 280;
+  const fromVw = viewportWidth * 0.45;
+  const ensured = Math.max(fromVw, DESKTOP_MENU_MIN_WIDTH_PX);
+  const maxSafe = viewportWidth - DESKTOP_MENU_LOGO_AND_MARGIN_PX;
+  return Math.min(ensured, maxSafe);
+}
+
 const scrollToHero = () => {
   const el = document.getElementById('hero');
   if (!el) {
@@ -28,11 +40,9 @@ const scrollToHero = () => {
 };
 
 const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
-  const [menuWidth, setMenuWidth] = useState<number>(() => {
-    if (typeof window === 'undefined') return 280;
-    // 45vw på desktop, annars mobilbredd
-    return window.innerWidth >= 768 ? window.innerWidth * 0.45 : 280;
-  });
+  const [menuWidth, setMenuWidth] = useState<number>(() =>
+    typeof window === 'undefined' ? 280 : getMenuPanelWidthPx(window.innerWidth),
+  );
   const [isMenuOverMusic, setIsMenuOverMusic] = useState(false);
 
   const sectionIds = ['live', 'music', 'about', 'contact', 'past-gigs']; // 'merch' tillfälligt borttagen
@@ -40,11 +50,7 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   const shouldHideMenu = activeSection === 'contact';
 
   useEffect(() => {
-    const DESKTOP_MENU_WIDTH_VW = 45;
-    const updateWidth = () => {
-      // 45vw på desktop (fungerar även som "45% av viewport-bredden")
-      setMenuWidth(window.innerWidth >= 768 ? window.innerWidth * (DESKTOP_MENU_WIDTH_VW / 100) : 280);
-    };
+    const updateWidth = () => setMenuWidth(getMenuPanelWidthPx(window.innerWidth));
     updateWidth();
     window.addEventListener('resize', updateWidth);
     return () => window.removeEventListener('resize', updateWidth);

@@ -160,7 +160,9 @@
     align-items: center;
 
     @media (min-width: 768px) {
+      /* Bredd sätts av Framer (getMenuPanelWidthPx) så tre länkar + 10rem-gap inte klipps på smal desktop */
       width: 45vw;
+      flex-shrink: 0;
       margin-left: 0;
     }
   }

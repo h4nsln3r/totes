@@ -7,6 +7,10 @@ const THROW_MULT = 2.35;
 const MAX_THROW_SPEED = 520;
 const HOLD_SCALE_MAX = 1.42;
 const HOLD_SCALE_MS = 380;
+/** Håll så här länge → trumman försvinner (ms). */
+const HOLD_REMOVE_MS = 1500;
+/** Max rörelse (px) för att räkna som “tryck” i stället för kast. */
+const TAP_MOVE_PX = 18;
 
 const BouncingDrums = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -29,6 +33,10 @@ const BouncingDrums = () => {
     lastPtrT: 0,
     throwVx: 0,
     throwVy: 0,
+    removed: false,
+    downPtrX: 0,
+    downPtrY: 0,
+    activePointerId: -1,
   });
 
   useEffect(() => {
@@ -46,6 +54,24 @@ const BouncingDrums = () => {
     const applyTransform = () => {
       const s = state.current;
       img.style.transform = `translate(${s.x}px, ${s.y}px) scale(${s.scale})`;
+    };
+
+    const removeDrum = (pointerId?: number) => {
+      const s = state.current;
+      if (s.removed) return;
+      s.removed = true;
+      s.dragging = false;
+      const pid = pointerId ?? s.activePointerId;
+      if (pid >= 0) {
+        try {
+          img.releasePointerCapture(pid);
+        } catch {
+          /* ignore */
+        }
+      }
+      img.classList.remove('music__bounce-img--dragging');
+      img.style.visibility = 'hidden';
+      img.style.pointerEvents = 'none';
     };
 
     const measure = () => {
@@ -86,6 +112,9 @@ const BouncingDrums = () => {
       s.grabOX = px - s.x;
       s.grabOY = py - s.y;
       s.holdStart = performance.now();
+      s.downPtrX = px;
+      s.downPtrY = py;
+      s.activePointerId = e.pointerId;
       s.lastPtrX = px;
       s.lastPtrY = py;
       s.lastPtrT = s.holdStart;
@@ -136,7 +165,21 @@ const BouncingDrums = () => {
 
     const onPointerUp = (e: PointerEvent) => {
       const s = state.current;
-      if (!s.dragging) return;
+      if (s.removed || !s.dragging) return;
+
+      const now = performance.now();
+      const duration = now - s.holdStart;
+      const cr = container.getBoundingClientRect();
+      const px = e.clientX - cr.left;
+      const py = e.clientY - cr.top;
+      const dist = Math.hypot(px - s.downPtrX, py - s.downPtrY);
+      const isTap = duration < HOLD_REMOVE_MS && dist < TAP_MOVE_PX;
+
+      if (isTap) {
+        removeDrum(e.pointerId);
+        return;
+      }
+
       s.dragging = false;
       try {
         img.releasePointerCapture(e.pointerId);
@@ -178,13 +221,15 @@ const BouncingDrums = () => {
     let last = performance.now();
 
     const tick = (now: number) => {
+      const s = state.current;
+      if (s.removed) return;
+
       const dt = Math.min((now - last) / 1000, 0.064);
       last = now;
 
       const cr = container.getBoundingClientRect();
       const cw = cr.width;
       const ch = cr.height;
-      const s = state.current;
 
       if (!s.ready || s.baseW < 4 || s.baseH < 4) {
         raf = requestAnimationFrame(tick);
@@ -192,7 +237,13 @@ const BouncingDrums = () => {
       }
 
       if (s.dragging) {
-        applyTransform();
+        if (now - s.holdStart >= HOLD_REMOVE_MS) {
+          removeDrum(s.activePointerId);
+        }
+        if (!s.removed) {
+          applyTransform();
+        }
+        if (s.removed) return;
         raf = requestAnimationFrame(tick);
         return;
       }

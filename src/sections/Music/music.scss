@@ -121,7 +121,8 @@
       width: 100%;
       height: 100%;
       border: none;
-      object-fit: cover;
+      --media-object-fit: cover;
+      --media-object-position: center;
     }
 
   }
@@ -139,12 +140,15 @@
       border-radius: 0;
       overflow: hidden;
       box-shadow: none;
+      padding: 0;
 
       mux-player {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
+        --media-object-fit: cover;
+        --media-object-position: center;
       }
     }
   }
@@ -169,6 +173,11 @@
         height: 100%;
         object-fit: cover;
       }
+
+      mux-player {
+        --media-object-fit: cover;
+        --media-object-position: center;
+      }
     }
 
     @media (min-width: 768px) {
@@ -187,6 +196,8 @@
       min-height: 500px;
       margin: auto;
       margin-top: 40px;
+      --media-object-fit: cover;
+      --media-object-position: center;
 
       @media (min-width: 768px) {
         min-height: 720px;

@@ -324,6 +324,7 @@ const BouncingDrums = () => {
         alt=""
         className="music__bounce-img"
         draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
       />
     </div>
   );

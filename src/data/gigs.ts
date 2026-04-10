@@ -3,18 +3,24 @@ import { Gig } from '../types/gigs';
 /** Kommande spelningar (visas överst i Live-sektionen) */
 export const UPCOMING_GIGS: Gig[] = [
   {
-    date: '2026-02-18',
+    date: '2026-04-18',
     city: 'Malmö',
-    adress: 'Annelundsgården',
-    venue: 'Annelundsgården',
-    facebookLink: 'https://www.facebook.com/events/1195702432772114',
-    time: '19:00',
-  }, {
+    adress: 'Pizza Special',
+    venue: 'Pizza Special',
+    time: '20:00',
+  },
+  {
+    date: '2026-05-02',
+    city: 'Malmö',
+    adress: 'Sallys i Folkets Park',
+    venue: 'Sallys i Folkets Park',
+    time: '??',
+  },
+  {
     date: '2026-07-11',
     city: 'Kalmar',
     adress: 'Ekenäs',
     venue: 'Ekenäsfestivalen',
-    // facebookLink: 'https://www.facebook.com/events/1195702432772114',
     time: 'All day',
   },
 ];

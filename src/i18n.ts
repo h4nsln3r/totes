@@ -48,7 +48,7 @@ const resources = {
       info: {
         title: "Info",
         p1: "With strong melodies and swinging rhythms, Malmö trio Totes playfully yet confidently move between rock, funk, blues and jazz.",
-        p2: "Totes consists of Svante Berg, Hannes Linnér and Gabriel Fager Ferrari. Since 2023, the Malmö-based band has been performing funky pop songs with one shared goal: to spread joy and to get people dancing. They venture through a wide variety of soundscapes, where tasteful guitar, a rumbling bass and drums at just the right tempo are topped off with a scoop of sexy saxophone.",
+        p2: "Totes consists of Svante Berg, Hannes Linnér and Gabriel Fager Ferrari. They venture through a wide variety of soundscapes, where tasteful guitar, a rumbling bass and drums at just the right tempo are topped off with a scoop of sexy saxophone.",
       },
       common: {
         orSocials: "— or DM us on socials!",
@@ -108,7 +108,7 @@ const resources = {
       info: {
         title: "Info",
         p1: "Med starka melodier och svängiga rytmer rör sig Malmö-trion Totes lekfullt men självsäkert mellan rock, funk, blues och jazz.",
-        p2: "Bandet består av Svante Berg, Hannes Linnér och Gabriel Fager Ferrari, som sedan 2023 har spelat sina medryckande poplåtar med ett gemensamt mål: att sprida glädje och uppmuntra till dans. Med stilsäker gitarr, mullrande bas och trummor med precis rätt tempo, bjuder Totes även på vacker stämsång och en skopa sexig saxofon.",
+        p2: "Totes består av Svante Berg, Hannes Linnér och Gabriel Fager Ferrari. Sedan 2023 har Malmöbandet spelat funkig pop med ett gemensamt mål: att sprida glädje och få folk att dansa. De rör sig genom ett brett spektrum av ljudlandskap, där smakfull gitarr, mullrande bas och trummor i precis rätt tempo toppas med en skopa sexig saxofon.",
       },
       common: {
         orSocials: "— eller skriv på någon socialmedia!",

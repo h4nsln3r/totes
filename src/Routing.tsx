@@ -41,7 +41,7 @@ const Routing = () => {
       <main>
         <Hero isMobile={isMobile} isMenuOpen={isMenuOpen} />
         <Live isMobile={isMobile} isMenuOpen={isMenuOpen} />
-        <Music />
+        <Music isMobile={isMobile} />
         {/* <Merch /> */}
         <About isMobile={isMobile} />
         <Contact isMobile={isMobile} />

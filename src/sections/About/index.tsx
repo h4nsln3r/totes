@@ -4,6 +4,7 @@ import saxPic from "../../assets/sketches/sax.png";
 
 import "./about.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   isMobile: boolean;
@@ -17,6 +18,7 @@ function unwrapDegDelta(delta: number): number {
 }
 
 const Info: React.FC<Props> = ({ isMobile }) => {
+  const { t } = useTranslation();
   const spinWrapRef = useRef<HTMLDivElement>(null);
   const saxWrapDesktopRef = useRef<HTMLDivElement>(null);
   const spinDegRef = useRef(0);
@@ -158,9 +160,9 @@ const Info: React.FC<Props> = ({ isMobile }) => {
       {isMobile ? (
         <>
           <div className="about__center-copy">
-            <p>Vi är ett band från Kalmar men vi bor i Malmö. Vi gillar starka melodier och sväninga rytmer och mullrande bas.</p>
+            <p>{t("info.p1")}</p>
             <br />
-            <p>I sommar spelar vi på flera ställen i Malmö. Och snart kommer även debutsingeln Sure/Unshore</p>
+            <p>{t("info.p2")}</p>
           </div>
           <div className="about__sax-wrap--sm" aria-hidden>
             <div className="about__sax-hover-scale about__sax-hover-scale">
@@ -183,9 +185,9 @@ const Info: React.FC<Props> = ({ isMobile }) => {
           </div>
           <div className="col--45">
             <div className="about__center-copy">
-              <p>Vi är ett band från Kalmar men vi bor i Malmö. Vi gillar starka melodier och sväninga rytmer och mullrande bas.</p>
+              <p>{t("info.p1")}</p>
               <br />
-              <p>I sommar spelar vi på flera ställen i Malmö. Och snart kommer även debutsingeln Sure/Unshore</p>
+              <p>{t("info.p2")}</p>
             </div>
             <div
               ref={saxWrapDesktopRef}

@@ -12,7 +12,11 @@ const HOLD_REMOVE_MS = 1500;
 /** Max rörelse (px) för att räkna som “tryck” i stället för kast. */
 const TAP_MOVE_PX = 18;
 
-const BouncingDrums = () => {
+interface Props {
+  dismissRequested?: boolean;
+}
+
+const BouncingDrums: React.FC<Props> = ({ dismissRequested = false }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const state = useRef({
@@ -38,6 +42,29 @@ const BouncingDrums = () => {
     downPtrY: 0,
     activePointerId: -1,
   });
+
+  useEffect(() => {
+    if (!dismissRequested) return;
+    const s = state.current;
+    if (s.removed) return;
+    s.removed = true;
+    s.dragging = false;
+
+    const img = imgRef.current;
+    if (!img) return;
+
+    if (s.activePointerId >= 0) {
+      try {
+        img.releasePointerCapture(s.activePointerId);
+      } catch {
+        /* ignore */
+      }
+    }
+
+    img.classList.remove('music__bounce-img--dragging');
+    img.style.visibility = 'hidden';
+    img.style.pointerEvents = 'none';
+  }, [dismissRequested]);
 
   useEffect(() => {
     const container = containerRef.current;

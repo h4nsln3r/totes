@@ -58,25 +58,31 @@ const Hero: React.FC<Props> = (props) => {
       </div>
       </>
       ):(
-        <div className="hero__container">   
-          <img
-            src={TO}
-            alt="Totes Logo"
-            className="hero__logo hero__logo--sm hero__logo--sm-1"
-            onLoad={onImgLoad}
-          />
-          <img
-            src={TotesBandMobile}
-            alt="Band"
-            className="band-img"
-            onLoad={onImgLoad}
-          />
-                  <img
-            src={TES}
-            alt="Totes Logo"
-            className="hero__logo hero__logo--sm hero__logo--sm-2"
-            onLoad={onImgLoad}
-          />
+        <div className="hero__container">
+          <div className="hero__mob-logo-row hero__mob-logo-row--to">
+            <img
+              src={TO}
+              alt="Totes Logo"
+              className="hero__logo hero__mob-to"
+              onLoad={onImgLoad}
+            />
+          </div>
+          <div className="hero__photo">
+            <img
+              src={TotesBandMobile}
+              alt="Band"
+              className="hero__band"
+              onLoad={onImgLoad}
+            />
+          </div>
+          <div className="hero__mob-logo-row hero__mob-logo-row--tes">
+            <img
+              src={TES}
+              alt="Totes Logo"
+              className="hero__logo hero__mob-tes"
+              onLoad={onImgLoad}
+            />
+          </div>
         </div>
       )}
       {/* <div className="logo-top">

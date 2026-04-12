@@ -28,7 +28,6 @@
   );
   background-attachment: scroll;
 
-  
   img {
     opacity: 0;
     transition: opacity 0.35s ease-out;
@@ -37,7 +36,7 @@
   img.hero-img-loaded {
     opacity: 1;
   }
-  
+
   .hero__logo {
     height: clamp(120px, 18vw, 260px);
     width: auto;
@@ -46,21 +45,6 @@
     object-fit: contain;
     margin-right: auto;
     margin-bottom: 20px;
-
-    &--sm {
-      
-      height: clamp(80px, 12vw, 120px);
-      width: auto;
-      max-width: 100%;
-      display: block;
-      object-fit: contain;
-      &-1{
-        margin: -20px 0 20px -30px;
-      }
-      &-2{
-        margin: 20px -30px 0 auto;
-      }
-    }
   }
 
   .hero__image {
@@ -75,6 +59,87 @@
   .band-img {
     max-width: 280px;
     margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: max(100svh, 100dvh);
+    max-height: max(100svh, 100dvh);
+    min-height: 0;
+    margin-top: -50px;
+    padding: calc(22px + env(safe-area-inset-top, 0px))
+      clamp(0.75rem, 4vw, 1.25rem) clamp(0.35rem, 2dvh, 0.75rem);
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .hero__container {
+      flex: 1 1 0;
+      min-height: 0;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: clamp(0.5rem, 2dvh, 1rem);
+      box-sizing: border-box;
+    }
+
+    .hero__mob-logo-row {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: clamp(60px, 13dvh, 112px);
+
+      &--to {
+        justify-content: flex-start;
+      }
+
+      &--tes {
+        justify-content: flex-end;
+      }
+    }
+
+    .hero__photo {
+      flex: 1 1 0;
+      min-height: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__band {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero__mob-to,
+    .hero__mob-tes {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      margin: 0;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .hero__logo.hero__mob-to,
+    .hero__logo.hero__mob-tes {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
   }
 }
 // HERO END //

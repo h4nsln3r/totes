@@ -175,7 +175,6 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
         >
           <MenuLinks
             activeSection={activeSection}
-            isMobile={isMobile}
             onLinkClick={() => {
               if (!isMobile) return;
               setIsOpen(false);

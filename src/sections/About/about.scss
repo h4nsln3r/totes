@@ -276,6 +276,13 @@
 
 @media (max-width: 767px) {
   .about {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+
     .container {
       min-height: 100dvh;
       padding-top: 6vh;
@@ -286,7 +293,12 @@
     }
 
     &__center-copy {
-      max-width: 92vw;
+      max-width: min(92vw, 28rem);
+      width: 100%;
+      text-align: left;
+      /* Sax är absolute — texten centreras i sektionen utan att dela rad med bilden */
+      position: relative;
+      z-index: 0;
     }
 
     &__sax-wrap {
@@ -300,8 +312,25 @@
       justify-content: center;
     }
 
+    /* Mobil: sax flyter fritt — ur dokumentflödet, påverkar inte texten */
+    &__sax-wrap--sm {
+      position: absolute;
+      left: auto;
+      right: max(env(safe-area-inset-right, 0px), 16vw);
+      bottom: max(0px, env(safe-area-inset-bottom, 0px));
+      top: auto;
+      margin: 0;
+      width: auto;
+      height: auto;
+      /* translateY före rotate = neråt i skärmytan trots rotation */
+      transform: translateY(3.5vh) rotate(-50deg);
+      transform-origin: center center;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
     &__sax {
-      width: min(220px, 70vw);
+      width: min(200px, 56vw);
     }
   }
 }

@@ -10,10 +10,12 @@ import './music.scss';
 const MUSIC_PLAYBACK_ID_DESKTOP = 'THOaoITPqwRE01eluqYK5O02B79601myxS02JQA5S00CqNxo';
 
 /**
- * Vertikal / mobilanpassad master (t.ex. 9:16 eller säkrare crop för `object-fit: cover`).
- * Byt till playback-id från Mux när filen finns; tills dess används desktop-varianten.
+ * Vertikal / mobilanpassad master (`totes_reel_2026-mobile`).
+ * Här ska **Playback ID** in (Mux → öppna asset → sektionen “Playback IDs”), inte ID:t i asset-listan
+ * (det är Asset ID → Mux: "used an Asset ID, but we needed a Playback ID" / network error i spelaren).
+ * Ersätt `MUSIC_PLAYBACK_ID_DESKTOP` nedan med det playback-id:t när du har kopierat det.
  */
-const MUSIC_PLAYBACK_ID_MOBILE = MUSIC_PLAYBACK_ID_DESKTOP;
+const MUSIC_PLAYBACK_ID_MOBILE = "HS2yJjm1Sc02AwUzoKPEbdx9q00QMJr6CcLRu4UaMCuGw";
 
 interface Props {
   isMobile: boolean;

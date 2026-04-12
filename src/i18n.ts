@@ -48,7 +48,7 @@ const resources = {
       info: {
         title: "Info",
         p1: "With strong melodies and swinging rhythms, Malmö trio Totes playfully yet confidently move between rock, funk, blues and jazz.",
-        p2: "Totes consists of Svante Berg, Hannes Linnér and Gabriel Fager Ferrari. They venture through a wide variety of soundscapes, where tasteful guitar, a rumbling bass and drums at just the right tempo are topped off with a scoop of sexy saxophone.",
+        p2: "Totes are Svante Berg, Hannes Linnér and Gabriel Fager Ferrari — guitar, bass, drums and saxophone tie the sound together.",
       },
       common: {
         orSocials: "— or DM us on socials!",
@@ -108,7 +108,7 @@ const resources = {
       info: {
         title: "Info",
         p1: "Med starka melodier och svängiga rytmer rör sig Malmö-trion Totes lekfullt men självsäkert mellan rock, funk, blues och jazz.",
-        p2: "Totes består av Svante Berg, Hannes Linnér och Gabriel Fager Ferrari. Sedan 2023 har Malmöbandet spelat funkig pop med ett gemensamt mål: att sprida glädje och få folk att dansa. De rör sig genom ett brett spektrum av ljudlandskap, där smakfull gitarr, mullrande bas och trummor i precis rätt tempo toppas med en skopa sexig saxofon.",
+        p2: "Totes består av Svante Berg, Hannes Linnér och Gabriel Fager Ferrari — gitarr, bas, trummor och saxofon som binder ihop ljudet.",
       },
       common: {
         orSocials: "— eller skriv på någon socialmedia!",
@@ -168,7 +168,7 @@ const resources = {
       info: {
         title: "Sobre nosotros",
         p1: "Con melodías contundentes y ritmos swing, el trío malmiense Totes se mueve con soltura entre rock, funk, blues y jazz.",
-        p2: "Totes son Svante Berg, Hannes Linnér y Gabriel Fager Ferrari. Desde 2023 la banda con base en Malmö toca pop funky con un objetivo: repartir alegría y hacer bailar. Recorren paisajes sonoros muy variados, con guitarra elegante, bajo profundo y batería al tempo justo, rematado con una pizca de saxofón.",
+        p2: "Totes son Svante Berg, Hannes Linnér y Gabriel Fager Ferrari — guitarra, bajo, batería y saxo redondean el sonido.",
       },
       common: {
         orSocials: "— o escríbenos por redes.",
@@ -185,7 +185,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: "sv",
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,

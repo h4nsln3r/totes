@@ -66,14 +66,22 @@
     }
   }
 
+  &__mobile-cta-wrap {
+    @media (max-width: 767px) {
+      position: relative;
+      width: 100%;
+      min-height: clamp(3.25rem, 12vw, 4.5rem);
+    }
+  }
+
   &__mobile-cta-row {
     @media (max-width: 767px) {
       position: relative;
+      z-index: 1;
       width: fit-content;
       max-width: 100%;
       margin: 0 0 0 auto;
-      /* Utrymme så absolut positionerad bas inte klipps / krockar med kant */
-      padding-left: clamp(2.85rem, 16vw, 4.25rem);
+      padding-left: clamp(2.25rem, 12vw, 3.5rem);
     }
   }
 
@@ -93,20 +101,21 @@
     }
   }
 
-  /* Utanför textflödet — påverkar inte radbrytning eller bredd på stycket */
+  /* Mot vänsterkant som "vägg"; roteras kring nedre vänstra hörnet */
   &__mobile-cta-bass {
     @media (max-width: 767px) {
       position: absolute;
-      left: 0;
+      left: 0.35rem;
       top: 50%;
-      width: clamp(40px, 12vw, 56px);
+      width: clamp(46px, 14vw, 68px);
       height: auto;
       display: block;
       object-fit: contain;
-      transform: translateY(-50%) rotate(-14deg);
-      transform-origin: center center;
-      opacity: 0.92;
+      transform: translateY(calc(-50% - 6px)) rotate(-26deg);
+      transform-origin: 18% 92%;
+      opacity: 0.94;
       pointer-events: none;
+      z-index: 0;
     }
   }
 

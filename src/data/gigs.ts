@@ -3,18 +3,12 @@ import { Gig } from '../types/gigs';
 /** Kommande spelningar (visas överst i Live-sektionen) */
 export const UPCOMING_GIGS: Gig[] = [
   {
-    date: '2026-04-18',
-    city: 'Malmö',
-    adress: 'Pizza Special',
-    venue: 'Pizza Special',
-    time: '20:00',
-  },
-  {
     date: '2026-05-02',
     city: 'Malmö',
-    adress: 'Sallys i Folkets Park',
-    venue: 'Sallys i Folkets Park',
-    time: '??',
+    adress: 'Sallys i Parken',
+    venue: 'Sallys i Parken',
+    facebookLink: 'https://www.facebook.com/events/970772015357160',
+    time: '19:00',
   },
   {
     date: '2026-07-11',
@@ -29,6 +23,13 @@ export const PAST_GIGS: Gig[] = [
   // -------------------------
   //         ÅR 2026
   // -------------------------
+  {
+    date: '2026-04-18',
+    city: 'Malmö',
+    adress: 'Pizza Special',
+    venue: 'Pizza Special',
+    time: '20:00',
+  },
   {
     date: '2026-02-18',
     city: 'Malmö',

@@ -3,7 +3,6 @@ import { Gig } from '../types/gigs';
 /** Kommande spelningar (visas överst i Live-sektionen) */
 export const UPCOMING_GIGS: Gig[] = [
   {
-    time: '19:00',
     date: '2026-07-11',
     city: 'Kalmar',
     adress: 'Ekenäs',

@@ -1,1 +1,1 @@
-Fixa till Live sidan så den ser mer clean ut som designen.
+Add instagram in some nice way

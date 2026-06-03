@@ -3,6 +3,14 @@ import { Gig } from '../types/gigs';
 /** Kommande spelningar (visas överst i Live-sektionen) */
 export const UPCOMING_GIGS: Gig[] = [
   {
+    date: '2026-06-05',
+    city: 'Malmö',
+    adress: 'Hyllievångsparken',
+    venue: 'Hyllie Night Market',
+    time: '16:00–22:00',
+    facebookLink: 'https://www.facebook.com/events/s/hyllie-night-market/944421228474445/',
+  },
+  {
     date: '2026-07-11',
     city: 'Kalmar',
     adress: 'Ekenäs',

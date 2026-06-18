@@ -10,6 +10,13 @@ type UseSectionScrollLockOptions = {
   sectionExtraOffsetPx?: Record<string, number>;
 };
 
+/**
+ * Element vars innehåll får scrollas fritt utan att sektions-snappet aktiveras.
+ * `.live__past-content` = past-gigs-listan, `[data-section-scroll-free]` = t.ex.
+ * galleripanelen och lightboxen.
+ */
+const SCROLL_FREE_SELECTOR = '.live__past-content, [data-section-scroll-free]';
+
 const clampIndex = (index: number, min: number, max: number) => Math.max(min, Math.min(max, index));
 
 const getSectionIndexFromScroll = (sectionIds: string[], menuHeightPx: number) => {
@@ -264,10 +271,10 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
       lastWheelAtRef.current = performance.now();
 
       const targetEl = e.target as HTMLElement | null;
-      const isInPastContent = Boolean(targetEl?.closest('.live__past-content'));
+      const isInScrollFree = Boolean(targetEl?.closest(SCROLL_FREE_SELECTOR));
 
-      if (isInPastContent) {
-        // Låt användaren scrolla inne i past-gigs utan att scroll-lock steppar sektioner.
+      if (isInScrollFree) {
+        // Låt användaren scrolla inne i fria zoner (past-gigs, galleri) utan att scroll-lock steppar sektioner.
         return;
       }
 
@@ -361,8 +368,8 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
 
     const onTouchMove = (e: TouchEvent) => {
       const targetEl = touchTargetElRef.current ?? (e.target as HTMLElement | null);
-      const isInPastContent = Boolean(targetEl?.closest('.live__past-content'));
-      if (isInPastContent) return;
+      const isInScrollFree = Boolean(targetEl?.closest(SCROLL_FREE_SELECTOR));
+      if (isInScrollFree) return;
 
       const startY = touchStartYRef.current;
       const touch = e.changedTouches?.[0];
@@ -387,12 +394,12 @@ export function useSectionScrollLock(sectionIds: string[], options?: UseSectionS
       touchStartYRef.current = touch.clientY;
     };
 
-    const onTouchEnd = (_e: TouchEvent) => {
+    const onTouchEnd = () => {
       touchStartYRef.current = null;
       touchLastYRef.current = null;
       const targetEl = touchTargetElRef.current;
       touchTargetElRef.current = null;
-      if (targetEl?.closest('.live__past-content')) return;
+      if (targetEl?.closest(SCROLL_FREE_SELECTOR)) return;
     };
 
     window.addEventListener('wheel', onWheel, { passive: false });

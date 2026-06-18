@@ -45,9 +45,9 @@ const Menu: React.FC<Props> = ({ isMobile, isOpen, setIsOpen }) => {
   );
   const [isMenuOverMusic, setIsMenuOverMusic] = useState(false);
 
-  const sectionIds = ['live', 'music', 'about', 'contact', 'past-gigs']; // 'merch' tillfälligt borttagen
+  const sectionIds = ['live', 'music', 'about', 'contact', 'gallery']; // 'merch' tillfälligt borttagen
   const activeSection = useScrollSpy(sectionIds);
-  const shouldHideMenu = activeSection === 'contact';
+  const shouldHideMenu = activeSection === 'contact' || activeSection === 'gallery';
 
   useEffect(() => {
     const updateWidth = () => setMenuWidth(getMenuPanelWidthPx(window.innerWidth));

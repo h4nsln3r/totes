@@ -10,5 +10,6 @@ export const SECTION_SCROLL_EXTRA_OFFSET_PX: Record<string, number> = {
   music: 50,
   about: 50,
   contact: 50,
+  gallery: 50,
   'past-gigs': 50,
 };

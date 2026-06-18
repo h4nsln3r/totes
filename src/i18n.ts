@@ -31,6 +31,9 @@ const resources = {
       music: {
         title: "Music",
       },
+      gallery: {
+        title: "Gallery",
+      },
       live: {
         title: "Live",
         shows: "Shows",
@@ -92,6 +95,9 @@ const resources = {
       music: {
         title: "Musik",
       },
+      gallery: {
+        title: "Galleri",
+      },
       live: {
         title: "Live",
         shows: "Spelningar",
@@ -152,6 +158,9 @@ const resources = {
       },
       music: {
         title: "Música",
+      },
+      gallery: {
+        title: "Galería",
       },
       live: {
         title: "Conciertos",

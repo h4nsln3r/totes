@@ -1,0 +1,169 @@
+.section.gallery {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #0e0e0e;
+  color: #fff;
+  /* Normalt flöde: sektionen växer med innehållet och sidan scrollar fritt
+     (snap-låset släpps när man når galleriet). */
+  height: auto;
+}
+
+.gallery__inner {
+  box-sizing: border-box;
+  padding: clamp(0.25rem, 1vw, 0.6rem);
+
+  /* Mobil: ge plats åt menyknappen som ligger kvar uppe i hörnet. */
+  @media (max-width: 767px) {
+    padding-top: calc(50px + 0.5rem);
+  }
+}
+
+.gallery__scroll {
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--gallery-cols), 1fr);
+  /* grid-auto-rows + gap sätts inline (synkat med JS-mätningen) */
+  align-items: start;
+}
+
+.gallery__item {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.35s ease, filter 0.35s ease;
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+.gallery__item--logo {
+  cursor: default;
+  /* Inget eget innehåll här — höjden bestäms av .gallery__logo-inner som mäts. */
+}
+
+.gallery__logo-inner {
+  width: 100%;
+  box-sizing: border-box;
+  /* Lite luft nedtill → loggan nuddar inte bilden under, men utan stort glapp. */
+  padding: clamp(0.5rem, 2vw, 1.5rem) clamp(0.75rem, 3vw, 2.5rem) clamp(0.75rem, 2.5vw, 1.5rem);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Gör den svarta logotypen vit mot den mörka bakgrunden. */
+    filter: brightness(0) invert(1);
+    transition: none;
+  }
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+  animation: gallery-lightbox-fade 0.2s ease;
+
+  &__image {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  &__close,
+  &__nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.08);
+    }
+  }
+
+  &__close {
+    top: clamp(0.75rem, 2vw, 1.5rem);
+    right: clamp(0.75rem, 2vw, 1.5rem);
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+
+  &__nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    &--prev {
+      left: clamp(0.5rem, 2vw, 1.5rem);
+    }
+    &--next {
+      right: clamp(0.5rem, 2vw, 1.5rem);
+    }
+
+    @media (max-width: 767px) {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@keyframes gallery-lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

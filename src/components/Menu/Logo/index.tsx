@@ -41,11 +41,11 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ isMobile, menuWidth, activeSection 
     exit: { opacity: 0, y: -40 },
   };
 
-  const hideOnContact = activeSection === "contact";
+  const hideLogo = activeSection === "contact" || activeSection === "gallery";
 
   return (
     <AnimatePresence mode="wait">
-      {showLogo && !hideOnContact && (
+      {showLogo && !hideLogo && (
         <motion.div
           key="menu-logo-symbol"
           initial="hidden"

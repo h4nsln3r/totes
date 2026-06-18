@@ -1,6 +1,7 @@
 .section.gallery {
   padding-top: 0;
-  padding-bottom: 0;
+  /* Extra luft nedtill så det finns gott om scroll-utrymme även med få bilder. */
+  padding-bottom: 40vh;
   background-color: #0e0e0e;
   color: #fff;
   /* Normalt flöde: sektionen växer med innehållet och sidan scrollar fritt

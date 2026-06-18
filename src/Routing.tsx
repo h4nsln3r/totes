@@ -26,8 +26,12 @@ const Routing = () => {
     const onScroll = () => {
       const el = document.getElementById('gallery');
       if (!el) return;
-      const reached = window.scrollY + SECTION_SCROLL_MENU_HEIGHT_PX >= el.offsetTop - 2;
-      setIsAtGallery(reached);
+      const y = window.scrollY + SECTION_SCROLL_MENU_HEIGHT_PX;
+      const top = el.offsetTop;
+      // Hysteres: slå på låset-släpp vid galleriets topp, men stäng inte av det
+      // förrän man scrollat en bra bit upp igen. Annars "studsar" mobilscrollen
+      // när snap-låset flippar fram och tillbaka precis vid kanten.
+      setIsAtGallery((prev) => (prev ? y >= top - 240 : y >= top - 2));
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });

@@ -45,54 +45,54 @@ const Live: React.FC<Props> = ({ isMobile }) => {
 
   return (
     <SectionWrapper sectionName="live">
-        {!isMobile ? (
-          <>
-        <div className="col--55 col--flex-end">
-        <img
-          src={TotesBass}
-          alt="Totes Logo"
-          key={enterCount}
-          className="live__images live__images--entered"
-        />
-      </div>
+      {!isMobile ? (
+        <>
+          <div className="col--55 col--flex-end">
+            <img
+              src={TotesBass}
+              alt="Totes Logo"
+              key={enterCount}
+              className="live__images live__images--entered"
+            />
+          </div>
 
-      <div className="col--45 live__right">
-        <div className="live__up-wrap">
-          {/* Vi vill ha format som i bilden (t.ex. 25/5), så vi kör compact även på desktop. */}
-          <LiveList gigs={UPCOMING_GIGS} compactDates />
-        </div>
+          <div className="col--45 live__right">
+            <div className="live__up-wrap">
+              {/* Vi vill ha format som i bilden (t.ex. 25/5), så vi kör compact även på desktop. */}
+              <LiveList gigs={UPCOMING_GIGS} compactDates />
+            </div>
 
-        {/*
+            {/*
           Past gigs: kommenterat tills vi är nöjda med gigg-listans "växa från mitten"-beteende.
           När vi är klara kan vi aktivera igen.
         */}
-      </div>
-          </>
-        ) : (
-          <>
+          </div>
+        </>
+      ) : (
+        <>
           <h2 className="live__mobile-title">Live</h2>
-            <LiveList gigs={UPCOMING_GIGS} compactDates={true} />
-           <img src={TotesBandMobile} alt="Band" className="live__image live__image--mobile" />
-           <div className="live__mobile-cta-wrap">
-             <img
-               src={TotesBass}
-               alt=""
-               className="live__mobile-cta-bass"
-               decoding="async"
-             />
-             <div className="live__mobile-cta-row">
-               <p className="live__mobile-cta">
-                 Vill du boka oss?
-                 <br />
-                 <span className="live__mobile-cta-mail">
-                   Hör av dig till{' '}
-                   <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
-                 </span>
-               </p>
-             </div>
-           </div>
-          </>
-        )}
+          <LiveList gigs={UPCOMING_GIGS} compactDates={true} />
+          <img src={TotesBandMobile} alt="Band" className="live__image live__image--mobile" />
+          <div className="live__mobile-cta-wrap">
+            <img
+              src={TotesBass}
+              alt=""
+              className="live__mobile-cta-bass"
+              decoding="async"
+            />
+            <div className="live__mobile-cta-row">
+              <p className="live__mobile-cta">
+                Vill du boka oss?
+                <br />
+                <span className="live__mobile-cta-mail">
+                  Hör av dig till{' '}
+                  <a href="mailto:ittakestotes@gmail.com">ittakestotes@gmail.com</a>
+                </span>
+              </p>
+            </div>
+          </div>
+        </>
+      )}
 
     </SectionWrapper>
   );

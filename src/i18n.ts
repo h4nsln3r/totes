@@ -8,6 +8,7 @@ const resources = {
         music: "Music",
         live: "Live",
         about: "Info",
+        contact: "Contact",
         merch: "Merch",
       },
       merch: {
@@ -68,6 +69,7 @@ const resources = {
         music: "Musik",
         live: "Live",
         about: "Info",
+        contact: "Kontakt",
         merch: "Merch",
       },
       merch: {
@@ -128,6 +130,7 @@ const resources = {
         music: "Música",
         live: "Conciertos",
         about: "Sobre nosotros",
+        contact: "Contacto",
         merch: "Merch",
       },
       merch: {

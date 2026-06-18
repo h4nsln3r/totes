@@ -4,8 +4,10 @@ import saxPic from '../../assets/sketches/sax.png';
 import basPic from '../../assets/sketches/bas.png';
 import gitarrPic from '../../assets/sketches/gitarr.png';
 import trummorPic from '../../assets/sketches/trummor.png';
+import { FaInstagram } from 'react-icons/fa';
 
 const CONTACT_EMAIL = 'ittakestotes@gmail.com';
+const INSTAGRAM_URL = 'https://www.instagram.com/totesband';
 
 interface Props {
   isMobile: boolean;
@@ -26,6 +28,15 @@ const Contact: React.FC<Props> = ({ isMobile }) => {
         <div className="contact__email">
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
         </div>
+        <a
+          className="contact__instagram"
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Totes på Instagram"
+        >
+          <FaInstagram />
+        </a>
       </div>
     </SectionWrapper>
   );

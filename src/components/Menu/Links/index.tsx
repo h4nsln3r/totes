@@ -20,6 +20,7 @@ const MenuLinks: React.FC<MenuLinksProps> = ({ activeSection, onLinkClick }) => 
       { label: t("nav.live"), id: "live" },
       { label: t("nav.music"), id: "music" },
       { label: t("nav.about"), id: "about" },
+      { label: t("nav.contact"), id: "contact" },
     ],
     [t]
   );

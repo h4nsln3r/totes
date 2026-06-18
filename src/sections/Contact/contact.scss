@@ -90,12 +90,7 @@
 
 .contact__instrument--bas {
   @media (max-width: 767px) {
-    width: clamp(100px, 10vw, 52px);
-    bottom: -800%;
-    right: -2%;
-    left: auto;
-
-    transform: rotate(11deg);
+    display: none;
   }
 
   @media (min-width: 768px) {
@@ -108,40 +103,30 @@
 
 .contact__instrument--gitarr {
   @media (max-width: 767px) {
-    width: clamp(156px, 16vw, 84px);
-    bottom: 460%;
-    left: 20%;
-    top: auto;
-    right: auto;
-    transform: rotate(16deg);
+    display: none;
   }
 
   @media (min-width: 768px) {
     width: clamp(240px, 26vw, 380px);
     top: -800%;
-    right: 25%;
+    right: 38%;
     transform: rotate(12deg);
   }
 
   @media (min-width: 768px) and (max-width: 1279px) {
     width: clamp(180px, 20vw, 300px);
-    right: 20%;
+    right: 33%;
   }
 }
 
 .contact__instrument--trummor {
   @media (max-width: 767px) {
-    width: clamp(260px, 14vw, 76px);
-    bottom: -1232%;
-    right: 30%;
-    top: auto;
-    left: auto;
-    transform: rotate(0deg);
+    display: none;
   }
 
   @media (min-width: 768px) {
     width: clamp(220px, 20vw, 380px);
-    left: 33%;
+    left: 50%;
     bottom: -860%;
     transform: rotate(-6deg);
   }
@@ -166,5 +151,35 @@
   @media (min-width: 768px) and (max-width: 1279px) {
     font-size: clamp(1rem, 1.8vw + 0.55rem, 1.65rem);
     line-height: 1.35;
+  }
+}
+
+.contact__instagram {
+  position: absolute;
+  /* Centrera horisontellt och placera under emailen */
+  left: 50%;
+  top: calc(50% + clamp(2rem, 4vw, 3.5rem));
+  transform: translateX(-50%);
+  transform-origin: center;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.16));
+  transition: transform 0.22s ease, opacity 0.22s ease, filter 0.22s ease;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.08);
+    opacity: 0.75;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));
+  }
+
+  @media (min-width: 768px) {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
   }
 }
